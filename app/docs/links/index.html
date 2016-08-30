@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('app/partials/head.tpl', {
+	"title": "Bricks—the modular CSS framework",
+	"description": "TODO"
+})
+
+<body class="style--borders">
+
+	@@include('app/partials/nav.tpl', {
+		"hiding": "",
+		"fixed": "navbar--fixed-top",
+		"animate": "animate__intro--down"
+	})
+
+	<div class="layout__wrapper">
+		
+	@@include('app/partials/sidebar.tpl')
+
+		<section class="layout__content layout__content--padded">
+
+			<div class="container rhythm--children">
+				<h1 class="h1--700">Links</h1>
+				<p>Links are of stripped the inconsistent default underline and styled with the brand colour and a subtle underline. The links have a dedicated <code>:hover</code> and <code>:visited</code> style. Just include the <code>.link</code> class and you're good to go!</p>
+				<div class="snippet">
+					<div class="snippet__example">
+						<a class="link" href="#">I'm a pretty-looking link</a>
+					</div>
+					<pre class="snippet__code"><code class="html">&lt;a class=&quot;link&quot; href=&quot;#&quot;&gt;I&rsquo;m a pretty-looking link&lt;/a&gt;</code></pre>
+				</div>
+				<h2 class="h2--700">Destination-specific links</h2>
+				<p>There are several instances where the link visuals can be spiced up to hint what kind of content awaits on the other end.</p>
+				<div class="snippet">
+					<div class="snippet__example">
+						<a class="link" href="#">Internal link</a><br>
+						<a class="link" href="http://google.com">External link</a><br>
+						<a class="link" href="http://google.com" target="_blank">Link opening in a new window</a><br>
+						<a class="link" href="mailto:jan@mrozilla.cz">Link to an email</a><br>
+						<a class="link" href="tel:+01-562-867-5309" rel="nofollow">Link to a phone number</a><br>
+						<a class="link" href="http://universe.mrozilla.cz/documents/CV-Jan-Hruby.pdf">Link to a file</a>
+					</div>
+					<pre class="snippet__code"><code class="html">&lt;a class=&quot;link&quot; href=&quot;http://google.com&quot;&gt;External link&lt;/a&gt;</code></pre>
+				</div>
+		</section>
+	</div>
+
+	@@include('app/partials/scripts.tpl')
+
+</body>
+</html>

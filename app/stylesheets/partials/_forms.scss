@@ -1,0 +1,91 @@
+// =============================================================================
+// Forms
+// =============================================================================
+
+// input[type="text"] { // TODO delete
+// 	line-height: $rhythm--y;
+// 	//border-width: 2*$border__width;
+//     padding: unquote("calc(.5rem - #{$border__width})"); // Todo test
+// }
+
+// Form elements
+
+.form {
+    // position: relative;
+    // &--inline {
+    //     display: inline-block;
+    // }
+    // @include hover-focus-active() {
+    //     color: $color__brand--primary;
+    // }
+    // @include transition ($transition--primary-short);
+    // &__label {
+    //     text-align: left;
+    //     display: block;
+    //     text-transform: uppercase;
+    //     font-size: $font__size--xs;
+    //     padding-left: unquote("calc(.5rem - #{$border__width})");
+    // }
+    // &__error {
+    //     display: none;
+    //     position: absolute; // Todo foolproof
+    //     color: $color__brand--danger;
+    //     margin-top: $rhythm--y/2;
+    //     text-align: left;
+    //     font-size: $font__size--xs;
+    //     line-height: 1;
+    //     padding-left: unquote("calc(.5rem - #{$border__width})");
+
+    // }
+    // &__input {
+    //     display: block;
+    //     @include transition ($transition--primary-short);
+    //     color: $color__brand--primary;
+    //     background-color: transparent;
+    //     border: none; // reset borders and add a custom one in the next step
+    //     border-bottom: 1px solid $color__gray;
+    //     @include hover-focus-active() {
+    //         border-bottom: 1px solid $color__brand--primary;
+    //     }
+    //     &--disabled {
+    //         border-bottom-style: dotted;
+    //         @include hover-focus-active() {
+    //             border-bottom: 1px dotted $color__gray;
+    //             cursor: not-allowed;
+    //         }
+    //     }
+    //     &--error {
+    //         border-bottom: 1px solid $color__brand--danger;
+    //     }
+    // }
+    &__legend {
+        margin-bottom: 1rem;
+    }
+    &__field {
+        display: inline-block;
+        margin-right: 1rem;
+        position: relative;
+        .form--vertical & {
+            display: block;
+            margin-right: 0; // TOOD get rid of resetting this value
+        }
+        .form--aligned & {
+            display: inline-block;
+            margin-right: 0;
+        }
+        .form--stacked & {
+            display: block;
+            margin-right: 0;
+            margin-top: -1px;
+        }
+    }
+    &__controls {
+        .form--aligned & {
+            margin-left: 11rem;
+        }
+    }
+}
+
+.error .form__error {
+    display: block;
+}

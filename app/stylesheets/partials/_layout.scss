@@ -1,0 +1,156 @@
+// =============================================================================
+// Layout elements
+// =============================================================================
+
+//
+// Basic layout elements
+//
+
+// =============================================================================
+// Horizontal layout
+// =============================================================================
+
+.layout {
+	&__split {
+		width: 50vw;
+		position: fixed;
+		height: 100vh;
+		padding: 2rem;
+		& + & {
+			right: 0;
+			overflow-y: scroll; // has to be scroll, not auto
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+}
+
+.layout {
+	&__wrapper {
+		display: flex;
+	}
+	&__sidebar {
+		height: 100vh;
+		background-color: white;
+		width: $sidebar__width;
+		overflow-y: auto; // has to be scroll, not auto
+		-webkit-overflow-scrolling: touch;
+		overflow-x: hidden;
+		@include transition ($transition--primary-short);
+		&--fixed {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: $zindex--sidebar-fixed;
+			& ~ .layout__content {
+				margin-left: $sidebar__width;
+			}
+		}
+		.style--shadows & {
+			@include box-shadow();
+		}
+		.style--borders & {
+			@include border("right");
+		}
+		& .nav__link {
+			display: block;
+			// margin-bottom: .25rem;
+		}
+		// Collapsed styles
+		.is--collapsed & {
+			transform: translateX(-97.5%);
+			&:hover {
+				transform: translateX(-90%);
+			}
+			& ~ .layout__content {
+				margin-left: 0;
+			}
+		}
+		&--padded {
+			padding: 2.5rem 1rem 1rem;
+		}
+	}
+	&__content {
+		flex: 1;
+		@include transition ($transition--primary-short);
+		&--padded {
+			padding: 1rem 0;
+		}
+	}
+	.navbar--fixed-top ~ &__wrapper > &__content {
+		margin-top: 2.5rem; // Adjust for overlaying content when fixed navbar is present
+	}
+}
+
+// =============================================================================
+// Full-screen layout
+// =============================================================================
+
+.fullscreen { // Todo delete
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	// &--half {
+	//   min-height: 50vh;
+	// }
+	// &__content {
+	//   @include media-breakpoint-up(lg) {
+	//     position: absolute;
+	//     top: 50%;
+	//     transform: translateY(-50%);
+	//     width: 100%;
+	//   }
+	// }
+}
+
+// =============================================================================
+// Flex vertical layout
+// =============================================================================
+
+.flex {
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	flex-direction: column;
+	&__content {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		justify-content: center;
+		&--top {
+			//margin-top: $rhythm--y
+		}
+		&--bottom {
+			margin-top: auto; // Todo watch out for side effects
+		}
+	}
+	&--row {
+		flex-direction: row;
+	}
+	&--space-between {
+		justify-content: space-between;
+	}
+	&--baseline {
+		align-items: baseline;
+	}
+	&--center {
+		align-self: center;
+	}
+	&--start {
+		align-self: flex-start;
+	}
+	&--end {
+		align-self: flex-end;
+	}
+	&__children--center {
+		justify-content: center;
+	}
+	&__children--start {
+		justify-content: flex-start;
+	}
+	&__children--end {
+		display: flex; // Todo necessary?
+		justify-content: flex-end;
+	}
+}
+
+

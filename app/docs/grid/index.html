@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('app/partials/head.tpl', {
+	"title": "Bricks—the modular CSS framework",
+	"description": "TODO"
+})
+
+<body class="style--borders">
+
+	@@include('app/partials/nav.tpl', {
+		"hiding": "",
+		"fixed": "navbar--fixed-top",
+		"animate": "animate__intro--down"
+	})
+
+	<div class="layout__wrapper">
+		
+	@@include('app/partials/sidebar.tpl')
+
+		<section class="layout__content layout__content--padded">
+
+			<div class="container rhythm--children">
+				<h1 class="h1--700">Grid system</h1>
+				<p>The bricks mobile-first grid system is based on the one you can find in Bootstrap implementation. 12 columns (the <a class="link" href="#">best amount of grid columns</a>), 5 responsive levels (from small mobile phones to 4k screens), and semantic naming.</p>
+				<div class="snippet">
+					<div class="snippet__example align__xs--center rhythm--children">
+						<div class="row">
+							<div class="col-lg-2">
+								<div class="well well--padded"><code>col-lg-2</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="well well--padded"><code>col-lg-3</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="well well--padded"><code>col-lg-4</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-5">
+								<div class="well well--padded"><code>col-lg-5</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="well well--padded"><code>col-lg-6</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="well well--padded"><code>col-lg-7</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="well well--padded"><code>col-lg-8</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-9">
+								<div class="well well--padded"><code>col-lg-9</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-10">
+								<div class="well well--padded"><code>col-lg-10</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-11">
+								<div class="well well--padded"><code>col-lg-11</code></div>
+							</div>
+							<div class="col">
+								<div class="well well--padded"><code>col</code></div>
+							</div>
+						</div>
+					</div>
+					<pre class="snippet__code"><code>&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-lg-2&quot;&gt;col-lg-2&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+	&lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;
+&lt;/div&gt;
+[...]</code></pre>
+				</div>
+			</div>
+
+			<div class="container align__xs--center rhythm--children">
+				<div class="row">
+					<div class="col">
+						<div class="well well--padded">
+							<code>column</code>
+						</div>
+					</div>
+					<div class="col">
+						<div class="well well--padded">
+							<code>column</code>
+						</div>
+					</div>
+					<div class="col">
+						<div class="well well--padded">
+							<code>column</code>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="well well--padded">
+							<code>column</code>
+						</div>
+					</div>
+					<div class="col">
+						<div class="row well">
+							<div class="col">
+								<div class="well well--padded">
+									<code>column</code>
+								</div>
+							</div>
+							<div class="col">
+								<div class="well well--padded">
+									<code>column</code>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	@@include('app/partials/scripts.tpl')
+
+</body>
+</html>

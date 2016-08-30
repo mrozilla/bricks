@@ -1,0 +1,54 @@
+// =============================================================================
+// Tooltips
+// =============================================================================
+
+.has--tooltip {
+	& .input__label {
+		&:after {
+			content: "?";
+			display: inline-block;
+			width: .75rem;
+			height: .75rem;
+			font-weight: bold;
+			background-color: $color__gray--dark;
+			color: white;
+			border-radius: 50%;
+			text-align: center;
+			margin-left: .25rem;
+			line-height: .75rem;
+		}
+	}
+	&:hover .tooltip, &:hover ~ .tooltip {
+		display: block;
+	}
+}
+
+.tooltip {
+	background-color: $color__gray--dark;
+	color: white;
+	display: none;
+	padding: 1rem;
+	position: absolute;
+	top: -.5rem;
+	transform: translateY(-100%);
+	max-width: 50vw;
+	z-index: $zindex--tooltip;
+	// transition: $transition--primary-short;
+	@include border-radius ($border__radius--large);
+	@include hover-focus-active() {
+		display: block;
+	}
+	&:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 0;
+		border-top: .5rem solid $color__gray--dark;
+		border-bottom: .5rem solid transparent;
+		border-right: .5rem solid transparent;
+		border-left: .5rem solid transparent;
+		position: absolute;
+		bottom: -1rem;
+		left: 1rem;
+	}
+}

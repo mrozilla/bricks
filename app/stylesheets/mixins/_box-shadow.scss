@@ -1,0 +1,11 @@
+// =============================================================================
+// Box Shadow
+// =============================================================================
+
+@mixin box-shadow($top: 0, $left: 0, $blur: $box-shadow__blur, $box-shadow-color: rgba(0,0,0,.2), $inset: false) {
+    @if $inset {
+        box-shadow:inset $top $left $blur $box-shadow-color;
+    } @else {
+        box-shadow: $top $left $blur $box-shadow-color;
+    }
+}

@@ -1,0 +1,22 @@
+// =============================================================================
+// Hero element
+// =============================================================================
+
+.hero {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	background-color: $color__brand--primary;
+	@include inverse-colors;
+	&__image {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		@include stretch;
+		@include animation  ('fadeIn 2s ease-in');
+		@include transition ($transition--secondary-long);
+	}
+	&:hover &__image {
+		@include transform(scale(1.1));
+	}
+}

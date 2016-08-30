@@ -1,0 +1,31 @@
+// =============================================================================
+// Border
+// =============================================================================
+
+@mixin border ($side: false, $inset: false, $borderRadius: false, $width: 1px, $style: solid, $borderColor: $color__gray--lighter) {
+	@if $side {
+		border-#{$side}: $width $style $borderColor;
+		@if $borderRadius {
+			border-radius: $borderRadius;
+		}
+
+	} @elseif $inset {
+		&:after {
+			content: "";
+			@include absolute-stretch;
+			border: $width $style $borderColor;
+			@if $borderRadius {
+				border-radius: $borderRadius;
+			}
+		}
+	} @else {
+		border: $width $style $borderColor;
+		@if $borderRadius {
+			border-radius: $borderRadius;
+		}
+	}
+}
+
+@mixin border-radius ($radius: $border__radius) {
+	border-radius: $radius;
+}

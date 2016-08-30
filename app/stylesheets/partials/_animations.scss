@@ -1,0 +1,111 @@
+// =============================================================================
+// Animations
+// =============================================================================
+
+@include animation__delay (20);
+@include transition__delay (20);
+
+//
+// Fade-in animation
+//
+
+@include keyframes(fadeIn) {
+	0%    { opacity: 0; }
+	100%  { opacity: 1; }
+}
+
+//
+//	Scroll animation
+//
+
+@include keyframes(scroll-ani) {
+	0%    { opacity: 1; top: 29%; }
+	15%   { opacity: 1; top: 50%; }
+	50%   { opacity: 0; top: 50%; }
+	100%  { opacity: 0; top: 29%; }
+}
+
+//
+// Bounce animation
+//
+
+@include keyframes(bounce--gentle) {
+	0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+	40% { transform: translateY(-2px); }
+	60% { transform: translateY(-1px); }
+}
+
+//
+// Error animation
+//
+
+@include keyframes(error) {
+	8%, 41% {
+		transform: translateX(-10px);
+	}
+	25%, 58% {
+		transform: translateX(10px);
+	}
+	75% {
+		transform: translateX(-5px);
+	}
+	92% {
+		transform: translateX(5px);
+	}
+	0%, 100% {
+		transform: translateX(0);
+	}
+}
+
+.error {
+	@include animation ('error .5s #{$easing--primary}');
+}
+
+//
+// Intro animations
+//
+
+.animate {
+	visibility: hidden;
+	&__intro {
+		&--down {
+			@include animation ('animate__intro--down .75s #{$easing--primary}');
+		}
+		&--up {
+			@include animation ('animate__intro--up .75s #{$easing--primary}');
+		}
+		&--left {
+			@include animation ('animate__intro--left .75s #{$easing--primary}');
+		}
+		&--right {
+			@include animation ('animate__intro--right .75s #{$easing--primary}');
+		}
+		&--fade {
+			@include animation ('animate__intro--fade .75s #{$easing--primary}');
+		}
+	}
+}
+
+@include keyframes(animate__intro--down) {
+	0%   { transform: translateY(-100%); }
+	100% { transform: translateY(0%); }
+}
+
+@include keyframes(animate__intro--up) {
+	0%   { transform: translateY(100%); }
+	100% { transform: translateY(0%); }
+}
+@include keyframes(animate__intro--left) {
+	0%   { transform: translateX(-100%); }
+	100% { transform: translateX(0%); }
+}
+@include keyframes(animate__intro--right) {
+	0%   { transform: translateX(100%); }
+	100% { transform: translateX(0%); }
+}
+@include keyframes(animate__intro--fade) {
+	0%   { opacity:0; }
+	100% { opacity:1; }
+}
+
+

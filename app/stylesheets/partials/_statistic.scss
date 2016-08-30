@@ -1,0 +1,21 @@
+// =============================================================================
+// Statistic component
+// =============================================================================
+
+.statistic {
+    text-align: center; // Todo is this a safe assumption?
+    &__value {
+        //font-size: $font--size--lg;
+    }
+    &__label {
+        font-size: $font--size--sm;
+    }
+    &--vertical {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        & > .statistic__value {
+            margin-right: .5rem;
+        }
+    }
+}

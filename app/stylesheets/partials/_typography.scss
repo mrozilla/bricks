@@ -1,0 +1,166 @@
+// =============================================================================
+// Typography
+// =============================================================================
+
+// =============================================================================
+// Font families
+// =============================================================================
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	font-family: $font__family--headings, $font__fallback;
+	font-weight: $font__weight--regular;
+	@include font__weight($font__weight--bold);
+	@include font__weight($font__weight--light);
+}
+
+// =============================================================================
+// General Sizing
+// =============================================================================
+
+h1, .h1 {
+	font-size: $font__size--h1;
+	letter-spacing: -.05em; // Adjust to your font
+	line-height: .75;
+	@include media-breakpoint-up(sm) {
+		font-size: $font__size--h1 + 1rem; // TODO what does it do?
+	}
+	&--boom {
+		font-size: $font__size--h1;
+		@include media-breakpoint-up(lg) {
+			font-size: $font__size--boom;
+			letter-spacing: -.075em; // Adjust to your font
+			line-height: 1;
+		}
+	}
+}
+
+h2, .h2 {
+	font-size: $font__size--h2;
+	font-weight: $font__weight--regular;
+	letter-spacing: -0.05em; // Adjust to your font
+	line-height: 1;
+	padding-top: .5rem;
+}
+
+h3, .h3 {
+	font-size: $font__size--h3;
+	letter-spacing: -0.025em; // Adjust to your font
+	line-height: 1;
+}
+
+h4, .h4 {
+	font-size: $font__size--h4;
+	letter-spacing: -0.025em; // Adjust to your font
+	line-height: 2rem;
+}
+
+h5, .h5 {
+	font-size: $font__size--h5;
+	line-height: 1rem;
+}
+
+h6, .h6 {
+	font-size: $font__size--h6;
+	line-height: 1rem;
+}
+
+p, .p {
+	font-weight: $font__weight--regular;
+	letter-spacing: 0;
+	line-height: 1rem;
+	.indent & {
+		margin-top: $rhythm--y;
+		margin-bottom: 0 !important;
+		+ & {
+			margin-top: 0 !important;
+			text-indent: 2em; // Force print-style indented text
+		}
+	}
+}
+
+.subtitle {
+	//color: transparentize(currentColor, .5) // Todo find a better way
+	opacity: .5;
+}
+
+.label {
+	text-transform: uppercase;
+	opacity: .5;
+}
+
+.quote {
+	font-weight: $font__weight--light;
+	font-size: $font__size--h3;
+	display: block;
+	text-align: center;
+	font-style: italic;
+}
+
+blockquote, .blockquote { //research block quote styling
+	color: $color__gray--light;
+	display: block;
+	font-weight: 300;
+	font-style: italic;
+	font-size: 1rem;
+	line-height: 1rem;
+	margin: $rhythm--y
+}
+
+small, .small {
+	font-size: .5rem;
+	line-height: .5rem;
+}
+
+// =============================================================================
+// Sizing utilities
+// =============================================================================
+
+.font--small {
+	font-size: $font__size--sm;
+}
+
+.font--large {
+	font-size: $font__size--lg;
+}
+
+// =============================================================================
+// Extra styling
+// =============================================================================
+
+::selection {
+	background-color: $color__brand--primary;
+}
+
+.underline { // Create a short line under an element
+	&:after {
+		content: "";
+		position: relative;
+		display: block;
+		border: .05em solid;
+		width: 25%;
+		margin: $rhythm--y 0;
+	}
+	&--center:after { // Centered line
+		margin: $rhythm--y auto;
+	}
+	&--full:after {
+		width: 100%;
+	}
+}
+
+.overline { // Create a short line over an element
+	&:before {
+		content: "";
+		position: relative;
+		display: block;
+		border: .05em solid;
+		width: 25%;
+		margin: $rhythm--y 0;
+	}
+	&--center:before { // Centered line
+		margin: $rhythm--y auto;
+	}
+	&--full:before {
+		width: 100%;
+	}
+}

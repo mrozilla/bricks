@@ -1,0 +1,58 @@
+// =============================================================================
+// Parallax layout
+// =============================================================================
+
+.parallax {
+	height: 800px; // fallback for older browsers
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: scroll; // has to be scroll, not auto
+	-webkit-overflow-scrolling: touch;
+	&__group {
+		position: relative;
+		height: 800px; // fallback for older browsers
+		height: 100vh;
+		pointer-events: none;
+	}
+	&__layer {
+		@include absolute-stretch;
+		pointer-events: all;
+	}
+}
+
+@supports ((perspective: 1px) and (not (-webkit-overflow-scrolling: touch))) {
+	.parallax {
+		-webkit-perspective: 300px;
+		perspective: 300px;
+		&__group {
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			&--half {
+				height: 50vh;
+			}
+		}
+		&__layer {
+			&--fore {
+				-webkit-transform: translateZ(90px) scale(.7);
+				transform: translateZ(90px) scale(.7);
+				pointer-events: none;
+				z-index: 4; // adjust to your layout
+			}
+			&--base {
+				-webkit-transform: translateZ(0);
+				transform: translateZ(0);
+				z-index: 3; // adjust to your layout
+			}
+			&--back {
+				-webkit-transform: translateZ(-300px) scale(2);
+				transform: translateZ(-300px) scale(2);
+				z-index: 2; // adjust to your layout
+			}
+			&--deep {
+				-webkit-transform: translateZ(-600px) scale(3);
+				transform: translateZ(-600px) scale(3);
+				z-index: 1; // adjust to your layout
+			}
+		}
+	}
+}

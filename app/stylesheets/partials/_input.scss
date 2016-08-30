@@ -1,0 +1,164 @@
+// =============================================================================
+// Input elements
+// =============================================================================
+
+.input {
+	display: inline-block;
+	& input {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
+	& + & {
+		margin-top: 0.5rem;
+	}
+	&:invalid {
+		border-color: $color__brand--danger;
+		& ~ .input__error {
+			display: block;
+		}
+		&:required {
+			border-left-color: $color__brand--danger;
+			border-right-color: $color__gray--lighter;
+			border-top-color: $color__gray--lighter;
+			border-bottom-color: $color__gray--lighter;
+		}
+	}
+	&:disabled {
+		border-style: dotted;
+		cursor: not-allowed;
+		background-color: $color__gray--lightest;
+		color: transparentize($color__gray--dark, .5);
+	}
+	&__label {
+		min-height: 1rem;
+		position: relative;
+		display: block;
+		cursor: pointer;
+		font-size: $font__size--xs;
+		@include label();
+		&--checkbox, &--radio {
+			padding-left: 1.5rem;
+		}
+		& + & {
+			margin-top: 0.5rem;
+		}
+		.form--aligned & {
+			min-width: 10rem;
+			text-align: right;
+			margin-right: 1rem;
+		}
+		.form--stacked & {
+			display: none;
+		}
+	}
+	&__checkbox {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1rem;
+		height: 1rem;
+		background-color: $color__gray--lighter;
+		@include border-radius ();
+		&:after {
+			display:none;
+			content:'';
+			position: absolute;
+			top: 4px;
+			left: 7px;
+			width: 5px;
+			height: 10px;
+			transform: rotate(45deg);
+			border: solid #fff;
+			border-width: 0 2px 2px 0;
+		}
+	}
+	&__radio {
+		position:absolute;
+		top: 0;
+		left: 0;
+		width: 1rem;
+		height: 1rem;
+		background-color: $color__gray--lighter;
+		border-radius: 50%;
+	}
+
+	// Checkbox styles
+	&__label:hover input ~ &__checkbox { // Hover state
+		background-color: $color__gray--light;
+		opacity: .5;
+	}
+	&__label input:checked ~ &__checkbox { // Selected state
+		background-color: $color__brand--primary;
+	}
+	&__label:hover input:not([disabled]):checked ~ &__checkbox { // Hover selected state
+		background-color: $color__link--hover;
+		opacity: 1;
+	}
+	&__label input:disabled ~ &__checkbox { // Disabled state
+		cursor: not-allowed;
+		pointer-events: none;
+		opacity: .5;
+		background-color: $color__gray--light;
+	}
+	&__label input:disabled:checked ~ &__checkbox { // Disabled checked state
+		background-color: $color__gray--light;
+	}
+	&__label input:checked ~ &__checkbox:after { // Show tick mark
+		display: block;
+	}
+
+	// Radio styles
+	&__label:hover input ~ &__radio { // Hover state
+		background-color: $color__gray--light;
+		opacity: .5;
+	}
+	&__label input:checked ~ &__radio { // Selected state
+		background: radial-gradient(transparent 20%, $color__brand--primary 25%);
+	}
+	&__label:hover input:not([disabled]):checked ~ &__radio { // Hover selected state
+		background: radial-gradient(transparent 20%, $color__link--hover 25%);
+		opacity: 1;
+	}
+	&__label input:disabled ~ &__radio { // Disabled state
+		cursor: not-allowed;
+		pointer-events: none;
+		opacity: .5;
+		background-color: $color__gray--light;
+	}
+	&__label input:disabled:checked ~ &__radio{ // Disabled checked state
+		background: radial-gradient($color__gray--lighter 20%, $color__gray--light 25%);
+	}
+
+	&__error {
+		display:none;
+		font-size: $font__size--xs;
+		color: $color__brand--danger;
+		@include label();
+	}
+
+	&__text {
+		display: block;
+		width: 100%;
+		padding: .5rem;
+		position: relative;
+		@include border ();
+		@include border-radius ();
+		.form--aligned & {
+			display: inline-block;
+			width: auto;
+		}
+	}
+	&__select {
+		background-color: white;
+		width: 100%;
+		height: 2rem;
+		@include border ();
+		@include border-radius ();
+		&[value="unselected"] { // TODO figure out if there's way to make it work
+			color: transparentize($color__gray--dark, .5);
+		}
+	}
+}
+
+

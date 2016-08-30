@@ -1,0 +1,38 @@
+// =============================================================================
+// Frame
+// =============================================================================
+
+.frame {
+	border: 3vh solid white;
+	&--inverse {
+		border: 3vh solid rgba(0,0,0,.2);
+	}
+	&--fixed {
+		border-left: 3vh solid white;
+		border-right: 3vh solid white;
+		&:before, &:after {
+			content: "";
+			position: fixed;
+			background: white;
+			left: 0;
+			right: 0;
+			height: 3vh;
+			z-index: 1000;
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: 0;
+		}
+	}
+	&--shadow {
+		box-shadow: 0 0 0 3vh white inset;
+		pointer-events: none;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		position: fixed;
+	}
+}

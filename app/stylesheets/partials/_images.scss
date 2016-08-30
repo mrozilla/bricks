@@ -1,0 +1,101 @@
+// =============================================================================
+// Image elements & containers
+// =============================================================================
+
+img {
+	&[src=''], &:not([src]) {
+		opacity:0; // Remove border on images with no src attribute set
+	}
+}
+
+.image {
+	position: relative;
+	display: block;
+	// background-color: $color__gray--lightest; // Todo resolve
+	@include transition($transition--primary-short);
+	&.image--1to1 {
+		padding-bottom: 100%; // Provide various ratios
+	}
+
+	&.image--2to1 {
+		padding-bottom: 200%; // Provide various ratios
+	}
+
+	&.image--1to2 {
+		padding-bottom: 50%; // Provide various ratios
+	}
+	&.image--1to4 {
+		padding-bottom: 25%; // Provide various ratios
+	}
+	&__src {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		&--contain {
+			object-fit: contain;
+		}
+	}
+	&--avatar {
+		display: inline;
+		width: 2rem;
+		height: 2rem;
+		margin-right: .5rem; // Todo make sure it doesn't break stuff
+		background-color: $color__brand--primary; // Todo remove
+		&-rounded {
+			border-radius: 50%;
+		}
+	}
+	&--expanded {
+		@include media-breakpoint-up(lg) {
+            transform: scale(1.5);
+    		cursor: zoom-out !important; // TODO find a better way
+        }
+	}
+}
+
+.fullscreen__image {
+	@extend .hero__image;
+	overflow: hidden;
+	@include animation ('hero--fadeIn 2s ease-in');
+	&--left {
+		width: 50%;
+		background-position: right top;
+	}
+	&--right {
+		width: 50%;
+		right:0;
+		left: auto;
+		background-position: left top;
+	}
+}
+
+.fullscreen:hover .fullscreen__image {
+	@include transform(scale(1.1));
+}
+
+.image__darkener:after {
+	content: "";
+	@include absolute-stretch;
+	background-color: transparentize($color__background--inverse, .5);
+}
+
+.image--background {
+	@include absolute-stretch;
+	background-color: $color__background--inverse;
+	background-size: cover;
+	background-position: center;
+	@include animation ('hero--fadeIn 2s ease-in');
+}
+
+#logo {
+	width: $rhythm--x*2;
+	height: $rhythm--y*2;
+	overflow: visible;
+	opacity: .75;
+	@include transition($transition--primary-short);
+}
+
+#logo:hover {
+	opacity: 1;
+}

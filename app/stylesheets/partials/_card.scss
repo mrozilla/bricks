@@ -1,0 +1,49 @@
+// =============================================================================
+// Card component
+// =============================================================================
+
+.card {
+	overflow: hidden;
+	background-color: white;
+	border-radius: $border__radius--large;
+	.style--shadows & {
+		@include box-shadow();
+	}
+	.style--borders & {
+		@include border();
+	}
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	flex-direction: column;
+	&__body {
+		flex: 1;
+	}
+	&__header {
+		&--divider {
+			border-bottom: 1px solid rgba(128,128,128,.25);
+		}
+	}
+	&__footer {
+		&--divider {
+			border-top: 1px solid rgba(128,128,128,.25);
+		}
+	}
+	&--padded {
+		padding: $rhythm--y/2 $rhythm--x/2;
+	}
+	&--jumping {
+		@include transition ($transition--primary-short);
+		&:hover {
+			.style--shadows & {
+				@include box-shadow(0,0,$box-shadow__blur*1.25);
+			}
+			.style--borders & {
+				@include border();
+			}
+			transform: translateY(-.125rem);
+		}
+	}
+}
+
+

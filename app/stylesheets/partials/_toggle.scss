@@ -1,0 +1,17 @@
+// =============================================================================
+// Toggle elements
+// =============================================================================
+
+.toggle {
+	&__sidebar {
+		cursor: pointer;
+		margin-right: -.5rem;
+		text-align: right;
+		&:after {
+			content: "\2039";
+		}
+		.is--collapsed &:after {
+			content: "\203A";
+		}
+	}
+}

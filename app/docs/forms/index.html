@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('app/partials/head.tpl', {
+	"title": "Bricks—the modular CSS framework",
+	"description": "TODO"
+})
+
+<body class="style--borders">
+
+	@@include('app/partials/nav.tpl', {
+		"hiding": "",
+		"fixed": "navbar--fixed-top",
+		"animate": "animate__intro--down"
+	})
+
+	<div class="layout__wrapper">
+		
+	@@include('app/partials/sidebar.tpl')
+
+		<section class="layout__content layout__content--padded">
+
+
+				<div class="card card--padded rhythm">
+					<form>
+						<legend class="form__legend">An inline form</legend>
+						<div class="form__field">
+							<label class="input__label" for="email">Email</label>
+							<input class="input input__text rhythm" type="email" name="email">
+						</div>
+						<div class="form__field">
+							<label class="input__label" for="password">Password</label>
+							<input class="input input__text rhythm" type="password" name="password">
+						</div>
+						<div class="form__field">
+							<label class="input input__label input__label--checkbox rhythm">Remember me
+								<input type="checkbox">
+								<div class="input__checkbox"></div>
+							</label>
+						</div>
+						<button type="submit" class="button button--primary">Sign in</button>
+					</form>
+				</div>
+
+				<div class="card card--padded rhythm">
+					<form class="form--vertical">
+						<legend class="form__legend">A vertical form</legend>
+						<div class="form__field">
+							<label class="input__label" for="email">Email</label>
+							<input class="input input__text rhythm" type="email" name="email">
+						</div>
+						<div class="form__field">
+							<label class="input__label" for="password">Password</label>
+							<input class="input input__text rhythm" type="password" name="password">
+						</div>
+						<div class="form__field">
+							<label class="input input__label input__label--checkbox rhythm">Remember me
+								<input type="checkbox">
+								<div class="input__checkbox"></div>
+							</label>
+						</div>
+						<button type="submit" class="button button--primary">Sign in</button>
+					</form>
+				</div>
+
+				<div class="card card--padded rhythm">
+					<form class="form--aligned">
+						<legend class="form__legend">An aligned form</legend>
+						<div class="form__field">
+							<label class="input__label" for="email">Email</label>
+							<input class="input input__text rhythm" type="email" name="email">
+						</div>
+						<div class="form__field">
+							<label class="input__label" for="password">Password</label>
+							<input class="input input__text rhythm" type="password" name="password">
+						</div>
+						<div class="form__field">
+							<label class="input input__label input__label--checkbox rhythm">Remember me
+								<input type="checkbox">
+								<div class="input__checkbox"></div>
+							</label>
+						</div>
+						<div class="form__controls">
+							<button type="submit" class="button button--primary">Sign in</button>
+						</div>
+					</form>
+				</div>
+
+				<div class="card card--padded rhythm">
+					<form class="form--stacked">
+						<legend class="form__legend">A stacked form</legend>
+						<div class="form__field">
+							<label class="input__label" for="email">Email</label>
+							<input class="input input__text" type="email" name="email">
+						</div>
+						<div class="form__field">
+							<label class="input__label" for="password">Password</label>
+							<input class="input input__text" type="password" name="password">
+						</div>
+						<div class="form__field">
+							<label class="input input__label input__label--checkbox">Remember me
+								<input type="checkbox">
+								<div class="input__checkbox"></div>
+							</label>
+						</div>
+						<div class="form__controls">
+							<button type="submit" class="button button--primary button--large button--full">Sign in</button>
+						</div>
+					</form>
+				</div>
+		</section>
+
+	</div>
+
+	@@include('app/partials/scripts.tpl')
+
+</body>

@@ -1,0 +1,52 @@
+// =============================================================================
+// Code block elements
+// =============================================================================
+
+// Table of contents
+// 
+// Snippet
+// Code
+
+// =============================================================================
+// Snippet block
+// =============================================================================
+
+.snippet {
+	margin-bottom: $rhythm--y; // TODO be careful, might backfire
+	@include border(false, false, $border__radius);
+	&__example {
+		padding: $rhythm--y $rhythm--x;
+	}
+	&__code {
+		margin: 0 -1px -1px -1px; // TODO find a better way
+	}
+}
+
+// =============================================================================
+// Code styles
+// =============================================================================
+
+code, .code {
+	font-family: $font__family--monospace;
+	position: relative;
+	color: inherit;
+	font-size: 0.6rem;
+	line-height: $rhythm--y;
+	padding: 4px 4px 1px;
+	background-color: white;
+	border-radius: $border__radius--large;
+	@include border(false, true)
+}
+
+pre {
+	overflow-y: hidden;
+	overflow-x: auto;
+	line-height: $rhythm--y;
+}
+
+pre {
+	& code, .code {
+		padding: $rhythm--y $rhythm--x;
+		display: block;
+	}
+}
