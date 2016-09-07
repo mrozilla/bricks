@@ -4,9 +4,21 @@
 
 @mixin border ($side: false, $inset: false, $borderRadius: false, $width: 1px, $style: solid, $borderColor: $color__gray--lighter) {
 	@if $side {
-		border-#{$side}: $width $style $borderColor;
-		@if $borderRadius {
-			border-radius: $borderRadius;
+		@if $inset {
+			&:before {
+				content: "";
+				@include absolute-stretch;
+				border-#{$side}: $width $style $borderColor;
+				@if $borderRadius {
+					border-radius: $borderRadius;
+				}
+			}
+		}
+		@else {
+			border-#{$side}: $width $style $borderColor;
+			@if $borderRadius {
+				border-radius: $borderRadius;
+			}
 		}
 
 	} @elseif $inset {
