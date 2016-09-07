@@ -74,21 +74,20 @@ img {
 	@include transform(scale(1.1));
 }
 
-.image__darkener:after {
+.image--darkened:after {
 	content: "";
+	background-color: transparentize($color__gray--dark, .5);
 	@include absolute-stretch;
-	background-color: transparentize($color__background--inverse, .5);
 }
 
 .image--background {
-	@include absolute-stretch;
-	background-color: $color__background--inverse;
 	background-size: cover;
 	background-position: center;
+	@include absolute-stretch;
 	@include animation ('hero--fadeIn 2s ease-in');
 }
 
-#logo {
+#logo { // TODO change to class
 	width: $rhythm--x*2;
 	height: $rhythm--y*2;
 	overflow: visible;
@@ -96,6 +95,6 @@ img {
 	@include transition($transition--primary-short);
 }
 
-#logo:hover {
+#logo:hover { // TODO change to class
 	opacity: 1;
 }
