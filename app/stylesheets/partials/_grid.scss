@@ -99,8 +99,9 @@
 // =============================================================================
 
 .row--nopadding {
-	margin: 0;
-	& > [class*='col-'] {
+	margin-left: -$grid__gutter--width;
+	margin-right: -$grid__gutter--width;
+	& > [class*='col'] {
 		padding-right:0;
 		padding-left:0;
 	}
