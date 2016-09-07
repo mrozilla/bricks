@@ -241,11 +241,29 @@
 				<div class="snippet">
 					<div class="snippet__example">
 						<form class="form--vertical">
-							<div class="form__field">
+							<div class="form__field rhythm--half">
 								<label class="input__label">Select field</label>
 								<select class="input input__select">
 									<option disabled selected value hidden>Select an option...</option>
 									<option>First option</option>
+									<option>Second option</option>
+									<option>Third option</option>
+								</select>
+							</div>
+							<div class="form__field rhythm--half">
+								<label class="input__label">Disabled select field</label>
+								<select class="input input__select" disabled>
+									<option disabled selected value hidden>Select an option...</option>
+									<option>First option</option>
+									<option>Second option</option>
+									<option>Third option</option>
+								</select>
+							</div>
+							<div class="form__field">
+								<label class="input__label">Disabled selected select field</label>
+								<select class="input input__select" disabled>
+									<option disabled value hidden>Select an option...</option>
+									<option selected >First option</option>
 									<option>Second option</option>
 									<option>Third option</option>
 								</select>
@@ -256,6 +274,22 @@
 &lt;select class=&quot;input input__select&quot;&gt;
     &lt;option disabled selected value hidden&gt;Select an option...&lt;/option&gt;
     &lt;option&gt;First option&lt;/option&gt;
+    &lt;option&gt;Second option&lt;/option&gt;
+    &lt;option&gt;Third option&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;label class=&quot;input__label&quot;&gt;Disabled select field&lt;/label&gt;
+&lt;select class=&quot;input input__select&quot; disabled&gt;
+    &lt;option disabled selected value hidden&gt;Select an option...&lt;/option&gt;
+    &lt;option&gt;First option&lt;/option&gt;
+    &lt;option&gt;Second option&lt;/option&gt;
+    &lt;option&gt;Third option&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;label class=&quot;input__label&quot;&gt;Disabled selected select field&lt;/label&gt;
+&lt;select class=&quot;input input__select&quot; disableds&gt;
+    &lt;option disabled value hidden&gt;Select an option...&lt;/option&gt;
+    &lt;option selected&gt;First option&lt;/option&gt;
     &lt;option&gt;Second option&lt;/option&gt;
     &lt;option&gt;Third option&lt;/option&gt;
 &lt;/select&gt;</code></pre>
