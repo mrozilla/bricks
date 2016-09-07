@@ -81,10 +81,14 @@ img {
 }
 
 .image--background {
+	background-color: $color__gray;
 	background-size: cover;
 	background-position: center;
 	@include absolute-stretch;
 	@include animation ('hero--fadeIn 2s ease-in');
+	& ~ * {
+		color: white;
+	}
 }
 
 #logo { // TODO change to class
