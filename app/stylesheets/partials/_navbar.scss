@@ -138,7 +138,7 @@
 		@include box-shadow();
 	}
 	.style--borders & {
-		@include border("bottom");
+		@include border("bottom", "true");
 	}
 }
 
@@ -208,6 +208,8 @@
 }
 
 // Class used by the hidingNavbar.js
-.navbar .is--hidden {
+.navbar.is--hidden {
 	@include transform(translateY(-100%));
 }
+
+
