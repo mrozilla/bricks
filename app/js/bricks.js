@@ -152,9 +152,9 @@ $(() => {
 // ScrollReveal settings
 // =============================================================================
 $(() => {
-	if ($('.reveal').length > 0) {
+	if ($('.scrollReveal').length > 0) {
 		window.sr = ScrollReveal({ reset: true, duration: 1000, mobile: false, opacity: 0 });
-		sr.reveal( '.reveal' );
+		sr.reveal( '.scrollReveal' );
 	}
 })
 
