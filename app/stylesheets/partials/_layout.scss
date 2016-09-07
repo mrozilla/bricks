@@ -88,7 +88,7 @@
 .fullscreen { // Todo delete
 	position: relative;
 	min-height: 100vh;
-	overflow: hidden;
+	// overflow: hidden;
 	// &--half {
 	//   min-height: 50vh;
 	// }
@@ -113,6 +113,7 @@
 	flex-direction: column;
 	&__content {
 		display: flex;
+		position: relative;
 		flex: 1;
 		flex-direction: column;
 		justify-content: center;
