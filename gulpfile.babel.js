@@ -240,8 +240,7 @@ gulp.task('selectors', () => {
 	return gulp
 		.src([outputHTML, outputCSS])
 		.pipe(selectors.run())
-		// .pipe(selectors.info())
-		.pipe(gulp.dest(function(file) {
+		.pipe(gulp.dest((file) => {
     		return file.base;
     	}));
 });
