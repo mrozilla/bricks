@@ -4,7 +4,6 @@
 
 'use strict';
 
-// TODO fix package.json git repo
 // TODO figure out css.map not working
 // TODO check if grid system aligns
 // TODO figure out webkit select styling
@@ -37,6 +36,7 @@ import inline			from 'gulp-inline-css';
 import vinylPaths		from 'vinyl-paths';
 import nano 			from 'gulp-cssnano';
 import rename 			from 'gulp-rename';
+import selectors		from 'gulp-selectors';
 import sequence			from 'run-sequence';
 import uglify			from 'gulp-uglify';
 import uncss 			from 'gulp-uncss';
@@ -61,11 +61,12 @@ const inputHtaccess		=  './app/.htaccess';
 const inputUniverse		=  './app/subdom/**/*';
 
 // Output files
-const output        	=  './dist';
+const output        	=  './dist/';
 const outputHTML		=  './dist/**/*.html'; // TODO be careful, takes everything at the moment
 const outputCSS			=  './dist/stylesheets/**/*.css';
-const outputJS 			=  './dist/js'; // TODO fix, there are two output concepts mixed here
+const outputFonts		=  './dist/fonts'
 const outputImages		=  './dist/images';
+const outputJS 			=  './dist/js'; // TODO fix, there are two output concepts mixed here
 const outputUniverse	=  './dist/subdom';
 const outputDeploy		=  './dist/**/*';
 
@@ -235,6 +236,16 @@ gulp.task('css', () => {
         .pipe(gulp.dest(output));
 });
 
+gulp.task('selectors', () => {
+	return gulp
+		.src([outputHTML, outputCSS])
+		.pipe(selectors.run())
+		// .pipe(selectors.info())
+		.pipe(gulp.dest(function(file) {
+    		return file.base;
+    	}));
+});
+
 // Compile minified js
 gulp.task('js', () => {
 	return gulp
@@ -245,7 +256,7 @@ gulp.task('js', () => {
 		}))
 		.pipe(concat('main.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest(outputJS))
+		.pipe(gulp.dest(outputJS));
 });
 
 // Copy fonts
@@ -253,7 +264,7 @@ gulp.task('fonts', () => {
 	return gulp
 		.src(inputFonts)
 		.pipe(plumber({errorHandler: onError}))
-		.pipe(gulp.dest(output));
+		.pipe(gulp.dest(outputFonts));
 });
 
 // Optimise images
@@ -262,7 +273,7 @@ gulp.task('images', () => {
 		.src(inputImages)
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(imagemin())
-		.pipe(gulp.dest(outputImages))
+		.pipe(gulp.dest(outputImages));
 });
 
 // Copy server files
@@ -270,7 +281,7 @@ gulp.task('htaccess', () => {
 	return gulp
 		.src(inputHtaccess)
 		.pipe(plumber({errorHandler: onError}))
-		.pipe(gulp.dest(output))
+		.pipe(gulp.dest(output));
 });
 
 // Copy universe as is
@@ -278,7 +289,7 @@ gulp.task('universe', () => {
 	return gulp
 		.src(inputUniverse)
 		.pipe(plumber({errorHandler: onError}))
-		.pipe(gulp.dest(outputUniverse))
+		.pipe(gulp.dest(outputUniverse));
 });
 
 // Build the distribution files
@@ -286,7 +297,8 @@ gulp.task('build', (callback) => {
 	sequence(
 		'clean', 
 		'html',
-		'css', 
+		'css',
+		'selectors',
 		['fonts', 'js', 'htaccess', 'universe', 'images', 'php'],
 	callback
 	)
