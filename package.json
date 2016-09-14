@@ -2,9 +2,14 @@
   "name": "bricks",
   "version": "0.1.0",
   "description": "the modular css framework",
+  "repository": "https://github.com/mrozilla/bricks",
   "main": "gulpfile.babel.js",
   "scripts": {},
-  "author": "@mrozilla",
+  "author": {
+    "name": "Jan Hruby",
+    "email": "jan@mrozilla.cz",
+    "url": "http://mrozilla.cz"
+  },
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
@@ -28,6 +33,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
+    "gulp-selectors": "^0.1.9",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.4",
     "gulp-uncss": "^1.0.5",
