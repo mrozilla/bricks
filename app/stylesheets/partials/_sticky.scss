@@ -1,0 +1,18 @@
+// =============================================================================
+// Sticky element
+// =============================================================================
+
+.sticky {
+	position: fixed;
+	left: 0;
+	top: 2.5rem;
+	width: 100%;
+	z-index: $zindex--navbar-sticky;
+	background-color: white;
+	.style--shadows & {
+		@include box-shadow();
+	}
+	.style--borders & {
+		@include border("bottom", "true");
+	}
+}
