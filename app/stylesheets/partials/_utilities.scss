@@ -3,29 +3,6 @@
 // =============================================================================
 
 //
-// Floats
-//
-
-.clearfix {
-	@include clearfix();
-}
-
-@each $breakpoint in map-keys($grid__breakpoints) {
-	@include media-breakpoint-up($breakpoint) {
-		.pull-#{$breakpoint}-left {
-			@include pull-left();
-		}
-		.pull-#{$breakpoint}-right {
-			@include pull-right();
-		}
-		.pull-#{$breakpoint}-none {
-			float: none !important;
-		}
-	}
-}
-
-
-//
 // Screenreaders
 //
 
@@ -105,32 +82,6 @@
 
 .inverse {
 	@include inverse-colors; // Force inverted color on text
-}
-
-// Overflow fading text // Todo move to components?
-
-.overflow__wrapper {
-	position: relative;
-}
-
-.overflow__scroller {
-	max-height: 8rem; // Adjust to your preference
-	overflow-y: hidden;
-	overflow-x: hidden;
-	margin-bottom: 0;
-	&:hover {
-		overflow-y: auto;
-	}
-	&::after {
-		background: linear-gradient(transparent 0%, white 75%);
-		bottom:0;
-		content: "";
-		height: 1rem;
-		left:0;
-		pointer-events: none; 
-		position: absolute;
-		width: 100%;
-	}
 }
 
 //
