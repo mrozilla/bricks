@@ -179,7 +179,7 @@ $sidebar__width:                   250px        !default;
 $zindex--navbar:					1000         !default;
 $zindex--dropdown:					1000         !default;
 $zindex--sidebar-fixed:				1020         !default;
-$zindex--navbar-sticky:				1030         !default;
+$zindex--navbar-sticky:				1020         !default;
 $zindex--navbar-fixed:				1030         !default;
 $zindex--modal-bg:					1040         !default;
 $zindex--modal:						1050         !default;
@@ -191,21 +191,28 @@ $zindex--tooltip:					1070         !default;
 // Transitions and animations
 // =============================================================================
 
-$easing--primary:					cubic-bezier(.6, .2, .1, 1)   !default;
-$easing--secondary:					cubic-bezier(.25, .1, .25, 1) !default;
+$easing--primary:					cubic-bezier(.6, .2, .1, 1)		!default;
+$easing--secondary:					cubic-bezier(.25, .1, .25, 1)	!default;
 
-$transition--primary-short:			all 100ms $easing--primary   !default;
-$transition--primary-long:			all 10s   $easing--primary   !default;
-$transition--secondary-short:		all 100ms $easing--secondary !default;
-$transition--secondary-long:		all 10s   $easing--secondary !default;
+$animation__duration--short:		250ms							!default;
+$animation__duration--medium:		1s								!default;
+$animation__duration--long:			10s								!default;
 
-$animation__delay:					.25s        				 !default;
-$transition__delay:					.25s        				 !default;
+$animation__delay--short:			50ms				 			!default;
+$animation__delay--medium:			250ms				 			!default;
+$animation__delay--long:			500ms				 			!default;
+
+$transition--primary-short:			all $animation__duration--short 	$easing--primary	!default;
+$transition--primary-medium:		all $animation__duration--medium	$easing--primary	!default;
+$transition--primary-long:			all $animation__duration--long		$easing--primary	!default;
+$transition--secondary-short:		all $animation__duration--short		$easing--secondary	!default;
+$transition--secondary-medium:		all $animation__duration--medium	$easing--secondary	!default;
+$transition--secondary-long:		all $animation__duration--long		$easing--secondary	!default;
 
 // =============================================================================
 // Box Shadows and Radii
 // =============================================================================
 
-$box-shadow__blur:					50px; // try out box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+$box-shadow__blur:					2rem; // try out box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 $border__radius:					.1rem; // TODO rewrite BEM
 $border__radius--large:				.25rem; // TODO rewrite BEM
