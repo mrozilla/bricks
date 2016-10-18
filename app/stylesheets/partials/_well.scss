@@ -6,7 +6,7 @@
     overflow: hidden;
     background-color: rgba(0,0,0,.025); // TODO change to $color__gray--lightest
     border-radius: $border__radius--large;
-    @include transition ($transition--primary-short);
+    transition: $transition--primary-short;
     &--padded {
         padding: $rhythm--y/2 $rhythm--x/2;
     }

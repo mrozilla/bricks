@@ -13,7 +13,7 @@
   border-radius: $border--radius;
   padding: .25rem .5rem;
   cursor: pointer;
-  @include transition ($transition--secondary-short);
+  transition: $transition--secondary-short;
   &:hover {
     text-decoration: none;
   }
@@ -106,7 +106,7 @@
     content: "";
     border: 2px solid $color__brand--primary;
     border-radius: $border--radius;
-    @include transition (inherit);
+    transition: inherit;
   }
   &:hover:after {
     border: 2px solid lighten($color__brand--primary, 5%);
@@ -207,7 +207,7 @@
     @include absolute-stretch;
     content: "";
     border-bottom: 2px solid transparent;
-    @include transition (inherit);
+    transition: inherit;
   }
   &:hover:after {
     border-bottom: 2px solid lighten($color__brand--primary, 5%);
@@ -298,7 +298,7 @@
   & > span {
     display: block;
     margin-bottom: 0;
-    @include transition ($transition--secondary-short); 
+    transition: $transition--secondary-short; 
   }
   .button__visible {
     transform: translateY(0);

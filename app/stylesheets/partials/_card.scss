@@ -33,7 +33,7 @@
 		padding: $rhythm--y/2 $rhythm--x/2;
 	}
 	&--jumping {
-		@include transition ($transition--primary-short);
+		transition: $transition--primary-short;
 		&:hover {
 			.style--shadows & {
 				@include box-shadow(0,0,$box-shadow__blur*1.25);

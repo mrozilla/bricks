@@ -5,8 +5,8 @@
 .link {
 	color: $color__link;
 	position: relative;
+	transition: $transition--primary-short;
 	@include border ("bottom", "true");
-	@include transition ($transition--primary-short);
 	&:hover, &:focus, &:active {
 		text-decoration: none;
 		color: $color__link--hover;

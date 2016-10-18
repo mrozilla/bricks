@@ -35,7 +35,7 @@
 	margin: -4px 0 0 -4px;
 	background: #FFF;
 	border-radius: 50%;
-	@include animation('scroll-ani 3s linear infinite');
+	animation: scroll-ani 3s linear infinite;
 }
 
 .mouse-scroll .mouse-message {
@@ -43,7 +43,7 @@
 	color: transparent;
 	margin-top: -15px;
 	padding: 0;
-	@include animation('scroll-ani 3s linear infinite');
+	animation: scroll-ani 3s linear infinite;
 }
 
 .mouse-scroll:hover .mouse-message {

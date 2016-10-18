@@ -5,12 +5,12 @@
 .reveal {
 	&__title {
 		transform: translateY(100%);
-		@include transition ($transition--primary-short);
+		transition: $transition--primary-short;
 	}
 	&__content {
 		opacity: 0;
 		transform: translateY(100%);
-		@include transition ($transition--primary-short);
+		transition: $transition--primary-short;
 	}
 	&:hover {
 		.reveal__title {
