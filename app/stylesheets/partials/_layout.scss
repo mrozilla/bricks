@@ -11,20 +11,6 @@
 // =============================================================================
 
 .layout {
-	&__split {
-		width: 50vw;
-		position: fixed;
-		height: 100vh;
-		padding: 2rem;
-		& + & {
-			right: 0;
-			overflow-y: scroll; // has to be scroll, not auto
-			-webkit-overflow-scrolling: touch;
-		}
-	}
-}
-
-.layout {
 	&__wrapper {
 		display: flex;
 	}
@@ -35,7 +21,10 @@
 		overflow-y: auto; // has to be scroll, not auto
 		-webkit-overflow-scrolling: touch;
 		overflow-x: hidden;
-		@include transition ($transition--primary-short);
+		transition: $transition--primary-short;
+		&::-webkit-scrollbar {
+			display:none;
+		}
 		&--fixed {
 			position: fixed;
 			top: 0;
@@ -71,13 +60,62 @@
 	}
 	&__content {
 		flex: 1;
-		@include transition ($transition--primary-short);
+		transition: $transition--primary-short;
 		&--padded {
-			padding: 1rem 0;
+			padding: 5rem;
 		}
 	}
 	.navbar--fixed-top ~ &__wrapper > &__content {
 		margin-top: 2.5rem; // Adjust for overlaying content when fixed navbar is present
+	}
+
+	&__split {
+		width: 50vw;
+		position: fixed;
+		height: 100vh;
+		padding: 2rem;
+		& + & {
+			right: 0;
+			overflow-y: scroll; // has to be scroll, not auto
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+}
+
+//
+// Cardtainer layout
+//
+
+.layout--cardtainer {
+	.layout__body {
+		height: 92.5vh;
+		display: flex;
+		.layout__navbar {
+			background-color: transparent;
+			box-shadow: none;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 1rem 1rem 0 1rem;
+			width: 12.5vw;
+		}
+		.layout__cardtainer {
+			flex: 1;
+			border-radius: 0 0 0 1rem;
+			overflow-y: scroll;
+			// padding: 1rem;
+			&::-webkit-scrollbar {
+				display: none;
+			}
+			@include box-shadow();
+		}
+	}
+	.layout__footer {
+		height: 7.5vh;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding: 1rem;
 	}
 }
 
