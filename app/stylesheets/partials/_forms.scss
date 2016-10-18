@@ -11,6 +11,10 @@
 // Form elements
 
 .form {
+    &--inline {
+        display: flex;
+        align-items: flex-end;
+    }
     // position: relative;
     // &--inline {
     //     display: inline-block;
@@ -63,8 +67,8 @@
     }
     &__field {
         display: inline-block;
-        margin-right: 1rem;
         position: relative;
+        flex: 1;
         .form--vertical & {
             display: block;
             margin-right: 0; // TOOD get rid of resetting this value
@@ -77,6 +81,9 @@
             display: block;
             margin-right: 0;
             margin-top: -1px;
+        }
+        &:not(only-of-type):not(last-of-type) {
+            margin-right: 1rem;
         }
     }
     &__controls {
