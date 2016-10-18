@@ -2,14 +2,14 @@
 // Animations
 // =============================================================================
 
-@include animation__delay (20);
-@include transition__delay (20);
+@include animation__delay (50); // TODO make sure they behave well with unCSS
+@include transition__delay (50);
 
 //
 // Fade-in animation
 //
 
-@include keyframes(fadeIn) {
+@keyframes fadeIn {
 	0%    { opacity: 0; }
 	100%  { opacity: 1; }
 }
@@ -18,7 +18,7 @@
 //	Scroll animation
 //
 
-@include keyframes(scroll-ani) {
+@keyframes scroll-ani {
 	0%    { opacity: 1; top: 29%; }
 	15%   { opacity: 1; top: 50%; }
 	50%   { opacity: 0; top: 50%; }
@@ -29,81 +29,88 @@
 // Bounce animation
 //
 
-@include keyframes(bounce--gentle) {
+@keyframes bounce--gentle {
 	0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
 	40% { transform: translateY(-2px); }
 	60% { transform: translateY(-1px); }
 }
 
 //
-// Error animation
+// Animation classes
 //
 
-@include keyframes(error) {
+.error {
+	animation: error .5s $easing--primary;
+}
+
+@keyframes error {
 	8%, 41% {
-		transform: translateX(-10px);
+		transform: translateX(-1rem);
 	}
 	25%, 58% {
-		transform: translateX(10px);
+		transform: translateX(1rem);
 	}
 	75% {
-		transform: translateX(-5px);
+		transform: translateX(-0.5rem);
 	}
 	92% {
-		transform: translateX(5px);
+		transform: translateX(0.5rem);
 	}
 	0%, 100% {
 		transform: translateX(0);
 	}
 }
 
-.error {
-	@include animation ('error .5s #{$easing--primary}');
-}
-
-//
-// Intro animations
-//
-
 .animate {
-	visibility: hidden;
-	&__intro {
+	animation-fill-mode: backwards;
+	&--intro {
+		animation-delay: 1000ms;
+	}
+	&__fade {
+		animation-name: fade;
+		animation-duration: $animation__duration--short;
+		animation-easing: $easing--primary;
 		&--down {
-			@include animation ('animate__intro--down .75s #{$easing--primary}');
+			animation-name: fade--down;
+			animation-duration: $animation__duration--short;
+			animation-timing-function: $easing--primary;
 		}
 		&--up {
-			@include animation ('animate__intro--up .75s #{$easing--primary}');
+			animation-name: fade--up;
+			animation-duration: $animation__duration--short;
+			animation-timing-function: $easing--primary
 		}
 		&--left {
-			@include animation ('animate__intro--left .75s #{$easing--primary}');
+			animation-name: fade--left;
+			animation-duration: $animation__duration--short;
+			animation-timing-function: $easing--primary;
 		}
 		&--right {
-			@include animation ('animate__intro--right .75s #{$easing--primary}');
-		}
-		&--fade {
-			@include animation ('animate__intro--fade .75s #{$easing--primary}');
+			animation-name: fade--right;
+			animation-duration: $animation__duration--short;
+			animation-timing-function: $easing--primary;
 		}
 	}
 }
 
-@include keyframes(animate__intro--down) {
-	0%   { transform: translateY(-100%); }
-	100% { transform: translateY(0%); }
+@keyframes fade--down {
+	0%   { transform: translateY(-100%); opacity: 0; }
+	100% { transform: translateY(0%); opacity: 1; }
 }
 
-@include keyframes(animate__intro--up) {
-	0%   { transform: translateY(100%); }
-	100% { transform: translateY(0%); }
+@keyframes fade--up {
+	0%   { transform: translateY(100%); opacity: 0; }
+	100% { transform: translateY(0%); opacity: 1; }
 }
-@include keyframes(animate__intro--left) {
-	0%   { transform: translateX(-100%); }
-	100% { transform: translateX(0%); }
+@keyframes fade--left {
+	0%   { transform: translateX(-100%); opacity: 0; }
+	100% { transform: translateX(0%); opacity: 1; }
 }
-@include keyframes(animate__intro--right) {
-	0%   { transform: translateX(100%); }
-	100% { transform: translateX(0%); }
+@keyframes fade--right {
+	0%   { transform: translateX(100%); opacity: 0; }
+	100% { transform: translateX(0%); opacity: 1; }
 }
-@include keyframes(animate__intro--fade) {
+@keyframes fade {
 	0%   { opacity:0; }
 	100% { opacity:1; }
 }
