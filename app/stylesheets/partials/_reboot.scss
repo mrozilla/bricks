@@ -147,17 +147,8 @@ blockquote {
 //
 
 a {
-	color: $font__color--body;
+	color: inherit;
 	text-decoration: none;
-
-	// @include hover-focus {
-	// 	color: $link__color--hover;
-	// 	text-decoration: $link__hover--decoration;
-	// }
-
-	// &:focus {
-	// 	@include tab-focus();
-	// }
 }
 
 
