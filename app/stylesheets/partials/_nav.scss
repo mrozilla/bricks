@@ -2,51 +2,56 @@
 // Nav
 // =============================================================================
 
-.nav__link {
-	display: flex;
-	align-items: center;
-	font-size: .5rem;
-	line-height: 1rem;
-	font-weight: $font__weight--bold;
-	color: $navbar__color;
-	@include transition($transition--primary-short);
-	@include hover-focus {
-		color: $navbar__color--hover;
-	}
-	&--uppercase {
-		text-transform: uppercase;
-		letter-spacing: .1em;
-	}
-	&--large {
-		font-size: .75rem;
-		font-weight: $font__weight--regular;
-	}
-	&--padding {
-		padding: $rhythm--y/2 0;
-	}
-	&--underline {
-		position: relative;
-		&:after {
+.nav {
+	&__link {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		font-size: .5rem;
+		white-space: nowrap;
+		font-weight: $font__weight--bold;
+		color: $navbar__color;
+		transition: $transition--primary-short;
+		@include hover-focus {
+			color: $navbar__color--hover;
+		}
+		&--uppercase {
+			text-transform: uppercase;
+			letter-spacing: .1em;
+		}
+		&--large {
+			font-size: .75rem;
+			font-weight: $font__weight--regular;
+		}
+		&--padded {
+			padding: $rhythm--y/2 0;
+		}
+		&--underline {
+			position: relative;
+			&:after {
 				@include absolute-stretch;
 				content: "";
 				border-bottom: 2px solid transparent;
 				pointer-events: none;
-				@include transition ($transition--primary-short);     
+				transition: $transition--primary-short;     
+			}
+			&.is--active:after {
+				border-bottom: 1px solid lighten($color__brand--primary, 5%); // TODO
 			}
 			&:hover:after {
 				border-bottom: 2px solid lighten($color__brand--primary, 5%);
+			}
 		}
-	}
-	&--slide {
-		@include hover-focus-active() {
-			transform: translateX($rhythm--x/4);
+		&--slide {
+			@include hover-focus-active() {
+				transform: translateX($rhythm--x/4);
+			}
 		}
-	}
-}
-
-@include media-breakpoint-up(lg) {
-	.navbar .nav__link + .nav__link, .button--navbar {
-		margin-left: $rhythm--x;
+		@include media-breakpoint-up(lg) {
+			.navbar & + &, .navbar & + .button--navbar {
+				margin-left: $rhythm--x;
+			}
+		}
 	}
 }
 
@@ -55,85 +60,84 @@
 // Kickstart any navigation component with a set of style resets. Works with
 // `<nav>`s or `<ul>`s.
 
-.nav {
-	display: flex; // Todo fix conflict
-	flex: 1 0 100%;
-	justify-content: space-between;
-	list-style: none;
-}
+// .nav {
+// 	display: flex; // Todo fix conflict
+// 	flex: 1 0 100%;
+// 	justify-content: space-between;
+// 	list-style: none;
+// }
 
 //
 // Navigation components
 //
 
-.nav {
-	display:block;
-	position:absolute;
-	width:100%;
-	margin: 0 -.5rem; // Todo find a better way
-	transition:transform 0.4s ease-in-out;
-	transform:translateY(-100vh);
-	padding-left: 0; // Todo find a better way
-	z-index: -1;
+// .nav {
+// 	display:block;
+// 	position:absolute;
+// 	width:100%;
+// 	margin: 0 -.5rem; // Todo find a better way
+// 	transition:transform 0.4s ease-in-out;
+// 	transform:translateY(-100vh);
+// 	padding-left: 0; // Todo find a better way
+// 	z-index: -1;
 
-	@include media-breakpoint-up(md) {
+// 	@include media-breakpoint-up(md) {
+// 		transform:translateY(0);
+// 		position:relative;
+// 		display:flex;
+// 		justify-content:flex-end;
+// 		z-index: inherit;
+// 		&--centered {
+// 			justify-content: center;
+// 		}
+// 	}
+// }
 
-		transform:translateY(0);
-		position:relative;
-		display:flex;
-		justify-content:flex-end;
-		z-index: inherit;
-		&--centered {
-			justify-content: center;
-		}
-	}
-}
+// .nav.navigation-open {
+// 	transform:translateY(0);
+// }
 
-.nav.navigation-open {
-	transform:translateY(0);
-}
+// .nav__item {
+// 	position: relative;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	background-color: rgba(255,255,255,.95);
 
-.nav__item {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: rgba(255,255,255,.95);
+// 	@include media-breakpoint-up(md) {
 
-	@include media-breakpoint-up(md) {
+// 		background-color: transparent;
+// 		&:not(:last-child) {
+// 			margin-right: 1rem;
+// 		}
+// 	}
+// }
 
-		background-color: transparent;
-		&:not(:last-child) {
-			margin-right: 1rem;
-		}
-	}
-}
+// .nav--mobile {
+// 	display:flex;
+// 	align-items: center;
 
-.nav--mobile {
-	display:flex;
-	align-items: center;
+// 	@include media-breakpoint-up(md) {
+// 		display:none;
+// 		visibility:hidden;
+// 	}
+// }
 
-	@include media-breakpoint-up(md) {
-		display:none;
-		visibility:hidden;
-	}
-}
+// .nav--container {
+// 	display:flex;
+// 	flex:1 0 100%;
 
-.nav--container {
-	display:flex;
-	flex:1 0 100%;
+// 	@include media-breakpoint-up(md) {
 
-	@include media-breakpoint-up(md) {
+// 		flex:1 1 90%;
+// 		flex-direction:row;
+// 		justify-content:flex-end;
+// 	}
+// }
 
-		flex:1 1 90%;
-		flex-direction:row;
-		justify-content:flex-end;
-	}
-}
-
-.nav__logo {
-	display:flex;
-	//flex:2 0 20%;
-	//justify-content:flex-start;
-	//align-items:center;
-}
+// .nav__logo {
+// 	display:flex;
+// 	//flex:2 0 20%;
+// 	//justify-content:flex-start;
+// 	//align-items:center;
+// }
