@@ -4,36 +4,31 @@
 
 // Table of Contents
 //
+// Animation
 // Layout
 // Styling
 // Typography
-// Transitions and Animations
 // Utilities
+
+// Animation
+@import "animation/animations";
+@import "animation/transforms";
 
 // Layout
-@import "absolute-positioning";
-@import "clearfix";
-@import "grid-framework";
-@import "grid";
-@import "pulls";
+@import "layout/absolute-positioning";
+@import "layout/grid-framework";
+@import "layout/grid";
 
 // Styling
-@import "box-shadow";
-@import "border";
-@import "colour-scheme";
+@import "styling/box-shadow";
+@import "styling/border";
+@import "styling/colour-scheme";
 
 // Typography
-@import "font-face";
-@import "typography";
-@import "images";
-@import "sr-only";
-
-// Transitions and Animations
-@import "transforms";
-@import "transitions-animations";
+@import "typography/font-face";
+@import "typography/typography";
+@import "typography/sr-only";
 
 // Utilities
-@import "breakpoints";
-@import "hover";
-@import "tab-focus";
-@import "text-manipulation";
+@import "utility/breakpoints";
+@import "utility/hover";

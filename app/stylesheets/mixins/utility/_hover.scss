@@ -1,5 +1,9 @@
+// =============================================================================
+// Hover
+// =============================================================================
+
 @mixin hover {
-	@if $enable--hover-media-query {
+	@if $enable--hover-media-query { // TODO remove?
 		// See Media Queries Level 4: http://drafts.csswg.org/mediaqueries/#hover
 		// Currently shimmed by https://github.com/twbs/mq4-hover-shim
 		@media (hover: hover) {
