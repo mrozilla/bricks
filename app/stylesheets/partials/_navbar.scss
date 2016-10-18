@@ -11,8 +11,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	transition: $transition--secondary-short;
 	@include transform(translateY(0));
-	@include transition($transition--secondary-short);
 	& .container, & .container--full {
 		display:flex;
 		justify-content: space-between;
@@ -76,7 +76,7 @@
 //     border-radius: .5rem;
 //     padding: .1rem .25rem;
 //     text-align: center;
-//     @include animation('bounce--gentle 1s 5s infinite');
+//     animation: bounce--gentle 1s 5s infinite;
 //   }
 // }
 
@@ -128,11 +128,39 @@
 	}
 }
 
+.navbar__dropdown {
+	background-color: $navbar__bg;
+	display: none;
+	padding: 0 1rem;
+	position: absolute;
+	right:0;
+	top: 100%;
+	.nav__link:hover &, .nav__link:focus &, .nav__link:active & {
+		display: block;
+		& ~ a:after {
+			content: " ◄";
+		}
+	}
+	& .nav__link {
+		margin: 0 !important; // TODO avoid this cascade
+		min-height: 2rem;
+	}
+	.style--shadows & {
+		@include box-shadow();
+	}
+	.style--borders & {
+		@include border("bottom", "true");
+	}
+	& ~ a:after {
+		content: " ▼";
+	}
+}
+
 // Navbar colour schemes
 //
 // Set two styles of navbars, dark and light, with corresponding colours
 
-.navbar--light {
+.navbar--light, {
 	background-color: $navbar__bg;
 	.style--shadows & {
 		@include box-shadow();
