@@ -5,9 +5,8 @@
 .input {
 	display: inline-block;
 	& input {
-		position: absolute;
-		z-index: -1;
 		opacity: 0;
+		@include stretch();
 	}
 	& + & {
 		margin-top: 0.5rem;
