@@ -11,22 +11,25 @@ img {
 .image {
 	position: relative;
 	display: block;
-	// background-color: $color__gray--lightest; // Todo resolve
-	@include transition($transition--primary-short);
+	transition: $transition--primary-short;
+	
+	// Image ratios
+
 	&.image--1to1 {
-		padding-bottom: 100%; // Provide various ratios
+		padding-bottom: 100%;
 	}
-
 	&.image--2to1 {
-		padding-bottom: 200%; // Provide various ratios
+		padding-bottom: 200%;
 	}
-
 	&.image--1to2 {
-		padding-bottom: 50%; // Provide various ratios
+		padding-bottom: 50%;
 	}
 	&.image--1to4 {
-		padding-bottom: 25%; // Provide various ratios
+		padding-bottom: 25%;
 	}
+
+	// Various sources
+
 	&__src {
 		position: absolute;
 		width: 100%;
@@ -36,69 +39,52 @@ img {
 			object-fit: contain;
 		}
 	}
+
+	// Image modifiers
+
 	&--avatar {
 		display: inline;
 		width: 2rem;
 		height: 2rem;
 		margin-right: .5rem; // Todo make sure it doesn't break stuff
-		background-color: $color__brand--primary; // Todo remove
 		&-rounded {
 			border-radius: 50%;
 		}
 	}
 	&--expanded {
 		@include media-breakpoint-up(lg) {
-            transform: scale(1.5);
-    		cursor: zoom-out !important; // TODO find a better way
-        }
+			transform: scale(1.5);
+			cursor: zoom-out !important; // TODO find a better way
+		}
+	}
+	&--darkened:after {
+		content: "";
+		background-color: transparentize($color__gray--dark, .5);
+		@include absolute-stretch;
+	}
+	&--grayscale {
+		filter: grayscale(1);
+		@include absolute-stretch;
+	}
+	&--overlay {
+		mix-blend-mode: hard-light;
+		opacity: .1;
+	}
+	&--tinted:after {
+		content: "";
+		background-color: transparentize($color__brand--primary, .5);
+		@include absolute-stretch;
+	}
+	&--background {
+		// background-color: $color__gray;
+		background-size: cover;
+		background-position: center;
+		@include absolute-stretch;
+		// animation: fade 2s ease-in; // TODO fucks up for some reason
+		& ~ * {
+			color: white;
+		}
 	}
 }
 
-.fullscreen__image {
-	@extend .hero__image;
-	overflow: hidden;
-	@include animation ('hero--fadeIn 2s ease-in');
-	&--left {
-		width: 50%;
-		background-position: right top;
-	}
-	&--right {
-		width: 50%;
-		right:0;
-		left: auto;
-		background-position: left top;
-	}
-}
 
-.fullscreen:hover .fullscreen__image {
-	@include transform(scale(1.1));
-}
-
-.image--darkened:after {
-	content: "";
-	background-color: transparentize($color__gray--dark, .5);
-	@include absolute-stretch;
-}
-
-.image--background {
-	background-color: $color__gray;
-	background-size: cover;
-	background-position: center;
-	@include absolute-stretch;
-	@include animation ('hero--fadeIn 2s ease-in');
-	& ~ * {
-		color: white;
-	}
-}
-
-#logo { // TODO change to class
-	width: $rhythm--x*2;
-	height: $rhythm--y*2;
-	overflow: visible;
-	opacity: .75;
-	@include transition($transition--primary-short);
-}
-
-#logo:hover { // TODO change to class
-	opacity: 1;
-}
