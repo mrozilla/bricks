@@ -22,8 +22,6 @@
         script.src = url;
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
     }
-    // Load jQuery async
-    loadScript("https://code.jquery.com/jquery-3.0.0.min.js", function () {
-      loadScript("/js/main.js");
-    });
+    // Load scripts async
+    loadScript("/js/main.js");
 </script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('app/partials/head.tpl', {
+	"title": "Bricks—the modular CSS framework",
+	"description": "TODO"
+})
+
+<body class="style--shadows">
+
+		<div class="layout layout--cardtainer">
+			<div class="layout__body">
+				<div class="layout__navbar">
+					<div class="navbar__logo">
+						Logo
+					</div>
+					<div class="navbar__nav">
+						<h2 class="h5 font__weight--bold">Introduction</h2>
+						<a class="nav__link nav__link--slide nav__link--uppercase" href="#">Quick start</a>
+
+						<h2 class="h5 font__weight--bold divider--top">Usage</h2>
+						<a class="nav__link nav__link--slide nav__link--uppercase" href="#">Variables</a>
+						<a class="nav__link nav__link--slide nav__link--uppercase" href="#">Custom build</a>
+						<a class="nav__link nav__link--slide nav__link--uppercase" href="#">File structure</a>
+					</div>
+					<div class="navbar__footer">
+						Search
+					</div>
+				</div>
+				<div class="layout__cardtainer animate fade--down">
+					<section class="highlight flex" style="height:100%;">
+						<div class="flex__content">
+							<div class="container--full">
+								<div class="row">
+									<div class="col">
+										<h1 class="h1--700">Human interface design</h1>
+										<h2 class="h3 rhythm">Understanding user expectations</h2>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu turpis at erat imperdiet vestibulum. Duis in blandit lectus. Sed vel elit magna. Phasellus cursus felis a sem laoreet sodales. Aliquam posuere ac mauris ut ultrices. Phasellus vehicula enim et felis pretium, a tempus risus gravida. Vivamus ut tortor turpis.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="flex" style="height:100%;">
+						<div class="flex__content">
+							<div class="container--full">
+								<div class="row">
+									<div class="col">
+										<h1 class="h1--700">Human interface design</h1>
+										<h2 class="h3 rhythm">Understanding user expectations</h2>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu turpis at erat imperdiet vestibulum. Duis in blandit lectus. Sed vel elit magna. Phasellus cursus felis a sem laoreet sodales. Aliquam posuere ac mauris ut ultrices. Phasellus vehicula enim et felis pretium, a tempus risus gravida. Vivamus ut tortor turpis.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+			<div class="layout__footer">
+				Follow us on social media
+			</div>
+		</div>
+
+	@@include('app/partials/scripts.tpl')
+
+</body>

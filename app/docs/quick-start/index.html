@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('app/partials/head.tpl', {
+	"title": "Bricks—the modular CSS framework",
+	"description": "TODO"
+})
+
+<body class="style--shadows">
+
+	@@include('app/partials/nav.tpl', {
+		"hiding": "navbar--hiding",
+		"fixed": "navbar--fixed-top",
+		"animate": "fade--down"
+		
+
+<h2>Using Origin</h2>
+			<h3>Quick start</h3>
+			<p>Looking to <span class="tag">quickly</span> add Origin to your project? <a class="link" href="file:///developer/sass/origin/stylesheets/origin__typography.css" download>Download</a> the origin__typography.css and place it in your project's css folder.
+
+			Copy-paste the stylesheet <code data-lang="html">&lt;link></code> into your <code data-lang="html">&lt;head></code> after all other stylesheets to load the CSS.</p>
+			<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;file:///yourproject/css/origin__typography.css&quot;&gt;</code></pre>
+			<p>Don't forget to update the path to match your folder structure. And that’s it—you’re on your way to a beautiful Origin typography in your projects.</p>
+
+		@@include('app/partials/scripts.tpl')
+
+</body>
+</html>

@@ -9,23 +9,23 @@
 <body class="style--shadows">
 
 	@@include('app/partials/nav.tpl', {
-		"fixed": "navbar--fixed-top"
+		"fixed": "navbar--fixed-top",
+		"hiding": "",
+		"animate": "animate animate__fade--down"
 	})
 
-	<section class="hero flex fullscreen animate__intro--up"><anchor name="home"></anchor>
-		<div class="flex__top">
-			<div class="hero__image">
-			</div>
-		</div>
+	<section class="hero flex fullscreen"><anchor name="home"></anchor>
+		<div class="image--background image--grayscale image--overlay" style="background-image: url('https://pioneers.io/wp-content/uploads/2015/11/20160525-2033-Michael-Holmes-_DSC8224-Edit.jpg')"></div>
+		
 		<div class="flex__content">
-			<h1 class="h1--boom animate__intro--right">Bricks</h1>
-			<h2 class="h5 animate__intro--left">The modular CSS framework.</h2>
+			<h1 class="h1--boom h1--700 animate animate--intro animate__fade--right">Bricks</h1>
+			<h2 class="h5 animate animate--intro animate__fade--left">The modular CSS framework.</h2>
 		</div>
 		<div class="flex__bottom">
 			
-			@@include('app/partials/scroll.tpl', {
-				"link": "#features"
-			})
+		@@include('app/partials/scroll.tpl', {
+			"link": "#features"
+		})
 
 		</div>
 	</section>
@@ -63,139 +63,102 @@
 		</div>
 	</section>
 
-	<section><anchor name="documentation"></anchor>
-		<div class="container rhythm--children">
-			<h2>Using Origin</h2>
-			<h3>Quick start</h3>
-			<p>Looking to <span class="tag">quickly</span> add Origin to your project? <a class="link" href="file:///developer/sass/origin/stylesheets/origin__typography.css" download>Download</a> the origin__typography.css and place it in your project's css folder.
-
-			Copy-paste the stylesheet <code data-lang="html">&lt;link></code> into your <code data-lang="html">&lt;head></code> after all other stylesheets to load the CSS.</p>
-			<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;file:///yourproject/css/origin__typography.css&quot;&gt;</code></pre>
-			<p>Don't forget to update the path to match your folder structure. And that’s it—you’re on your way to a beautiful Origin typography in your projects.</p>
-			<h3>Typography</h3>
-			<p>All of Origin's typography is completely modular. This means you can call the html element as usual:</p>
-			<pre><code>&lt;foo&gt;&lt;/foo&gt;</code></pre>
-			<p>Or you can use the element name as a class name. This will come in handy if you for example want to match the font styling of a heading but still want your text to be displayed inline:</p>
-			<pre><code>&lt;bar class=&quot;foo&quot;&gt;&lt;/bar&gt;</code></pre>
-			<h4 class="font--weight-bold">Headings</h4>
-			<p>All HTML headings, <code data-lang="html">&lt;h1></code> through <code data-lang="html">&lt;h6></code>, are available, including the .h1 through .h6 classes. An extra class .h1--boom is added for extra large titles.</p>
-			<div class="code__example"><h1 class="h1--boom">Boom</h1>
-						<h1>Heading 1</h1>
-						<h2>Heading 2</h2>
-						<h3>Heading 3</h3>
-						<h4>Heading 4</h4>
-						<h5>Heading 5</h5>
-						<h6>Heading 6</h6>
-						<pre><code>&lt;h1 class=&quot;h1--boom&quot;&gt;Boom&lt;/h1&gt;
-&lt;h1&gt;Heading 1&lt;/h1&gt;
-&lt;h2&gt;Heading 2&lt;/h2&gt;
-&lt;h3&gt;Heading 3&lt;/h3&gt;
-&lt;h4&gt;Heading 4&lt;/h4&gt;
-&lt;h5&gt;Heading 5&lt;/h5&gt;
-&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+	<section class="fullscreen flex">
+		<div class="flex__content">
+			<div id="sticky">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="tabs__control">
+								<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline">Menu 1</p>
+								<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline">Menu 2</p>
+								<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline">Menu 3</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<p>And here's an example of mixing it up with the class names.</p>
-			<div class="code__example">
-				<h2 class="h4">I look like Heading 4!</h2>
-				<h4 class="h2">I look like Heading 2!</h4>
-				<pre><code class="code">&lt;h2 class=&quot;h4&quot;&gt;I look like Heading 4!&lt;/h2&gt;
-&lt;h4 class=&quot;h2&quot;&gt;I look like Heading 2!&lt;/h4&gt;</code></pre>
+			<div class="container">
+				<div class="row row--centered">
+					<div class="col-lg-6">
+						<div class="tabs card--padded" id="tabs1">
+							<div class="tabs__control rhythm">
+								<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline is--active">Tab 1</p>
+								<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline">Tab 2</p>
+								<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline">Tab 3</p>
+							</div>
+							<div class="tabs__content">
+								<div class="tabs__item animate__intro--fade is--active">
+										<h4 class="h4--700">
+											Hello world 1
+										</h4>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+										</p>
+									</div>
+								<div class="tabs__item animate__intro--fade">
+									<h4 class="h4--700">
+										Hello world 2
+									</h4>
+									<p>
+										Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+									</p>
+								</div>
+								<div class="tabs__item animate__intro--fade">
+									<h4 class="h4--700">
+										Hello world 3
+									</h4>
+									<p>
+										Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card card--padded">
+							<div class="tabs" id="tabs2">
+								<div class="tabs__control rhythm">
+									<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline is--active">Tab 1</p>
+									<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline">Tab 2</p>
+									<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline">Tab 3</p>
+								</div>
+								<div class="tabs__content">
+									<div class="tabs__item animate__intro--up is--active">
+										<h4 class="h4--700">
+											Hello world 1
+										</h4>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+										</p>
+									</div>
+									<div class="tabs__item animate__intro--up">
+										<h4 class="h4--700">
+											Hello world 2
+										</h4>
+										<p>
+											Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+										</p>
+										</div>
+									<div class="tabs__item animate__intro--up">
+										<h4 class="h4--700">
+											Hello world 3
+										</h4>
+										<p>
+											Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+											</p>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<h4 class="font--weight-bold">Body copy</h4>
-				<p>The base body copy has been optimised for legibility on both large and small screens. Simply call a <code data-lang="html">&lt;p></code> element or include a .p class.</p>
-				<div class="code__example">
-					<p class="rhythm">In eleifend mauris mauris, sed rutrum lectus mattis quis. Pellentesque volutpat orci ac accumsan tincidunt. Pellentesque ornare rutrum ligula quis eleifend. Duis malesuada nisl nec odio molestie, at eleifend nibh ullamcorper. Curabitur id facilisis ipsum, eget porttitor nisl.</p>
-					<p>Integer auctor neque hendrerit pretium bibendum. Mauris dapibus lectus a suscipit ornare. Donec pretium orci ac elit tincidunt, non aliquet est placerat. Maecenas vitae maximus ex. Phasellus finibus ipsum accumsan, lacinia erat nec, gravida nisl.</p>
-					<pre><code class="code">&lt;p&gt;(...)&lt;/p&gt;
-&lt;p class=&quot;p&quot;&gt;(...)&lt;/p&gt;</code></pre>
-				</div>
-				<p>Alternatively you can create a indented paragraph style, just like in old books and fancy magazines. Simply by wrapping the text in a .indent container of any type.</p>
-				<div class="code__example">
-					<div class="indent">
-						<p>In eleifend mauris mauris, sed rutrum lectus mattis quis. Pellentesque volutpat orci ac accumsan tincidunt. Pellentesque ornare rutrum ligula quis eleifend. Duis malesuada nisl nec odio molestie, at eleifend nibh ullamcorper. Curabitur id facilisis ipsum, eget porttitor nisl.</p>
-						<p>Integer auctor neque hendrerit pretium bibendum. Mauris dapibus lectus a suscipit ornare. Donec pretium orci ac elit tincidunt, non aliquet est placerat. Maecenas vitae maximus ex. Phasellus finibus ipsum accumsan, lacinia erat nec, gravida nisl.</p>
-					</div>
-					<pre><code class="code">&lt;foo class=&quot;indent&quot;&gt;
-&lt;p&gt;(...)&lt;/p&gt;
-&lt;p class=&quot;p&quot;&gt;(...)&lt;/p&gt;
-&lt;foo&gt;</code></pre>
-				</div>
-				<h4 class="font--weight-bold">Links</h4>
-				<p>Links are stripped the inconsistent browser underline and styled with a customised underline which respects the descenders of the characters. Just include the .link class and you're good to go!</p>
-				<div class="code__example">
-						<p class="rhythm"><a href="#" class="link">I'm a typographically beautiful link!</a></p>
-					<pre><code class="code">&lt;a href=&quot;#&quot; class=&quot;link&quot;&gt;I'm a typographically beautiful link!&lt;/a&gt;</code></pre>
-				</div>
-				<h4 class="font--weight-bold">Utility classes</h4>
-				<p>There are several utility classes baked in Origin which make it easy to manipulate the text should the need arise.</p>
-				<div class="code__example">
-					<p class="text__xs--left rhythm">Left aligned text on all viewport sizes.</p>
-					<p class="text__xs--center">Center aligned text on all viewport sizes.</p>
-					<p class="text__xs--right">Right aligned text on all viewport sizes.</p>
-					<p class="text__sm--left">Left aligned text on viewports sized SM (544px) or wider.</p>
-					<p class="text__md--left">Left aligned text on viewports sized MD (768px) or wider.</p>
-					<p class="text__lg--left">Left aligned text on viewports sized LG (992px) or wider.</p>
-					<p class="text__xl--left">Left aligned text on viewports sized XL (1200px) or wider.</p>
-
-					<p class="text--lowercase">Lowercased text.</p>
-					<p class="text--uppercase">Uppercased text.</p>
-					<p class="text--capitalize">CapiTalised text.</p>
-
-					<p class="font--weight-bold">Bold text.</p>
-					<p class="font--weight-normal">Normal weight text.</p>
-					<p class="font--italic">Italicized text.</p>
-					<pre><code class="code">&lt;p class=&quot;text__xs--left&quot;&gt;Left aligned text on all viewport sizes.&lt;/p&gt;
-&lt;p class=&quot;text__xs--center&quot;&gt;Center aligned text on all viewport sizes.&lt;/p&gt;
-&lt;p class=&quot;text__xs--right&quot;&gt;Right aligned text on all viewport sizes.&lt;/p&gt;
-&lt;p class=&quot;text__sm--left&quot;&gt;Left aligned text on viewports sized SM (544px) or wider.&lt;/p&gt;
-&lt;p class=&quot;text__md--left&quot;&gt;Left aligned text on viewports sized MD (768px) or wider.&lt;/p&gt;
-&lt;p class=&quot;text__lg--left&quot;&gt;Left aligned text on viewports sized LG (992px) or wider.&lt;/p&gt;
-&lt;p class=&quot;text__xl--left&quot;&gt;Left aligned text on viewports sized XL (1200px) or wider.&lt;/p&gt;
-
-&lt;p class=&quot;text--lowercase&quot;&gt;Lowercased text.&lt;/p&gt;
-&lt;p class=&quot;text--uppercase&quot;&gt;Uppercased text.&lt;/p&gt;
-&lt;p class=&quot;text--capitalize&quot;&gt;CapiTalised text.&lt;/p&gt;
-
-&lt;p class=&quot;font--weight-bold&quot;&gt;Bold text.&lt;/p&gt;
-&lt;p class=&quot;font--weight-normal&quot;&gt;Normal weight text.&lt;/p&gt;
-&lt;p class=&quot;font--italic&quot;&gt;Italicized text.&lt;/p&gt;</code></pre>
-				</div>
-			<h4 class="font--weight-bold">Rhythm</h4>
-			<p>Last but not least, the beauty of Origin—the vertical rhythm. All elements of Origin are aligned to a baseline grid defined by the size of the font in <code>&lt;html&gt;</code> and have zero margins by default, everything is a carefully calculated mix of line-height and padding-top, fully responsive to the changes of the font size.</p>
-			<p>Should you wish to add a little bit of white space in your designs, simply use a .rhythm class on a container. The container itself and all its children will get a calculated vertical margin.</p>
-			<div class="code__example">
-					<div class="rhythm--none">
-						<h4>Heading4</h4>
-						<h6>Heading6</h6>
-						<p>In eleifend mauris mauris, sed rutrum lectus mattis quis.</p>
-					</div>
-					<div class="rhythm">
-						<h4>Heading4</h4>
-						<h6>Heading6</h6>
-						<p>In eleifend mauris mauris, sed rutrum lectus mattis quis.</p>
-					</div>
-					<div>
-						<h4 class="rhythm--none">Heading4</h4>
-						<h6 class="rhythm--none">Heading6</h6>
-						<p class="rhythm">In eleifend mauris mauris, sed rutrum lectus mattis quis.</p>
-					</div>
-					<pre><code class="code">&lt;div class=&quot;&quot;&gt;
-	&lt;h4&gt;Heading4&lt;/h4&gt;
-	&lt;h6&gt;Heading6&lt;/h6&gt;
-	&lt;p&gt;In eleifend mauris mauris, sed rutrum lectus mattis quis.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;rhythm&quot;&gt;
-	&lt;h4&gt;Heading4&lt;/h4&gt;
-	&lt;h6&gt;Heading6&lt;/h6&gt;
-	&lt;p&gt;In eleifend mauris mauris, sed rutrum lectus mattis quis.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div&gt;
-	&lt;h4&gt;Heading4&lt;/h4&gt;
-	&lt;h6&gt;Heading6&lt;/h6&gt;
-	&lt;p class=&quot;rhythm&quot;&gt;In eleifend mauris mauris, sed rutrum lectus mattis quis.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-				</div>
 		</div>
+	</section>
+
+	<section><anchor name="documentation"></anchor>
+		
 	</section>
 	<section class="fullscreen">
 		<anchor name="cta">
@@ -763,27 +726,20 @@
 
 	<section class="flex fullscreen">
 		<div class="flex__content">
-			<div class="container text__xs--center">
-				<form class="form form--inline error">
-					<label class="form__label" for="name">Name</label>
-					<input name="name" type="text" class="form__input form__input--error" placeholder="Name*"></input>
-					<label class="form__error">Please fill in your name. This is a required field.</label>
+			<div class="container">
+				<form id="email-capture" action="?action=signup" method="post" class="form form--inline">
+					<div class="form__field">
+						<label class="input__label" for="email-capture__name">Name</label>
+						<input class="input input__text" type="text" name="email-capture__name" required>
+					</div>
+					<div class="form__field">
+						<label class="input__label" for="email-capture__email">Email</label>
+						<input class="input input__text" type="email" email="email-capture__email" required>
+					</div>
+					<div class="form__field">
+						<button class="button button--primary button--large button--full">Submit</button>
+					</div>
 				</form>
-				<form class="form form--inline">
-					<label class="form__label" for="surname">Surname</label>
-					<input name="surname" type="text" class="form__input" placeholder="Surname*"></input>
-					<label class="form__error">Please fill in your surname. This is a required field.</label>
-				</form>
-				<form class="form form--inline">
-					<label class="form__label" for="city">City</label>
-					<input name="city" type="text" class="form__input form__input--disabled" placeholder="City" disabled></input>
-				</form>
-				<form class="form form--inline">
-					<label class="form__label" for="email">Email address</label>
-					<input name="email" type="text" class="form__input" placeholder="Email address*"></input>
-					<label class="form__error">Please fill in your email address. This is a required field.</label>
-				</form>
-				<button class="button button--primary button--large">Submit</button>
 			</div>
 		</div>
 	</section>

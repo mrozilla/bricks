@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('app/partials/head.tpl', {
+	"title": "Bricks—the modular CSS framework",
+	"description": "TODO"
+})
+
+<body class="style--borders">
+
+	@@include('app/partials/nav.tpl', {
+		"hiding": "",
+		"fixed": "navbar--fixed-top",
+		"animate": "fade--down"
+	})
+
+	<div class="layout__wrapper">
+		
+	@@include('app/partials/sidebar.tpl')
+
+	<section class="layout__content layout__content--padded">
+
+		<div class="container--full">
+				
+			<h1 class="h1--700 rhythm">Typography</h1>
+			<p class="rhythm">All of Bricks' typography is completely modular. This means you can call the html element as usual:</p>
+			<pre class="rhythm"><code class="html">&lt;foo&gt;&lt;/foo&gt;</code></pre>
+			<p class="rhythm">Or you can use the element name as a class name. This will come in handy if you for example want to match the font styling of a heading but still want your text to be displayed inline:</p>
+			<pre class="rhythm"><code class="html">&lt;bar class=&quot;foo&quot;&gt;&lt;/bar&gt;</code></pre>
+			
+			<h2 class="h2--700 rhythm">Headings</h2>
+			<p class="rhythm">All HTML headings, <code class="html">&lt;h1></code> through <code class="html">&lt;h6></code>, are available, including the <code>.h1</code> through <code>.h6</code> classes. An extra class <code>.h1--boom</code> is added for extra large titles.</p>
+			<div class="snippet">
+				<div class="snippet__example">
+					<h1 class="h1--boom">Boom</h1>
+					<h1>Heading 1</h1>
+					<h2>Heading 2</h2>
+					<h3>Heading 3</h3>
+					<h4>Heading 4</h4>
+					<h5>Heading 5</h5>
+					<h6>Heading 6</h6>
+				</div>
+				<div class="snippet__code"><pre><code>&lt;h1 class=&quot;h1--boom&quot;&gt;Boom&lt;/h1&gt;
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+				</div>
+			</div>
+
+			<p class="rhythm">And here's an example of mixing it up with the class names.</p>
+			<div class="snippet">
+				<div class="snippet__example">
+					<h2 class="h4">I look like Heading 4!</h2>
+					<h4 class="h2">I look like Heading 2!</h4>
+				</div>
+				<div class="snippet__code"><pre><code class="html">&lt;h2 class=&quot;h4&quot;&gt;I look like Heading 4!&lt;/h2&gt;
+&lt;h4 class=&quot;h2&quot;&gt;I look like Heading 2!&lt;/h4&gt;</code></pre>
+				</div>
+			</div>
+
+			<h2 class="h2--700 rhythm">Body copy</h2>
+			<p class="rhythm">The base body copy has been optimised for legibility on both large and small screens. Simply call a <code class="html">&lt;p></code> element or include a <code>.p</code> class.</p>
+			<div class="snippet">
+				<div class="snippet__example">
+					<p>In eleifend mauris mauris, sed rutrum lectus mattis quis. Pellentesque volutpat orci ac accumsan tincidunt. Pellentesque ornare rutrum ligula quis eleifend. Duis malesuada nisl nec odio molestie, at eleifend nibh ullamcorper. Curabitur id facilisis ipsum, eget porttitor nisl.</p>
+					<span class="p">Integer auctor neque hendrerit pretium bibendum. Mauris dapibus lectus a suscipit ornare. Donec pretium orci ac elit tincidunt, non aliquet est placerat. Maecenas vitae maximus ex. Phasellus finibus ipsum accumsan, lacinia erat nec, gravida nisl.</span>
+				</div>
+				<div class="snippet__code"><pre><code class="code">&lt;p&gt;In eleifend[...]&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;Integer auctor[...]&lt;/span&gt;</code></pre>
+				</div>
+			</div>
+			<p class="rhythm">Alternatively you can create a indented paragraph style, just like in old books and fancy magazines. Simply by wrapping the text in a <code>.indent</code> container of any type.</p>
+			<div class="snippet">
+				<div class="snippet__example">
+					<div class="indent">
+						<p>In eleifend mauris mauris, sed rutrum lectus mattis quis. Pellentesque volutpat orci ac accumsan tincidunt. Pellentesque ornare rutrum ligula quis eleifend. Duis malesuada nisl nec odio molestie, at eleifend nibh ullamcorper. Curabitur id facilisis ipsum, eget porttitor nisl.</p>
+						<p>Integer auctor neque hendrerit pretium bibendum. Mauris dapibus lectus a suscipit ornare. Donec pretium orci ac elit tincidunt, non aliquet est placerat. Maecenas vitae maximus ex. Phasellus finibus ipsum accumsan, lacinia erat nec, gravida nisl.</p>
+					</div>
+				</div>
+				<div class="snippet__code"><pre><code>&lt;foo class=&quot;indent&quot;&gt;
+&lt;p&gt;In eleifend[...]&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;Integer auctor[...]&lt;/span&gt;
+&lt;foo&gt;</code></pre>
+				</div>
+			</div>
+
+			<h2 class="h2--700 rhythm">Rhythm</h2>
+			<p>All elements of Bricks are aligned to a baseline grid defined by the size of the font in <code>&lt;html&gt;</code> and have zero margins by default, everything is a carefully calculated mix of line-height and padding-top, fully responsive to the changes of the font size.</p>
+			<p class="rhythm">Should you wish to add a little bit of white space in your designs, simply use a <code>.rhythm</code> class on an element.</p>
+			<div class="snippet">
+				<div class="snippet__example">
+					<p class="rhythm">In eleifend mauris mauris, sed rutrum lectus mattis quis. Pellentesque volutpat orci ac accumsan tincidunt. Pellentesque ornare rutrum ligula quis eleifend. Duis malesuada nisl nec odio molestie, at eleifend nibh ullamcorper. Curabitur id facilisis ipsum, eget porttitor nisl.</p>
+					<span class="p">Integer auctor neque hendrerit pretium bibendum. Mauris dapibus lectus a suscipit ornare. Donec pretium orci ac elit tincidunt, non aliquet est placerat. Maecenas vitae maximus ex. Phasellus finibus ipsum accumsan, lacinia erat nec, gravida nisl.</span>
+				</div>
+				<div class="snippet__code"><pre><code class="code">&lt;p class=&quot;rhythm&quot;&gt;In eleifend[...]&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;Integer auctor[...]&lt;/span&gt;</code></pre>
+				</div>
+			</div>
+				
+			<h2 class="h2--700 rhythm">Utility classes</h2>
+			<p class="rhythm">There are several utility classes baked in Origin which make it easy to manipulate the text should the need arise.</p>
+			<div class="snippet">
+				<div class="snippet__example">
+					<p class="align__xs--left">Left aligned text on all viewport sizes.</p>
+					<p class="align__xs--center">Center aligned text on all viewport sizes.</p>
+					<p class="align__xs--right">Right aligned text on all viewport sizes.</p>
+					<p class="align__sm--right">Right aligned text on viewports sized SM (544px) or wider.</p>
+					<p class="align__md--right">Right aligned text on viewports sized MD (768px) or wider.</p>
+					<p class="align__lg--right">Right aligned text on viewports sized LG (992px) or wider.</p>
+					<p class="align__xl--right rhythm">Right aligned text on viewports sized XL (1200px) or wider.</p>
+
+					<p class="text--lowercase">Lowercased text.</p>
+					<p class="text--uppercase">Uppercased text.</p>
+					<p class="text--capitalize rhythm">Capitalised text.</p>
+
+					<p class="font__weight--bold">Bold text.</p>
+					<p class="font__weight--normal">Normal weight text.</p>
+					<p class="font--italic rhythm">Italicized text.</p>
+
+					<p class="label">Label</p>
+					<p class="subtitle">Subtitle</p>
+				</div>
+				<div class="snippet__code"><pre><code class="code">&lt;p class=&quot;align__xs--left&quot;&gt;Left aligned text on all viewport sizes.&lt;/p&gt;
+&lt;p class=&quot;align__xs--center&quot;&gt;Center aligned text on all viewport sizes.&lt;/p&gt;
+&lt;p class=&quot;align__xs--right&quot;&gt;Right aligned text on all viewport sizes.&lt;/p&gt;
+&lt;p class=&quot;align__sm--right&quot;&gt;Right aligned text on viewports sized SM (544px) or wider.&lt;/p&gt;
+&lt;p class=&quot;align__md--right&quot;&gt;Right aligned text on viewports sized MD (768px) or wider.&lt;/p&gt;
+&lt;p class=&quot;align__lg--right&quot;&gt;Right aligned text on viewports sized LG (992px) or wider.&lt;/p&gt;
+&lt;p class=&quot;align__xl--right&quot;&gt;Right aligned text on viewports sized XL (1200px) or wider.&lt;/p&gt;
+
+&lt;p class=&quot;text--lowercase&quot;&gt;Lowercased text.&lt;/p&gt;
+&lt;p class=&quot;text--uppercase&quot;&gt;Uppercased text.&lt;/p&gt;
+&lt;p class=&quot;text--capitalize&quot;&gt;Capitalised text.&lt;/p&gt;
+
+&lt;p class=&quot;font__weight--bold&quot;&gt;Bold text.&lt;/p&gt;
+&lt;p class=&quot;font__weight--normal&quot;&gt;Normal weight text.&lt;/p&gt;
+&lt;p class=&quot;font--italic&quot;&gt;Italicized text.&lt;/p&gt;
+
+&lt;p class=&quot;label&quot;&gt;Label&lt;/p&gt;
+&lt;p class=&quot;subtitle&quot;&gt;Subtitle&lt;/p&gt;</code></pre>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	@@include('app/partials/scripts.tpl')
+
+</body>
+</html>
