@@ -48,7 +48,7 @@
 			}
 		}
 		@include media-breakpoint-up(lg) {
-			.navbar & + &, .navbar & + .button--navbar {
+			.navbar & + &, .tabs__control & + &, .navbar & + .button--navbar {
 				margin-left: $rhythm--x;
 			}
 		}
