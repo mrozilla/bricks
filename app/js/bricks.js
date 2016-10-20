@@ -158,20 +158,6 @@ console.log('%c Oh hello, nice to meet you. If you have any feedback or suggesti
 // 		window.sr = ScrollReveal({ reset: true, duration: 1000, mobile: false, opacity: 0 });
 // 		sr.reveal( '.scrollReveal' );
 // 	}
-// })
-
-// =============================================================================
-// Typed.js settings
-// =============================================================================
-
-// $(() => {
-// 	if(typeof $(".typed").typed === 'function') {
-// 		$(".typed").typed({
-// 		strings: ["a designer.", "a web designer.", "a copywriter.", "getting sh*t done."],
-// 		typeSpeed: 100,
-// 		startDelay: 500,
-// 		});
-// 	}
 // });
 
 // =============================================================================
@@ -195,14 +181,32 @@ console.log('%c Oh hello, nice to meet you. If you have any feedback or suggesti
 // });
 
 // =============================================================================
+// Typed.js settings
+// =============================================================================
+
+// $(() => {
+// 	if(typeof $(".typed").typed === 'function') {
+// 		$(".typed").typed({
+// 		strings: ["a designer.", "a web designer.", "a copywriter.", "getting sh*t done."],
+// 		typeSpeed: 100,
+// 		startDelay: 500,
+// 		});
+// 	}
+// });
+
+const typed = new Typed({
+	text: ["framework.", "helper.", "friend."], 
+	loop: true
+});
+
+typed.init();
+
+// =============================================================================
 // Blog Image behaviour
 // =============================================================================
 
-// $(function() {
-// 	$('.blog .image').click(function () {
-// 		$(this).toggleClass("image--expanded");
-// 	});
-// });
+const blogImages = new ExpandImages();
+blogImages.init();
 
 // =============================================================================
 // Highlight.js init
