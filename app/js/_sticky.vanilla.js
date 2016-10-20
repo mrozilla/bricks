@@ -18,8 +18,7 @@
 				isAdded: false
 			},
 			init() {
-				this.state.element = document.querySelector(this.props.target);
-				if (this.state.element) {
+				if (this.state.element = document.querySelector(this.props.target)) {
 					this.state.element.elPosition = this.state.element.getBoundingClientRect();
 					this.state.element.elPositionTop = window.pageYOffset - (this.state.element.elPosition.top * -1);
 
