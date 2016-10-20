@@ -16,13 +16,11 @@
 				activeClass: "is--active"
 			}, config),
 			state: {
-				element: {},
+				element: null,
 				activeIndex: 0
 			},
 			init() {
-				this.state.element = document.querySelector(this.props.target);
-				
-				if (this.state.element) {
+				if (this.state.element = document.querySelector(this.props.target)) {
 					this.state.element.tabsControl = this.state.element.querySelector(this.props.tabsControl).childNodes;
 					this.state.element.tabsContent = this.state.element.querySelector(this.props.tabsContent).childNodes;
 
@@ -40,8 +38,8 @@
 			goToTab(index) {
 				if (index !== this.state.activeIndex && index >= 0 && index <= this.state.element.tabsControl.length) {
 					this.state.element.tabsControl[this.state.activeIndex].classList.remove(this.props.activeClass);
-					this.state.element.tabsControl[index].classList.add(this.props.activeClass);
 					this.state.element.tabsContent[this.state.activeIndex].classList.remove(this.props.activeClass);
+					this.state.element.tabsControl[index].classList.add(this.props.activeClass);
 					this.state.element.tabsContent[index].classList.add(this.props.activeClass);
 					this.state.activeIndex = index;
 				}
