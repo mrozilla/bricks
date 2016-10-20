@@ -128,6 +128,13 @@ p, .p {
 	background-color: $color__brand--primary;
 }
 
+.typed {
+	&:after {
+		content: "|";
+		animation: 750ms blink step-end infinite;
+	}
+}
+
 // .underline { // Create a short line under an element
 // 	&:after {
 // 		content: "";
