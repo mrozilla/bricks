@@ -60,30 +60,6 @@ console.log('%c Oh hello, nice to meet you. If you have any feedback or suggesti
 // });
 
 // =============================================================================
-// Smooth scroll
-// =============================================================================
-
-// $(function() {
-// 	if ($('.parallax').length > 0 ) {
-// 		var container = $('.parallax');
-// 	} else if ($('.layout__split--content').length > 0) {
-// 		var container = $('.layout__split--content');
-// 	} else {
-// 		var container = $('body, html');
-// 	}
-
-// 	$('a').click(function() {
-// 		const target = $($(this).attr("href"));
-// 		if(target.offset()) {
-// 			container.animate({
-// 				scrollTop: container.scrollTop() + target.offset().top
-// 			}, 500);
-// 			return false;
-// 		}
-// 	});
-// });
-
-// =============================================================================
 // Hiding navbar
 // =============================================================================
 
@@ -181,18 +157,15 @@ console.log('%c Oh hello, nice to meet you. If you have any feedback or suggesti
 // });
 
 // =============================================================================
-// Typed.js settings
+// Smooth scroll
 // =============================================================================
 
-// $(() => {
-// 	if(typeof $(".typed").typed === 'function') {
-// 		$(".typed").typed({
-// 		strings: ["a designer.", "a web designer.", "a copywriter.", "getting sh*t done."],
-// 		typeSpeed: 100,
-// 		startDelay: 500,
-// 		});
-// 	}
-// });
+const smooth = new Smooth();
+smooth.init();
+
+// =============================================================================
+// Typed.js settings
+// =============================================================================
 
 const typed = new Typed({
 	text: ["framework.", "helper.", "friend."], 
@@ -205,7 +178,7 @@ typed.init();
 // Blog Image behaviour
 // =============================================================================
 
-const blogImages = new ExpandImages();
+const blogImages = new HoverExpand();
 blogImages.init();
 
 // =============================================================================
@@ -219,9 +192,8 @@ hljs.initHighlightingOnLoad();
 // =============================================================================
 
 const tabs1 = new Tabs({target: "#tabs1"});
-tabs1.init();
-
 const tabs2 = new Tabs({target: "#tabs2"});
+tabs1.init();
 tabs2.init();
 
 // =============================================================================

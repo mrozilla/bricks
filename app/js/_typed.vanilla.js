@@ -11,15 +11,15 @@
 		const typed = {
 			props: Object.assign({
 				target: ".typed",
-				text: [],
 				loop: false,
-				speed: 150
+				speed: 150,
+				text: []
 			}, config),
 			state: {
 				element: null,
-				arrayPos: 0,
-				stringPos: 0,
 				timeout: null,
+				arrayPos: 0,
+				stringPos: 0
 			},
 			init() {				
 				if (this.state.element = document.querySelector(this.props.target)) {
@@ -38,7 +38,7 @@
 						} else {
 							setTimeout(() => {
 								this.delete(this.props.text[this.state.arrayPos], this.state.stringPos);
-							}, this.props.speed * 2)
+							}, this.props.speed * 4)
 						}
 
 					}, Math.round(Math.random() * (100 - 30)) + this.props.speed);
@@ -49,7 +49,7 @@
 			delete(string, index) {
 				if (this.state.arrayPos < this.props.text.length -1 ) {
 					this.timeout = setTimeout(() => {
-						if (this.state.stringPos > 0) {
+						if (this.state.stringPos >= 0) {
 							this.state.element.textContent = string.substr(0, index);
 							this.state.stringPos--;
 							this.delete(this.props.text[this.state.arrayPos], this.state.stringPos);
@@ -60,7 +60,7 @@
 					}, this.props.speed / 4);
 				} else if (this.props.loop) {
 					this.timeout = setTimeout(() => {
-						if (this.state.stringPos > 0) {
+						if (this.state.stringPos >= 0) {
 							this.state.element.textContent = string.substr(0, index);
 							this.state.stringPos--;
 							this.delete(this.props.text[this.state.arrayPos], this.state.stringPos);

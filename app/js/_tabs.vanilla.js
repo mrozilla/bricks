@@ -23,7 +23,6 @@
 				if (this.state.element = document.querySelector(this.props.target)) {
 					this.state.element.tabsControl = this.state.element.querySelector(this.props.tabsControl).childNodes;
 					this.state.element.tabsContent = this.state.element.querySelector(this.props.tabsContent).childNodes;
-
 					let i = this.state.element.tabsControl.length; while (i--) {
 						let index = i;
 						this.state.element.tabsControl[i].addEventListener('click', (e) => {
