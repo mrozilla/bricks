@@ -26,11 +26,11 @@
 					this.state.element.placeholder.style.width = this.state.element.elPosition.width + 'px';
 					this.state.element.placeholder.style.height	= this.state.element.elPosition.height + 'px';
 
-					window.addEventListener('scroll', () => {
+					document.addEventListener('scroll', tools.throttle((e) => {
 						this.handleScroll();
-					});
+					}, 250));
 				} else {
-					return false;
+					return;
 				}
 			},
 			handleScroll() {
