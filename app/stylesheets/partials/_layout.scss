@@ -127,9 +127,9 @@
 	position: relative;
 	min-height: 100vh;
 	// overflow: hidden;
-	// &--half {
-	//   min-height: 50vh;
-	// }
+	&--half {
+	  min-height: 50vh;
+	}
 	// &__content {
 	//   @include media-breakpoint-up(lg) {
 	//     position: absolute;
