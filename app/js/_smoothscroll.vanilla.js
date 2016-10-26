@@ -31,7 +31,11 @@
 				}
 			},
 			handleClick(el) {
-				this.smoothScroll(this.state.container.querySelector(el.getAttribute('href')).offsetTop);
+				if (this.state.container.querySelector(el.getAttribute('href'))) {
+					this.smoothScroll((this.state.container.querySelector(el.getAttribute('href')).getBoundingClientRect().top + window.scrollY));
+				} else {
+					return;
+				}
 			},
 			smoothScroll(to) {
 				const startTime = window.performance.now();
