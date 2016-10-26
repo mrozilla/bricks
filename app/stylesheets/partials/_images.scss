@@ -12,6 +12,7 @@ img {
 	position: relative;
 	display: block;
 	transition: $transition--primary-short;
+	background-size: cover;
 	
 	// Image ratios
 
@@ -76,11 +77,10 @@ img {
 		@include absolute-stretch;
 	}
 	&--background {
-		// background-color: $color__gray;
+		pointer-events: none;
 		background-size: cover;
 		background-position: center;
 		@include absolute-stretch;
-		// animation: fade 2s ease-in; // TODO fucks up for some reason
 		& ~ * {
 			color: white;
 		}
