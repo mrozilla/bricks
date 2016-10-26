@@ -1,5 +1,5 @@
 // =============================================================================
-// Origin.js
+// Bricks.js
 // =============================================================================
 
 //
@@ -63,36 +63,8 @@ console.log('%c Oh hello, nice to meet you. If you have any feedback or suggesti
 // Hiding navbar
 // =============================================================================
 
-// $(function() {
-// 	const bottom = $(document).height() - $(window).height();
-// 	const navbar = $(".navbar--hiding");
-// 	let lastScrollTop = 0;
-// 	let delta = 50;
-	
-// 	$(window).scroll(function(event) {
-// 		let scrollTop = $(this).scrollTop();
-
-// 		if(Math.abs(lastScrollTop - scrollTop) <= delta)
-// 			return;
-
-// 		if (scrollTop > lastScrollTop) {
-// 			// downscroll code
-// 			navbar.addClass('is--hidden');
-// 		} else {
-// 			// upscroll code
-// 			navbar.removeClass('is--hidden');
-// 		} 
-// 		if (scrollTop > bottom - delta) {
-// 			// end of page code
-// 			navbar.removeClass('is--hidden');
-// 		}
-// 		if (scrollTop <= 0) {
-// 			// top of page code
-// 			navbar.removeClass('is--hidden');
-// 		}
-// 		lastScrollTop = scrollTop;
-// 	});
-// });
+const navbar = new Navbar();
+navbar.init();
 
 // =============================================================================
 // Show mobile navbar
@@ -116,45 +88,11 @@ console.log('%c Oh hello, nice to meet you. If you have any feedback or suggesti
 // });
 
 // =============================================================================
-// Remove navbar notification
-// =============================================================================
-
-// $(() => {
-// 	$('.nav__link').click(() => {
-// 		$(this).next().hide(); // Careful, dependent on DOM structure
-// 	});
-// });
-
-// =============================================================================
 // ScrollReveal settings
 // =============================================================================
 
-// $(() => {
-// 	if ($('.scrollReveal').length > 0) {
-// 		window.sr = ScrollReveal({ reset: true, duration: 1000, mobile: false, opacity: 0 });
-// 		sr.reveal( '.scrollReveal' );
-// 	}
-// });
-
-// =============================================================================
-// Reading progress bar
-// =============================================================================
-
-// $(function() {  
-// 	var winHeight = $(window).height(),
-// 	docHeight = $('.parallax').prop('scrollHeight'),
-// 	progressBar = $('.scroll__progress'),
-// 	max, value;
-
-// 	// Set the max scrollable area 
-// 	max = docHeight - winHeight;
-// 	progressBar.attr('max', max);
-
-// 	$('.parallax').on('scroll', function (){
-// 		value = $('.parallax').scrollTop();
-// 		progressBar.attr('value', value);
-// 	});
-// });
+window.sr = ScrollReveal({ reset: true, duration: 1000, mobile: false, opacity: 0 });
+sr.reveal('.scrollReveal');
 
 // =============================================================================
 // Smooth scroll
@@ -191,8 +129,8 @@ hljs.initHighlightingOnLoad();
 // Tabs init
 // =============================================================================
 
-const tabs1 = new Tabs({target: "#tabs1"});
-const tabs2 = new Tabs({target: "#tabs2"});
+const tabs1 = new Tabs({target: '#tabs1'});
+const tabs2 = new Tabs({target: '#tabs2'});
 tabs1.init();
 tabs2.init();
 
