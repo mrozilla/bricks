@@ -2,242 +2,102 @@
 // Navbar
 // =============================================================================
 
-// Wrapper and base class
-//
-// Provide a static navbar from which we expand to create full-width, fixed, and
-// other navbar variations.
-
 .navbar {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	transition: $transition--secondary-short;
-	@include transform(translateY(0));
+	transition: $transition--primary-short;
+	&--fixed {
+		position: fixed;
+		right: 0;
+		left: 0;
+		z-index: $zindex__navbar-fixed;
+		&-top {
+			top: 0;
+		}
+		&-bottom {
+			bottom: 0;
+		}
+	}
+	&--light {
+		background-color: $navbar__bg;
+		.style--shadows & {
+			@include box-shadow();
+		}
+		.style--borders & {
+			@include border("bottom", "true");
+		}
+	}
+	&--dark {
+
+	}
 	& .container, & .container--full {
 		display:flex;
 		justify-content: space-between;
-		flex-wrap: wrap; // must be there to allow the navigation to go next line
+		flex-wrap: wrap;
+	}
+	&.is--hidden {
+		@include transform(translateY(-100%));
 	}
 }
 
-// Navbar alignment options
-//
-// Display the navbar across the entirety of the page or fixed it to the top or
-// bottom of the page.
+// =============================================================================
+// Mobile menu
+// =============================================================================
 
-// A static, full width modifier.
-.navbar--full {
-	z-index: $zindex--navbar;
-}
-
-// Fix the top/bottom navbars when screen real estate supports it
-.navbar--fixed-top,
-.navbar--fixed-bottom {
-	position: fixed;
-	right: 0;
-	left: 0;
-	z-index: $zindex--navbar-fixed;
-}
-
-.navbar--fixed-top {
-	top: 0;
-}
-
-.navbar--fixed-bottom {
-	bottom: 0;
-}
-
-.navbar--sticky-top {
-	position: sticky;
-	top: 0;
-	z-index: $zindex--navbar-sticky;
-	width: 100%;
-}
-
-// Navigation and links
-//
-// Set styling of the text shown in the navbar
-
-// .nav__item {
-//   position: relative;
-//   display: flex;
-//   align-items: center;
-//   //flex: 1;
-//   &--notification {
-//     line-height: 1;
-//     position: absolute;
-//     top: .25rem;
-//     right: -.65rem;
-//     font-size: .5rem;
-//     height: .75rem;
-//     font-weight: $font__weight--bold;
-//     color: white;
-//     background-color: $color__brand--primary;
-//     border-radius: .5rem;
-//     padding: .1rem .25rem;
-//     text-align: center;
-//     animation: bounce--gentle 1s 5s infinite;
-//   }
-// }
-
-// Navbar toggle
-//
-// Mobile menu styles
-
-.navbar__toggle {
-	@include media-breakpoint-up(lg) {
-		display: none !important;
-	}
-}
-
-.navbar__left {
-	display: flex;
-}
-
-.navbar__right {
-	display: none;
-	@include media-breakpoint-up(lg) {
-		display: flex;
-	}
-	&.is--open {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-around;
-		position: fixed;
-		left: 0;
-		right: 0;
-		height: 100vh;
-		top: 0;
-		bottom: 0;
-		background: $color__brand--primary;
-		color: white;
-		z-index: 999;
-		opacity: 0.95;
-		& .nav__link, .button--navbar {
-			font-size: 1rem;
-			color: white;
+.navbar {
+	&__toggle {
+		@include media-breakpoint-up(lg) {
+			display: none !important;
 		}
-		& .button--navbar {
-			padding: 1rem;
-			color: white;
-			&:after {
-				border-color: white !important;
+	}
+	&__left {
+		display: flex;
+	}
+	&__right {
+		display: none;
+		@include media-breakpoint-up(lg) {
+			display: flex;
+		}
+		.is--open & {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-around;
+			background: $color__brand--primary;
+			opacity: 0.95;
+			@include fixed-stretch();
+			& .nav__link, .button--navbar {
+				font-size: $font__size--md;
+				color: white;
 			}
 		}
 	}
 }
+
+// =============================================================================
+// Navbar dropdown
+// =============================================================================
 
 .navbar__dropdown {
-	background-color: $navbar__bg;
-	display: none;
-	padding: 0 1rem;
-	position: absolute;
-	right:0;
-	top: 100%;
-	.nav__link:hover &, .nav__link:focus &, .nav__link:active & {
-		display: block;
-		& ~ a:after {
-			content: " ◄";
-		}
-	}
 	& .nav__link {
-		margin: 0 !important; // TODO avoid this cascade
-		min-height: 2rem;
+		padding: $rhythm--core/2;
+		opacity: 0.75;
 	}
-	.style--shadows & {
-		@include box-shadow();
-	}
-	.style--borders & {
-		@include border("bottom", "true");
-	}
-	& ~ a:after {
-		content: " ▼";
-	}
-}
-
-// Navbar colour schemes
-//
-// Set two styles of navbars, dark and light, with corresponding colours
-
-.navbar--light, {
-	background-color: $navbar__bg;
-	.style--shadows & {
-		@include box-shadow();
-	}
-	.style--borders & {
-		@include border("bottom", "true");
-	}
-}
-
-.navbar--light {
-	.navbar--brand {
-		color: $navbar--color;
-
-		@include hover-focus {
-			color: $navbar__color--hover;
+	@include media-breakpoint-up(lg) {
+		display: none;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		background-color: $navbar__bg;
+		padding: 0 $rhythm--x;
+		.nav__link:hover &, .nav__link:focus &, .nav__link:active & {
+			display: block;
+		}
+		.style--shadows & {
+			@include box-shadow();
+		}
+		.style--borders & {
+			@include border("bottom", "true");
 		}
 	}
-
-	.navbar__divider {
-		background-color: rgba(0,0,0,.075);
-	}
-}
-
-.navbar--dark {
-	background-color: $navbar--dark-bg;
-	@include box-shadow();
-	.navbar--brand {
-		color: $navbar--dark-hover-color;
-
-		@include hover-focus {
-			color: $navbar--dark-hover-color;
-		}
-	}
-
-		.nav__link {
-			color: $navbar--dark-color;
-
-			@include hover-focus {
-				color: $navbar--dark-hover-color;
-			}
-
-		.open > .nav__link,
-		.active > .nav__link,
-		.nav__link.open,
-		.nav__link.active {
-			@include plain-hover-focus {
-				color: $navbar--dark-hover-color;
-			}
-		}
-	}
-
-	.navbar__divider {
-		background-color: rgba(255,255,255,.075);
-	}
-}
-
-// Utilities
-//
-// Extra classes for additional effects used in navbars
-
-.navbar__divider {
-	float: left;
-	width: 1px;
-	padding-top: $navbar__padding--y;
-	padding-bottom: $navbar__padding--y;
-	margin-right: $navbar__padding--x; // Todo align margin and padding
-	margin-left:  $navbar__padding--x;
-	overflow: hidden;
-
-	&:before {
-		content: "\00a0";
-	}
-}
-
-// Class used by the hidingNavbar.js
-.navbar.is--hidden {
-	@include transform(translateY(-100%));
 }
 
 
