@@ -87,6 +87,7 @@ $font__size--root:                 125%        !default;
 
 $font__size--base:                  .85rem     !default;
 $font__size--lg:                   1.25rem     !default;
+$font__size--md:					1rem	!default;
 $font__size--sm:                    .75rem     !default;
 $font__size--xs:                    .5rem      !default;
 
@@ -153,8 +154,8 @@ $grid__gutter--width:              1rem        !default;
 // Navbar
 // =============================================================================
 
-$navbar__padding--y:				$rhythm--y/2 !default;
-$navbar__padding--x:				$rhythm--x/2 !default;
+// $navbar__padding--y:				$rhythm--y/2 !default;
+// $navbar__padding--x:				$rhythm--x/2 !default;
 
 $navbar--dark-bg:					rgba(0,0,0,.95) !default;
 $navbar--dark-color:				$color__gray--dark !default;
@@ -180,7 +181,7 @@ $zindex--navbar:					1000         !default;
 $zindex--dropdown:					1000         !default;
 $zindex--sidebar-fixed:				1020         !default;
 $zindex--navbar-sticky:				1020         !default;
-$zindex--navbar-fixed:				1030         !default;
+$zindex__navbar-fixed:				1030         !default;
 $zindex--modal-bg:					1040         !default;
 $zindex--modal:						1050         !default;
 $zindex--popover:					1060         !default;
