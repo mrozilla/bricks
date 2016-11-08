@@ -25,6 +25,7 @@
 	}
 	& span {
 	position: relative;
+	top: $rhythm--y / 2;
 	}
 	& span, & span::before, & span::after {
 		backface-visibility: hidden;
@@ -58,6 +59,6 @@
 }
 
 .navbar .burger {
-	padding-top: .5rem;
+	margin: $rhythm--y / 2 0;
 }
 
