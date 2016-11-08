@@ -6,7 +6,7 @@
 
 	'use strict';
 
-	const HoverExpand = (config) => {
+	const Click = (config) => {
 		
 		const hoverExpand = {
 			props: Object.assign({
@@ -35,7 +35,7 @@
 		return hoverExpand;
 	};
 
-	window.HoverExpand = HoverExpand;
+	window.Click = Click;
 	
 })(window);
 
