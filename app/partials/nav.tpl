@@ -11,18 +11,19 @@
 				<span></span>
 		</div>
 
-		<ul class="navbar__right">
-			<li class="nav__link nav__link--uppercase nav__link--underline">
+		<ul class="navbar__right animate__delay">
+			<li class="nav__link nav__link--uppercase nav__link--underline animate animate__fade--left">
 				<a href="/docs">Documentation</a>
 			</li>
-			<li class="nav__link nav__link--uppercase nav__link--underline">
+			<li class="nav__link nav__link--uppercase nav__link--underline animate animate__fade--left">
+				Examples
 				<ul class="navbar__dropdown">
 					<li class="nav__link nav__link--uppercase nav__link--underline"><a href="/examples/split">Split</a></li>
 					<li class="nav__link nav__link--uppercase nav__link--underline"><a href="/examples/cardtainer">Cardtainer</a></li>
+					<li class="nav__link nav__link--uppercase nav__link--underline"><a href="/examples/agenda">Agenda</a></li>
 				</ul>
-				Examples
 			</li>
-			<li class="button button--navbar button--secondary">
+			<li class="button button--navbar button--primary animate animate__fade--left">
 				<a href="/get-started">Get started</a>
 			</li>
 		</ul>
