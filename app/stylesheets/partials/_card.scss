@@ -21,12 +21,37 @@
 	}
 	&__header {
 		&--divider {
-			border-bottom: 1px solid rgba(128,128,128,.25);
+			position: relative;
+			margin-bottom: $rhythm--y;
+			&:after {
+				content: "";
+				@include border("bottom");
+				@include absolute-stretch;
+			}
+		}
+	}
+	&__content {
+		&--divider {
+			position: relative;
+			margin-bottom: $rhythm--y;
+			padding-bottom: $rhythm--y;
+			&:after {
+				content: "";
+				@include border("bottom");
+				@include absolute-stretch;
+			}
 		}
 	}
 	&__footer {
 		&--divider {
-			border-top: 1px solid rgba(128,128,128,.25);
+			position: relative;
+			margin-top: $rhythm--y;
+			padding-top: $rhythm--y;
+			&:before {
+				content: "";
+				@include border("top");
+				@include absolute-stretch;
+			}
 		}
 	}
 	&--padded {
