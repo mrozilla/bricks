@@ -68,27 +68,8 @@
    */
 
   ScrollReveal.prototype.defaults = {
-    // 'bottom', 'left', 'top', 'right'
-    origin: 'bottom',
-
-    // Can be any valid CSS distance, e.g. '5rem', '10%', '20vw', etc.
-    distance: '20px',
-
-    // Time in milliseconds.
-    duration: 500,
-    delay: 0,
-
-    // Starting angles in degrees, will transition from these values to 0 in all axes.
-    rotate: { x: 0, y: 0, z: 0 },
-
-    // Starting opacity value, before transitioning to the computed opacity.
-    opacity: 0,
-
-    // Starting scale value, will transition from this value to 1
-    scale: 0.9,
-
-    // Accepts any valid CSS easing, e.g. 'ease', 'ease-in-out', 'linear', etc.
-    easing: 'cubic-bezier(0.6, 0.2, 0.1, 1)',
+    // CSS class to be given/removed from the element
+    klass: "is--revealed",
 
     // `<html>` is the default reveal container. You can pass either:
     // DOM Node, e.g. document.querySelector('.fooContainer')
@@ -101,11 +82,6 @@
     // true:  reveals occur every time elements become visible
     // false: reveals occur once as elements become visible
     reset: false,
-
-    // 'always' — delay for all reveal animations
-    // 'once'   — delay only the first time reveals occur
-    // 'onload' - delay only for animations triggered by first load
-    useDelay: 'always',
 
     // Change when an element is considered in the viewport. The default value
     // of 0.20 means 20% of an element must be visible for its reveal to occur.
@@ -155,12 +131,13 @@
     var sequence
     var sequenceId
 
-    // No custom configuration was passed, but a sequence interval instead.
-    // let’s shuffle things around to make sure everything works.
-    if (config !== undefined && typeof config === 'number') {
-      interval = config
-      config = {}
-    } else if (config === undefined || config === null) {
+    // // No custom configuration was passed, but a sequence interval instead.
+    // // let’s shuffle things around to make sure everything works.
+    // if (config !== undefined && typeof config === 'number') {
+    //   interval = config
+    //   config = {}
+    // } else 
+    if (config === undefined || config === null) {
       config = {}
     }
 
@@ -172,17 +149,17 @@
       return sr
     }
 
-    // Prepare a new sequence if an interval is passed.
-    if (interval && typeof interval === 'number') {
-      sequenceId = _nextUid()
+    // // Prepare a new sequence if an interval is passed.
+    // if (interval && typeof interval === 'number') {
+    //   sequenceId = _nextUid()
 
-      sequence = sr.sequences[sequenceId] = {
-        id: sequenceId,
-        interval: interval,
-        elemIds: [],
-        active: false
-      }
-    }
+    //   sequence = sr.sequences[sequenceId] = {
+    //     id: sequenceId,
+    //     interval: interval,
+    //     elemIds: [],
+    //     active: false
+    //   }
+    // }
 
     // Begin main loop to configure ScrollReveal elements.
     for (var i = 0; i < elements.length; i++) {
@@ -201,34 +178,34 @@
         elem.domEl.setAttribute('data-sr-id', elem.id)
       }
 
-      // Sequence only setup
-      if (sequence) {
-        elem.sequence = {
-          id: sequence.id,
-          index: sequence.elemIds.length
-        }
+      // // Sequence only setup
+      // if (sequence) {
+      //   elem.sequence = {
+      //     id: sequence.id,
+      //     index: sequence.elemIds.length
+      //   }
 
-        sequence.elemIds.push(elem.id)
-      }
+      //   sequence.elemIds.push(elem.id)
+      // }
 
       // New or existing element, it’s time to update its configuration, styles,
       // and send the updates to our store.
       _configure(elem, config, container)
-      _style(elem)
+      // _style(elem)
       _updateStore(elem)
 
-      // We need to make sure elements are set to visibility: visible, even when
-      // on mobile and `config.mobile === false`, or if unsupported.
-      if (sr.tools.isMobile() && !elem.config.mobile || !sr.isSupported()) {
-        elem.domEl.setAttribute('style', elem.styles.inline)
-        elem.disabled = true
-      } else if (!elem.revealing) {
-        // Otherwise, proceed normally.
-        elem.domEl.setAttribute('style',
-          elem.styles.inline +
-          elem.styles.transform.initial
-        )
-      }
+      // // We need to make sure elements are set to visibility: visible, even when
+      // // on mobile and `config.mobile === false`, or if unsupported.
+      // if (sr.tools.isMobile() && !elem.config.mobile || !sr.isSupported()) {
+      //   elem.domEl.setAttribute('style', elem.styles.inline)
+      //   elem.disabled = true
+      // } else if (!elem.revealing) {
+      //   // Otherwise, proceed normally.
+      //   // elem.domEl.setAttribute('style',
+      //   //   elem.styles.inline +
+      //   //   elem.styles.transform.initial
+      //   // )
+      // }
     }
 
     // Each `reveal()` is recorded so that when calling `sync()` while working
@@ -236,7 +213,7 @@
     // all your new elements now in the DOM.
 
     // Since `reveal()` is called internally by `sync()`, we don’t want to
-    // record or intiialize each reveal during syncing.
+    // record or intitalize each reveal during syncing.
     if (!sync && sr.isSupported()) {
       _record(target, config, interval)
 
@@ -332,116 +309,117 @@
       // by the configuration passed as the second argument.
       elem.config = sr.tools.extendClone(elem.config, config)
     }
-
-    // Infer CSS Transform axis from origin string.
-    if (elem.config.origin === 'top' || elem.config.origin === 'bottom') {
-      elem.config.axis = 'Y'
-    } else {
-      elem.config.axis = 'X'
-    }
   }
 
-  function _style (elem) {
-    var computed = window.getComputedStyle(elem.domEl)
+  //   // Infer CSS Transform axis from origin string.
+  //   if (elem.config.origin === 'top' || elem.config.origin === 'bottom') {
+  //     elem.config.axis = 'Y'
+  //   } else {
+  //     elem.config.axis = 'X'
+  //   }
+  // }
 
-    if (!elem.styles) {
-      elem.styles = {
-        transition: {},
-        transform: {},
-        computed: {}
-      }
+  // function _style (elem) {
+  //   var computed = window.getComputedStyle(elem.domEl)
 
-      // Capture any existing inline styles, and add our visibility override.
-      // --
-      // See section 4.2. in the Documentation:
-      // https://github.com/jlmakes/scrollreveal.js#42-improve-user-experience
-      elem.styles.inline = elem.domEl.getAttribute('style') || ''
-      elem.styles.inline += '; visibility: visible; '
+  //   if (!elem.styles) {
+  //     elem.styles = {
+  //       transition: {},
+  //       transform: {},
+  //       computed: {}
+  //     }
 
-      // grab the elements existing opacity.
-      elem.styles.computed.opacity = computed.opacity
+  //     // Capture any existing inline styles, and add our visibility override.
+  //     // --
+  //     // See section 4.2. in the Documentation:
+  //     // https://github.com/jlmakes/scrollreveal.js#42-improve-user-experience
+  //     elem.styles.inline = elem.domEl.getAttribute('style') || ''
+  //     elem.styles.inline += '; visibility: visible; '
 
-      // grab the elements existing transitions.
-      if (!computed.transition || computed.transition === 'all 0s ease 0s') {
-        elem.styles.computed.transition = ''
-      } else {
-        elem.styles.computed.transition = computed.transition + ', '
-      }
-    }
+  //     // grab the elements existing opacity.
+  //     elem.styles.computed.opacity = computed.opacity
 
-    // Create transition styles
-    elem.styles.transition.instant = _generateTransition(elem, 0)
-    elem.styles.transition.delayed = _generateTransition(elem, elem.config.delay)
+  //     // grab the elements existing transitions.
+  //     if (!computed.transition || computed.transition === 'all 0s ease 0s') {
+  //       elem.styles.computed.transition = ''
+  //     } else {
+  //       elem.styles.computed.transition = computed.transition + ', '
+  //     }
+  //   }
 
-    // Generate transform styles, first with the webkit prefix.
-    elem.styles.transform.initial = ' -webkit-transform:'
-    elem.styles.transform.target = ' -webkit-transform:'
-    _generateTransform(elem)
+  //   // Create transition styles
+  //   elem.styles.transition.instant = _generateTransition(elem, 0)
+  //   elem.styles.transition.delayed = _generateTransition(elem, elem.config.delay)
 
-    // And again without any prefix.
-    elem.styles.transform.initial += 'transform:'
-    elem.styles.transform.target += 'transform:'
-    _generateTransform(elem)
-  }
+  //   // Generate transform styles, first with the webkit prefix.
+  //   elem.styles.transform.initial = ' -webkit-transform:'
+  //   elem.styles.transform.target = ' -webkit-transform:'
+  //   _generateTransform(elem)
 
-  function _generateTransition (elem, delay) {
-    var config = elem.config
+  //   // And again without any prefix.
+  //   elem.styles.transform.initial += 'transform:'
+  //   elem.styles.transform.target += 'transform:'
+  //   _generateTransform(elem)
+  // }
 
-    return '-webkit-transition: ' + elem.styles.computed.transition +
-      '-webkit-transform ' + config.duration / 1000 + 's ' +
-      config.easing + ' ' +
-      delay / 1000 + 's, opacity ' +
-      config.duration / 1000 + 's ' +
-      config.easing + ' ' +
-      delay / 1000 + 's; ' +
+  // function _generateTransition (elem, delay) {
+  //   var config = elem.config
 
-      'transition: ' + elem.styles.computed.transition +
-      'transform ' + config.duration / 1000 + 's ' +
-      config.easing + ' ' +
-      delay / 1000 + 's, opacity ' +
-      config.duration / 1000 + 's ' +
-      config.easing + ' ' +
-      delay / 1000 + 's; '
-  }
+  //   return '-webkit-transition: ' + elem.styles.computed.transition +
+  //     '-webkit-transform ' + config.duration / 1000 + 's ' +
+  //     config.easing + ' ' +
+  //     delay / 1000 + 's, opacity ' +
+  //     config.duration / 1000 + 's ' +
+  //     config.easing + ' ' +
+  //     delay / 1000 + 's; ' +
 
-  function _generateTransform (elem) {
-    var config = elem.config
-    var cssDistance
-    var transform = elem.styles.transform
+  //     'transition: ' + elem.styles.computed.transition +
+  //     'transform ' + config.duration / 1000 + 's ' +
+  //     config.easing + ' ' +
+  //     delay / 1000 + 's, opacity ' +
+  //     config.duration / 1000 + 's ' +
+  //     config.easing + ' ' +
+  //     delay / 1000 + 's; '
+  // }
 
-    // Let’s make sure our our pixel distances are negative for top and left.
-    // e.g. origin = 'top' and distance = '25px' starts at `top: -25px` in CSS.
-    if (config.origin === 'top' || config.origin === 'left') {
-      cssDistance = /^-/.test(config.distance)
-        ? config.distance.substr(1)
-        : '-' + config.distance
-    } else {
-      cssDistance = config.distance
-    }
+  // function _generateTransform (elem) {
+  //   var config = elem.config
+  //   var cssDistance
+  //   var transform = elem.styles.transform
 
-    if (parseInt(config.distance)) {
-      transform.initial += ' translate' + config.axis + '(' + cssDistance + ')'
-      transform.target += ' translate' + config.axis + '(0)'
-    }
-    if (config.scale) {
-      transform.initial += ' scale(' + config.scale + ')'
-      transform.target += ' scale(1)'
-    }
-    if (config.rotate.x) {
-      transform.initial += ' rotateX(' + config.rotate.x + 'deg)'
-      transform.target += ' rotateX(0)'
-    }
-    if (config.rotate.y) {
-      transform.initial += ' rotateY(' + config.rotate.y + 'deg)'
-      transform.target += ' rotateY(0)'
-    }
-    if (config.rotate.z) {
-      transform.initial += ' rotateZ(' + config.rotate.z + 'deg)'
-      transform.target += ' rotateZ(0)'
-    }
-    transform.initial += '; opacity: ' + config.opacity + ';'
-    transform.target += '; opacity: ' + elem.styles.computed.opacity + ';'
-  }
+  //   // Let’s make sure our our pixel distances are negative for top and left.
+  //   // e.g. origin = 'top' and distance = '25px' starts at `top: -25px` in CSS.
+  //   if (config.origin === 'top' || config.origin === 'left') {
+  //     cssDistance = /^-/.test(config.distance)
+  //       ? config.distance.substr(1)
+  //       : '-' + config.distance
+  //   } else {
+  //     cssDistance = config.distance
+  //   }
+
+  //   if (parseInt(config.distance)) {
+  //     transform.initial += ' translate' + config.axis + '(' + cssDistance + ')'
+  //     transform.target += ' translate' + config.axis + '(0)'
+  //   }
+  //   if (config.scale) {
+  //     transform.initial += ' scale(' + config.scale + ')'
+  //     transform.target += ' scale(1)'
+  //   }
+  //   if (config.rotate.x) {
+  //     transform.initial += ' rotateX(' + config.rotate.x + 'deg)'
+  //     transform.target += ' rotateX(0)'
+  //   }
+  //   if (config.rotate.y) {
+  //     transform.initial += ' rotateY(' + config.rotate.y + 'deg)'
+  //     transform.target += ' rotateY(0)'
+  //   }
+  //   if (config.rotate.z) {
+  //     transform.initial += ' rotateZ(' + config.rotate.z + 'deg)'
+  //     transform.target += ' rotateZ(0)'
+  //   }
+  //   transform.initial += '; opacity: ' + config.opacity + ';'
+  //   transform.target += '; opacity: ' + elem.styles.computed.opacity + ';'
+  // }
 
   function _updateStore (elem) {
     var container = elem.config.container
@@ -493,144 +471,146 @@
     _requestAnimationFrame(_animate)
   }
 
-  function _setActiveSequences () {
-    var active
-    var elem
-    var elemId
-    var sequence
+  // function _setActiveSequences () {
+  //   var active
+  //   var elem
+  //   var elemId
+  //   var sequence
 
-    // Loop through all sequences
-    sr.tools.forOwn(sr.sequences, function (sequenceId) {
-      sequence = sr.sequences[sequenceId]
-      active = false
+  //   // Loop through all sequences
+  //   sr.tools.forOwn(sr.sequences, function (sequenceId) {
+  //     sequence = sr.sequences[sequenceId]
+  //     active = false
 
-      // For each sequenced elemenet, let’s check visibility and if
-      // any are visible, set it’s sequence to active.
-      for (var i = 0; i < sequence.elemIds.length; i++) {
-        elemId = sequence.elemIds[i]
-        elem = sr.store.elements[elemId]
-        if (_isElemVisible(elem) && !active) {
-          active = true
-        }
-      }
+  //     // For each sequenced elemenet, let’s check visibility and if
+  //     // any are visible, set it’s sequence to active.
+  //     for (var i = 0; i < sequence.elemIds.length; i++) {
+  //       elemId = sequence.elemIds[i]
+  //       elem = sr.store.elements[elemId]
+  //       if (_isElemVisible(elem) && !active) {
+  //         active = true
+  //       }
+  //     }
 
-      sequence.active = active
-    })
-  }
+  //     sequence.active = active
+  //   })
+  // }
 
   function _animate () {
-    var delayed
+    // var delayed
     var elem
 
-    _setActiveSequences()
+    // _setActiveSequences()
 
     // Loop through all elements in the store
     sr.tools.forOwn(sr.store.elements, function (elemId) {
       elem = sr.store.elements[elemId]
-      delayed = _shouldUseDelay(elem)
+      // delayed = _shouldUseDelay(elem)
 
       // Let’s see if we should reveal, and if so, whether to use delay.
       if (_shouldReveal(elem)) {
-        if (delayed) {
-          elem.domEl.setAttribute('style',
-            elem.styles.inline +
-            elem.styles.transform.target +
-            elem.styles.transition.delayed
-          )
-        } else {
-          elem.domEl.setAttribute('style',
-            elem.styles.inline +
-            elem.styles.transform.target +
-            elem.styles.transition.instant
-          )
-        }
+        elem.domEl.classList.add(elem.config.klass); // TODO watch out, hacky
+        // if (delayed) {
+        //   elem.domEl.setAttribute('style',
+        //     elem.styles.inline +
+        //     elem.styles.transform.target +
+        //     elem.styles.transition.delayed
+        //   )
+        // } else {
+        //   elem.domEl.setAttribute('style',
+        //     elem.styles.inline +
+        //     elem.styles.transform.target +
+        //     elem.styles.transition.instant
+        //   )
+        // }
 
         // Let’s queue the `afterReveal` callback and tag the element.
-        _queueCallback('reveal', elem, delayed)
+        // _queueCallback('reveal', elem, delayed)
         elem.revealing = true
         elem.seen = true
 
-        if (elem.sequence) {
-          _queueNextInSequence(elem, delayed)
-        }
+        // if (elem.sequence) {
+        //   _queueNextInSequence(elem, delayed)
+        // }
       } else if (_shouldReset(elem)) {
         // If we got this far our element shouldn’t reveal, but should it reset?
-        elem.domEl.setAttribute('style',
-          elem.styles.inline +
-          elem.styles.transform.initial +
-          elem.styles.transition.instant
-        )
-        _queueCallback('reset', elem)
+        // elem.domEl.setAttribute('style',
+        //   elem.styles.inline +
+        //   elem.styles.transform.initial +
+        //   elem.styles.transition.instant
+        // )
+        elem.domEl.classList.remove(elem.config.klass) // TODO figure out the dynamic class name
+        // _queueCallback('reset', elem)
         elem.revealing = false
       }
     })
   }
 
-  function _queueNextInSequence (elem, delayed) {
-    var elapsed = 0
-    var delay = 0
-    var sequence = sr.sequences[elem.sequence.id]
+  // function _queueNextInSequence (elem, delayed) {
+  //   var elapsed = 0
+  //   var delay = 0
+  //   var sequence = sr.sequences[elem.sequence.id]
 
-    // We’re processing a sequenced element, so let's block other elements in this sequence.
-    sequence.blocked = true
+  //   // We’re processing a sequenced element, so let's block other elements in this sequence.
+  //   sequence.blocked = true
 
-    // Since we’re triggering animations a part of a sequence after animations on first load,
-    // we need to check for that condition and explicitly add the delay to our timer.
-    if (delayed && elem.config.useDelay === 'onload') {
-      delay = elem.config.delay
-    }
+  //   // Since we’re triggering animations a part of a sequence after animations on first load,
+  //   // we need to check for that condition and explicitly add the delay to our timer.
+  //   if (delayed && elem.config.useDelay === 'onload') {
+  //     delay = elem.config.delay
+  //   }
 
-    // If a sequence timer is already running, capture the elapsed time and clear it.
-    if (elem.sequence.timer) {
-      elapsed = Math.abs(elem.sequence.timer.started - new Date())
-      window.clearTimeout(elem.sequence.timer)
-    }
+  //   // If a sequence timer is already running, capture the elapsed time and clear it.
+  //   if (elem.sequence.timer) {
+  //     elapsed = Math.abs(elem.sequence.timer.started - new Date())
+  //     window.clearTimeout(elem.sequence.timer)
+  //   }
 
-    // Start a new timer.
-    elem.sequence.timer = { started: new Date() }
-    elem.sequence.timer.clock = window.setTimeout(function () {
-      // Sequence interval has passed, so unblock the sequence and re-run the handler.
-      sequence.blocked = false
-      elem.sequence.timer = null
-      _handler()
-    }, Math.abs(sequence.interval) + delay - elapsed)
-  }
+  //   // Start a new timer.
+  //   elem.sequence.timer = { started: new Date() }
+  //   elem.sequence.timer.clock = window.setTimeout(function () {
+  //     // Sequence interval has passed, so unblock the sequence and re-run the handler.
+  //     sequence.blocked = false
+  //     elem.sequence.timer = null
+  //     _handler()
+  //   }, Math.abs(sequence.interval) + delay - elapsed)
+  // }
 
-  function _queueCallback (type, elem, delayed) {
-    var elapsed = 0
-    var duration = 0
-    var callback = 'after'
+  // function _queueCallback (type, elem, delayed) {
+  //   var elapsed = 0
+  //   var duration = 0
+  //   var callback = 'after'
 
-    // Check which callback we’re working with.
-    switch (type) {
-      case 'reveal':
-        duration = elem.config.duration
-        if (delayed) {
-          duration += elem.config.delay
-        }
-        callback += 'Reveal'
-        break
+  //   // Check which callback we’re working with.
+  //   switch (type) {
+  //     case 'reveal':
+  //       duration = elem.config.duration
+  //       if (delayed) {
+  //         duration += elem.config.delay
+  //       }
+  //       callback += 'Reveal'
+  //       break
 
-      case 'reset':
-        duration = elem.config.duration
-        callback += 'Reset'
-        break
-    }
+  //     case 'reset':
+  //       duration = elem.config.duration
+  //       callback += 'Reset'
+  //       break
+  //   }
 
-    // If a timer is already running, capture the elapsed time and clear it.
-    if (elem.timer) {
-      elapsed = Math.abs(elem.timer.started - new Date())
-      window.clearTimeout(elem.timer.clock)
-    }
+  //   // If a timer is already running, capture the elapsed time and clear it.
+  //   if (elem.timer) {
+  //     elapsed = Math.abs(elem.timer.started - new Date())
+  //     window.clearTimeout(elem.timer.clock)
+  //   }
 
-    // Start a new timer.
-    elem.timer = { started: new Date() }
-    elem.timer.clock = window.setTimeout(function () {
-      // The timer completed, so let’s fire the callback and null the timer.
-      elem.config[callback](elem.domEl)
-      elem.timer = null
-    }, duration - elapsed)
-  }
+  //   // Start a new timer.
+  //   elem.timer = { started: new Date() }
+  //   elem.timer.clock = window.setTimeout(function () {
+  //     // The timer completed, so let’s fire the callback and null the timer.
+  //     elem.config[callback](elem.domEl)
+  //     elem.timer = null
+  //   }, duration - elapsed)
+  // }
 
   function _shouldReveal (elem) {
     if (elem.sequence) {
@@ -645,12 +625,12 @@
       !elem.disabled
   }
 
-  function _shouldUseDelay (elem) {
-    var config = elem.config.useDelay
-    return config === 'always' ||
-      (config === 'onload' && !sr.initialized) ||
-      (config === 'once' && !elem.seen)
-  }
+  // function _shouldUseDelay (elem) {
+  //   var config = elem.config.useDelay
+  //   return config === 'always' ||
+  //     (config === 'onload' && !sr.initialized) ||
+  //     (config === 'once' && !elem.seen)
+  // }
 
   function _shouldReset (elem) {
     if (elem.sequence) {
