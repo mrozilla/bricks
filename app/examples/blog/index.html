@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('app/partials/head.tpl', {
+	"title": "Bricks—the modular CSS framework",
+	"description": "TODO"
+})
+
+<body class="style--shadows">
+
+	@@include('app/partials/nav.tpl', {
+		"fixed": "navbar--fixed navbar--fixed-top",
+		"hiding": "navbar--hiding"
+	})
+
+ 	<section class="fullscreen flex">
+
+		<div class="flex__content">
+
+			<article class="blog animate__delay is--revealed">
+				<div class="container blog__container">
+					<div class="row row--centered">
+						<div class="col-lg-7">
+
+							<h1 class="blog__title blog__title--boom animate animate__fade--up">Blog title can be very long.</h1>
+							<h2 class="blog__leadin animate animate__fade--up">Leadin makes you read whatever is below when written well.</h2>
+							<div class="blog__information animate animate__fade--up">
+								<i class="fa fa-twitter icon--social twitterTrigger animate animate__fade--up"></i>
+								<i class="fa fa-facebook icon--social facebookTrigger animate animate__fade--up"></i>
+								<span class="blog__date animate animate__fade--up">Date published</span>
+								<a href="https://twitter.com/mrozilla" target="_blank" class="blog__author link animate animate__fade--up">Author's name</a>
+							</div>
+
+							<p class="blog__body">Tracking, measuring, analytics, insights, whatever you call it. Let's start by saying it's a lot of work to properly measure your campaigns. I know, a lot of work generally sucks. It's totally worth it though.</p>
+
+							<h3 class="blog__heading">So why should I track stuff?</h3>
+						
+							<p class="blog__body">Let's assume you've made a campaign in your life. Spent some time creating content, posted it some platforms, and then waited for the likes to come. "Spent some time", that's the key word here. You don't want to be spending your time creating stuff that's not really working with your target audience, do you?</p>
+							
+							<p class="blog__body">Tracking is what really (in numbers, in hard black-on-white facts) tells you how you're doing with your creativity. And you want to get better, don't we all? Well, if you don't measure your performance, you're just throwing stuff at the wall hoping that something sticks to it. In the words of the champion of continuous improvement:</p>
+
+							<p class="blog__body">Remember this quote. I can't stress out how important it is.</p>
+
+							<h3 class="blog__heading">No need to come up with the numbers yourself</h3>
+							<p class="blog__body">There are plenty of tools on the market that make tracking for you so much easier. Let's take them one-by-one:</p>
+
+							<p class="blog__body">Facebook gives you plenty of data for free to start with. From detailed interactions on your posts to the time it takes you to respond to people's messages. You can find the Facebook analytics <a href="https://www.facebook.com/insights/">here</a>.</p>
+
+							<p class="blog__body">Twitter Analytics does basically the same thing as Facebook, only in a slightly different layout with some metrics called differently. Access your Twitter Insights <a href="https://analytics.twitter.com/">here</a>.</p>
+
+							<p class="blog__body">Instagram Insights are just rolling out (July 2016), so it might take some time before they are available for you. You can follow the progress <a href="http://blog.business.instagram.com/post/145212269021/new-business-tools">here</a> and look at a list of third-party tools <a href="http://www.socialmediaexaminer.com/3-instagram-analytics-tools-for-marketers/">here</a>.</p>
+
+							<p class="blog__body">Boomerang is a handy tool for your Gmail account which lets you schedule posts, get reminders if your email is not answered, and many more. It also allows you to track how many people have opened your email. Get Boomerang for free <a href="http://www.boomeranggmail.com/">here</a> or if you want to spend some money, <a href="http://www.yesware.com/">Yesware</a> is the industry standard.</p>
+
+							<p class="blog__body">Mailchimp gives you all the statistics for your emails. From open and click rate all the way to automated A/B testing and more. An absolute must if you're running a mailing list. Get Mailchimp <a href="http://mailchimp.com/">here</a>.</p>
+
+							<p class="blog__body">Bitly makes your links looks short and pretty but at the same it provides with data on how many people clicked on your link, where did they come from, and so on. If you're sending a link directly in an email, get Bitly <a href="https://bitly.com">here</a>.</p>
+
+							<p class="blog__body">Finally, the holy grail. Google Analytics provides you with incredibly deep datasets about your websites. It sounds daunting, but for basic understanding of your website you don't need to keep track of more than three tabs. Have a look at how to use Analytics <a href="https://analytics.google.com/">here</a>.</p>
+
+							<h3 class="blog__heading">Alright, what should I measure?</h3>
+							<p class="blog__body">Before we get into specific examples, let's start by defining a couple of jargon terms.</p>
+							<p class="blog__body"><strong>Metric</strong> is the raw number you get from your Insights or Analytics. Frankly, it doesn't mean much by itself for your campaign. You need to use the number in the right way.</p>
+							<p class="blog__body"><strong>KPI</strong> (key performance indicator) is what you're after. There is no one true way of defining your own KPIs, this is where you need to use your brain. If you're going for awareness with your campaign, you'll have different KPIs than if you're going for starting a conversation with your target group.</p>
+							<p class="blog__body"><strong>Reach</strong> is the most passive group of KPIs you can define. Generally speaking, it takes the least amount of effort for the user (imagine an article simply poppping up in their news feed).</p>
+							<p class="blog__body"><strong>Reaction</strong> is where your user takes some time to express an opinion. This can be a like or perhaps a comment (even hateful comments take time to write).</p>
+							<p class="blog__body"><strong>Interaction</strong> is the most valuable group for digital campaigns. It's where the users identify themselves so much with your message that they are willing to repost it on their own personal feed, showing it to their followers (imagine a Facebook share here).</p>
+
+							<p class="blog__body">The best to make a point is to show an example. So without any further ado, here's my list of basic digital campaign KPIs:</p>
+							<ul class="blog__body">
+								<li>Growth
+									<ul>
+										<li>Periodic fans increase rate (have I added more fans than last month/week)</li>
+										<li>Reach (how many people have seen my campaign/post)</li>
+										<li>Coverage (how many people have seen my campaign/post in relation to the number of my fans)</li>
+									</ul>
+								</li>
+								<li>Engagement
+									<ul>
+										<li>Likes and similar (e.g. Facebook reactions, in general one-click-to react behaviour)</li>
+										<li>Comments (which kinds of content are people reacting to the most</li>
+										<li>Shares (especially those by important stakeholders and/or outside of my community of fans)</li>
+										<li>Email opens (clicking on a newsletter in your inbox)</li>
+									</ul>
+								</li>
+								<li>Conversion
+									<ul>
+										<li>Time spent on the right website (you should which page is your conversion page from your customer funnel)</li>
+										<li>Web pages per visit (do people stay around your site?)</li>
+										<li>Website visit sources (which channel is converting the most?)</li>
+										<li>Email link clicks (active consumption of content in a newsletter)</li>
+									</ul>
+								</li>
+							</ul>
+							<p class="blog__body">And that's it! Are you curious about more details about tracking? Follow me on <a href="https://twitter.com/@mrozilla">Twitter</a> to stay up-to-date with the new articles written on the topic.</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+ 	</section>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	@@include('app/partials/scripts.tpl')
+
+</body>
+</html>
