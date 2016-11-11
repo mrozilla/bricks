@@ -1,0 +1,74 @@
+// =============================================================================
+// Table component
+// =============================================================================
+
+.table {
+	width: 100%;
+	max-width: 100%; // TODO test
+	td {
+		padding: $rhythm--core/4;
+	}
+	th {
+		padding: $rhythm--y/2 $rhythm--x/4;
+	}
+	tr {
+		border: solid $color__gray--lighter;
+		border-width: 1px 0;
+	}
+	thead tr {
+		border-width: 0 0 2px 0;
+	}
+	tfoot tr {
+		border-width: 2px 0 0 0;
+	}
+	&--striped {
+		tbody > tr:nth-of-type(2n-1) {
+			background-color: $color__gray--lightest;
+		}
+	}
+	&--hovered tbody tr:hover {
+		background-color: $color__gray--lighter;
+	}
+	&--bordered {
+		border: 1px solid $color__gray--lighter; // TODO improve cascade
+		& th, & thead th, & tfoot th, & tr {
+			border: 1px solid $color__gray--lighter;
+		}
+	}
+	&--responsive {
+		th {
+			display: none;
+		}
+		td {
+			display: block;
+		}
+		@media (max-width: 768px) {
+			tr:first-child {
+				border-top-width: 0;
+			}
+		}
+		td:before {
+			content: attr(data-th)": ";
+			font-weight: bold; // TODO standardise
+			width: 6.5em; // magic number
+			display: inline-block;
+			@media (min-width: 769px) {
+				display: none;
+			}
+		}
+		th, td {
+			text-align: left;
+			@media (min-width: 769px) {
+				display: table-cell;
+			}
+		}
+	}
+	&--scrolled {
+		overflow-x: auto;
+		overflow-y: hidden;
+		width: 100%;
+		& td, & th {
+			white-space: nowrap;
+		}
+	}
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('app/partials/head.tpl', {
+	"title": "Bricks—the modular CSS framework",
+	"description": "TODO"
+})
+
+<body class="style--borders">
+
+	@@include('app/partials/nav.tpl', {
+		"hiding": "",
+		"fixed": "navbar--fixed navbar--fixed-top"
+	})
+
+	<div class="layout__wrapper">
+		
+	@@include('app/partials/sidebar.tpl')
+
+		<section class="layout__content layout__content--padded">
+
+			<div class="container--full rhythm--children">
+				<h1 class="h1--700">Table</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<div class="snippet">
+					<div class="snippet__example">
+						<div class="table--scrolled">
+							<table class="table">
+							<thead>
+								<tr>
+									<th>Movie Title</th>
+									<th>Release</th>
+									<th>US Box Office</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td data-th="Movie Title">Star Wars Episode IV</td>
+									<td data-th="Year">1977</td>
+									<td data-th="Gross">&#36;460,998,007</td>
+								</tr>
+								<tr>
+									<td data-th="Movie Title">Star Wars Episode V</td>
+									<td data-th="Year">1980</td>
+									<td data-th="Gross">&#36;290,271,960</td>
+								</tr>
+								<tr>
+									<td data-th="Movie Title">Star Wars Episode VI</td>
+									<td data-th="Year">1983</td>
+									<td data-th="Gross">&#36;309,205,079</td>
+								</tr>
+								<tr>
+									<td data-th="Movie Title">Star Wars Episode I</td>
+									<td data-th="Year">1999</td>
+									<td data-th="Gross">&#36;474,544,677</td>
+								</tr>
+								<tr>
+									<td data-th="Movie Title">Star Wars Episode II</td>
+									<td data-th="Year">2002</td>
+									<td data-th="Gross">&#36;310,676,740</td>
+								</tr>
+								<tr>
+									<td data-th="Movie Title">Star Wars Episode III</td>
+									<td data-th="Year">2005</td>
+									<td data-th="Gross">&#36;380,270,577</td>
+								</tr>
+								<tr>
+									<td data-th="Movie Title">Star Wars Episode VII</td>
+									<td data-th="Year">2015</td>
+									<td data-th="Gross">&#36;936,662,225</td>
+								</tr>
+								<tr>
+									<td data-th="Movie Title">Star Wars Episode VIII</td>
+									<td data-th="Year">2017</td>
+									<td data-th="Gross">N/A</td>
+								</tr>
+								<tr>
+									<td data-th="Movie Title">Star Wars Episode IX</td>
+									<td data-th="Year">2019</td>
+									<td data-th="Gross">N/A</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>Movie Title</th>
+									<th>Release</th>
+									<th>US Box Office</th>
+								</tr>
+							</tfoot>
+							</table>
+						</div>
+					</div>
+					<pre class="snippet__code"><code class="html"></code></pre>
+				</div>
+		</section>
+	</div>
+
+	@@include('app/partials/scripts.tpl')
+
+</body>
+</html>
