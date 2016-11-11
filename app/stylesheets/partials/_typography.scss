@@ -37,7 +37,7 @@ h1, .h1 {
 h2, .h2 {
 	font-size: $font__size--h2;
 	letter-spacing: -0.05em; // Adjust to your font
-	padding-top: .5rem;
+	line-height: 2.5rem;
 }
 
 h3, .h3 {
@@ -74,6 +74,22 @@ p, .p {
 	}
 }
 
+// // =============================================================================
+// // Sizing utilities
+// // =============================================================================
+
+.font--small {
+	font-size: $font__size--xs;
+}
+
+.font--large {
+	font-size: $font__size--lg;
+}
+
+// =============================================================================
+// Extra styling
+// =============================================================================
+
 .subtitle {
 	opacity: .5;
 }
@@ -82,7 +98,17 @@ p, .p {
 	text-transform: uppercase;
 	opacity: .5;
 	letter-spacing: .15em;
-	font-size: 75%;
+}
+
+::selection {
+	background-color: $color__brand--primary;
+}
+
+.typed {
+	&:after {
+		content: "|";
+		animation: 750ms blink step-end infinite;
+	}
 }
 
 // .quote {
@@ -107,33 +133,6 @@ p, .p {
 // 	font-size: .5rem;
 // 	line-height: .5rem;
 // }
-
-// // =============================================================================
-// // Sizing utilities
-// // =============================================================================
-
-// .font--small {
-// 	font-size: $font__size--sm;
-// }
-
-// .font--large {
-// 	font-size: $font__size--lg;
-// }
-
-// =============================================================================
-// Extra styling
-// =============================================================================
-
-::selection {
-	background-color: $color__brand--primary;
-}
-
-.typed {
-	&:after {
-		content: "|";
-		animation: 750ms blink step-end infinite;
-	}
-}
 
 // .underline { // Create a short line under an element
 // 	&:after {
