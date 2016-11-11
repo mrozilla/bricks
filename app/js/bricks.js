@@ -21,43 +21,14 @@ const styles = [
 console.log('%c Oh hello, nice to meet you. If you have any feedback or suggestions, send them to @mrozilla :) ', styles);
 
 // =============================================================================
-// Blog Twitter behaviour
+// Mark page as DOMloaded
 // =============================================================================
 
-// $(function() {
-// 	$('.twitterLink').click(function(event) {
-// 		event.preventDefault;
-// 		var content = $(this).parent().siblings('.blog__title').text() || $(this).parent().siblings('.blog__quote--copy').text();
-// 		var author = $(this).parent().siblings('.blog__quote--reference').text() || "";
-// 		var intent = "https://twitter.com/intent/tweet?text=";
-// 		var link = window.location.href;
-		
-// 		if (author !== "") {
-// 			window.open(intent + '"' + encodeURI(content) + '"' + " on " + link);
-// 		} else {
-// 			window.open(intent + "Great read by @mrozilla: " + link);
-// 		}
-// 		return false;
-// 	});
-// });
-
-// =============================================================================
-// Blog Facebook behaviour
-// =============================================================================
-
-// $(function() {
-// 	$('.facebookLink').click(function(event) {
-// 		event.preventDefault;
-// 		var content = $(this).parent().siblings('.blog__title').text() || $(this).parent().siblings('.blog__quote--copy').text();
-// 		var appId = "https://www.facebook.com/dialog/feed?app_id=279503749068654";
-// 		var redirectUri = "redirect_uri=http://universe.mrozilla.cz/close.php";
-// 		var link = "link=" + window.location.href;
-// 		var description = "description=" + encodeURI(content);
-		
-// 		window.open(appId + "&" + redirectUri + "&" + link + "&" + description);
-// 		return false;
-// 	});
-// });
+if (document.readyState != 'loading'){
+	document.body.classList.add('is--loaded');
+} else {
+	document.addEventListener('DOMContentLoaded', document.body.classList.add('is--loaded'));
+}
 
 // =============================================================================
 // Hiding navbar
@@ -67,31 +38,10 @@ const navbar = new Navbar();
 navbar.init();
 
 // =============================================================================
-// Show mobile navbar
-// =============================================================================
-
-// $(() => {
-// 	$('.navbar__toggle').click(() => {
-// 		$('.navbar__right').toggleClass("is--open");
-// 		$('.burger').toggleClass("burger--highlight");
-// 	});
-// });
-
-// =============================================================================
-// Show sidebar
-// =============================================================================
-
-// $(() => {
-// 	$('.toggle__sidebar').click(() => {
-// 		$('.layout__wrapper').toggleClass("is--collapsed");
-// 	});
-// });
-
-// =============================================================================
 // ScrollReveal settings
 // =============================================================================
 
-window.sr = ScrollReveal({ reset: true, duration: 1000, mobile: false, opacity: 0 });
+const sr = new ScrollReveal({reset:true});
 sr.reveal('.scrollReveal');
 
 // =============================================================================
@@ -109,14 +59,13 @@ const typed = new Typed({
 	text: ["framework.", "helper.", "friend."], 
 	loop: true
 });
-
 typed.init();
 
 // =============================================================================
 // Blog Image behaviour
 // =============================================================================
 
-const blogImages = new HoverExpand();
+const blogImages = new Click();
 blogImages.init();
 
 // =============================================================================
@@ -141,4 +90,16 @@ tabs2.init();
 const sticky = new Sticky();
 sticky.init();
 
+// =============================================================================
+// Layout init
+// =============================================================================
 
+const layout = new Layout();
+layout.init();
+
+// =============================================================================
+// Blog behaviour
+// =============================================================================
+
+const blog = new Blog();
+blog.init();
