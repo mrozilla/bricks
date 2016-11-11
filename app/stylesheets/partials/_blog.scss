@@ -3,7 +3,7 @@
 // =============================================================================
 
 .blog {
-    // font-family: $font__family--blog, $font__fallback;
+    font-family: $font__family--blog, $font__fallback;
     &__container {
         padding-top: 10vh;
         padding-bottom: 10vh;
@@ -11,6 +11,8 @@
     &__title {
         font-size: 4rem;
         margin-bottom: 1rem;
+        font-weight: 900;
+        line-height: 0.75;
         @include media-breakpoint-up(lg) {
             margin-right: -4rem;    
         }
@@ -35,9 +37,9 @@
             font-size: 2.5rem;
         }
     }
-    &__author {
-        display: inline-block;
-        margin-bottom: $rhythm--y
+    &__information {
+        font-family: $font__family--body, $font__fallback;
+        margin-bottom: $rhythm--y;
     }
     &__date {
         &:after {
@@ -48,6 +50,10 @@
         font-size: 1.15rem;
         line-height: 1.5rem;
         margin-bottom: 1rem;
+    }
+    &__heading {
+        font-weight: 900;
+        margin-top: $rhythm--y * 3;
     }
     &__quote {
         font-family: $font__family--blog, $font__fallback;
