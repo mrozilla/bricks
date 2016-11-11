@@ -4,6 +4,7 @@
 
 .nav {
 	&__link {
+		position: relative;
 		cursor: pointer;
 		display: flex;
 		align-items: center;
@@ -27,7 +28,6 @@
 			padding: $rhythm--y/2 0;
 		}
 		&--underline {
-			position: relative;
 			&:after {
 				@include absolute-stretch;
 				content: "";
@@ -47,7 +47,12 @@
 				transform: translateX($rhythm--x/4);
 			}
 		}
-		.navbar__right > & + &, .tabs__control > & + & {
+		@include media-breakpoint-up(lg) {
+			.navbar__right > & + &, {
+				margin-left: $rhythm--x;
+			}
+		}
+		.tabs__control > & + & {
 			margin-left: $rhythm--x;
 		}
 	}
