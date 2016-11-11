@@ -1,4 +1,4 @@
-<section class="layout__sidebar layout__sidebar--fixed layout__sidebar--padded animate__delay">
+<section class="layout__sidebar layout__sidebar--fixed layout__sidebar--padded animate__delay is--revealed">
 
 		<div class="nav__link nav__link--large toggle__sidebar"></div>
 
@@ -36,6 +36,7 @@
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Parallax</a>
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Reveal</a>
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Statistic</a>
+		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="/docs/table/">Table</a>
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Tag</a>
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Well</a>	
 

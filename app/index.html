@@ -9,17 +9,17 @@
 <body class="style--shadows">
 
 	@@include('app/partials/nav.tpl', {
-		"fixed": "navbar--fixed-top",
+		"fixed": "navbar--fixed navbar--fixed-top",
 		"hiding": "navbar--hiding",
 		"animate": "animate animate__fade--down"
 	})
 
-	<section class="hero flex fullscreen"><anchor name="home"></anchor>
+	<section class="hero flex fullscreen animate__delay is--revealed"><anchor name="home"></anchor>
 		<div class="image--background image--grayscale image--overlay" style="background-image: url('https://pioneers.io/wp-content/uploads/2015/11/20160525-2033-Michael-Holmes-_DSC8224-Edit.jpg')"></div>
 		
 		<div class="flex__content">
-			<h1 class="h1--boom h1--700 animate animate--intro animate__fade--right">Bricks</h1>
-			<h2 class="h4 animate animate--intro animate__fade--left">Your modular CSS <span class="typed"></span></h2>
+			<h1 class="h1--boom h1--700 animate animate__fade--down">Bricks</h1>
+			<h2 class="h4 animate animate__fade--up">Your modular CSS <span class="typed"></span></h2>
 		</div>
 		<div class="flex__bottom">
 			
@@ -81,7 +81,7 @@
 			<div class="container">
 				<div class="row row--centered">
 					<div class="col-lg-6">
-						<div class="tabs card--padded" id="tabs1">
+						<div class="tabs card--padded is--revealed" id="tabs1">
 							<div class="tabs__control rhythm">
 								<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline is--active">Tab 1</p>
 								<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline">Tab 2</p>
@@ -117,7 +117,7 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="card card--padded">
-							<div class="tabs" id="tabs2">
+							<div class="tabs is--revealed" id="tabs2">
 								<div class="tabs__control rhythm">
 									<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline is--active">Tab 1</p>
 									<p class="nav__link nav__link--padded nav__link--uppercase nav__link--underline">Tab 2</p>
