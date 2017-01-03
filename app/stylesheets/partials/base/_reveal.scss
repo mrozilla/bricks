@@ -1,0 +1,27 @@
+// =============================================================================
+// Reveal slider element
+// =============================================================================
+
+.reveal {
+	@include transition ($transition--primary-short, transform);
+	&__title {
+		transform: translateY(100%);
+		transition: inherit;
+	}
+	&__content {
+		opacity: 0;
+		transform: translateY(100%);
+		transition: inherit;
+	}
+	@include hover-focus-active {
+		.reveal__title {
+			transform: translateY(0);
+		}
+		.reveal__content {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+}
+
+
