@@ -3,7 +3,7 @@
 // =============================================================================
 
 // Table of Contents
-//
+
 // Animation
 // Layout
 // Styling
@@ -12,12 +12,14 @@
 
 // Animation
 @import "animation/animations";
-@import "animation/transforms";
+@import "animation/transitions";
 
 // Layout
 @import "layout/absolute-positioning";
 @import "layout/grid-framework";
 @import "layout/grid";
+@import "layout/images";
+@import "layout/ratios";
 
 // Styling
 @import "styling/box-shadow";
@@ -31,4 +33,5 @@
 
 // Utilities
 @import "utility/breakpoints";
+@import "utility/color";
 @import "utility/hover";
