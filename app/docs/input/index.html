@@ -10,7 +10,7 @@
 
 	@@include('app/partials/nav.tpl', {
 		"hiding": "",
-		"fixed": "navbar--fixed-top",
+		"fixed": "navbar--fixed navbar--fixed-top",
 		"animate": "fade--down"
 	})
 
@@ -20,7 +20,7 @@
 
 		<section class="layout__content layout__content--padded">
 
-			<div class="container">
+			<div class="container--full">
 			
 			<h1 class="h1--700 rhythm">Input fields</h1>
 			<p class="rhythm">Input fields are generally labeled with <code>.input</code>. For all bricks.css inputs the labels are included above the field itself and the usage of placeholders is <em>not</em> recommended.</p>
@@ -55,7 +55,7 @@
 &lt;div class=&quot;tooltip&quot;&gt;I'm extra information provided.&lt;br&gt;I can even be on multiple lines if needed.&lt;/div&gt;</code></pre>
 				</div>
 
-				<h2 class="h2--700 rhythm">Advanced text input</h2>
+				<h2 class="h2--700 rhythm">Advanced input fields</h2>
 				<p class="rhythm">The advanced HTML5 input types are not compatible in all browsers, however they add extra usability for users browsing the site on compatible browsers (e.g. custom keyboards on iOS). They fail peacefully, reverting to the basic input fields. The advanced HTML5 input types are:</p>
 
 				<div class="snippet">
@@ -87,6 +87,10 @@
 								<input type="tel" class="input input__text"></input>
 							</div>
 							<div class="form__field rhythm">
+								<label class="input__label">File upload field</label>
+								<input type="file" class="input input__text"></input>
+							</div>
+							<div class="form__field rhythm">
 								<label class="input__label">Range field</label>
 								<input type="range" class="input input__text" min="1" max="10" value="0"></input>
 							</div>
@@ -115,7 +119,7 @@
 								<div class="form__field rhythm">
 									<label class="input__label">Email field with error</label>
 									<input type="email" class="input input__text" pattern=".+@.+\..+"></input>
-									<div class="error input__error">Please, enter a valid email address (e.g. john.doe@gmail.com).</div>
+									<div class="error status__error">Please, enter a valid email address (e.g. john.doe@gmail.com).</div>
 								</div>
 								<div class="form__field">
 									<label class="input__label">Disabled text field</label>

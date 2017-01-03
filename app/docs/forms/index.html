@@ -10,7 +10,7 @@
 
 	@@include('app/partials/nav.tpl', {
 		"hiding": "",
-		"fixed": "navbar--fixed-top",
+		"fixed": "navbar--fixed navbar--fixed-top",
 		"animate": "fade--down"
 	})
 
@@ -21,7 +21,7 @@
 		<section class="layout__content layout__content--padded">
 
 
-				<div class="card card--padded rhythm">
+				<!-- <div class="card card--padded rhythm">
 					<form>
 						<legend class="form__legend">An inline form</legend>
 						<div class="form__field">
@@ -40,30 +40,39 @@
 						</div>
 						<button type="submit" class="button button--primary">Sign in</button>
 					</form>
-				</div>
+				</div> -->
 
 				<div class="card card--padded rhythm">
-					<form class="form--vertical">
+					<form class="form form--vertical">
 						<legend class="form__legend">A vertical form</legend>
-						<div class="form__field">
+						<div class="form__field rhythm--half">
 							<label class="input__label" for="email">Email</label>
-							<input class="input input__text rhythm" type="email" name="email">
+							<input class="input input__text" type="email" name="email" required>
 						</div>
-						<div class="form__field">
+						<div class="form__field rhythm--half">
 							<label class="input__label" for="password">Password</label>
-							<input class="input input__text rhythm" type="password" name="password">
+							<input class="input input__text" type="password" name="password">
 						</div>
-						<div class="form__field">
+						<div class="form__field rhythm--half">
+							<label class="input__label" for="test">Test</label>
+							<input class="input input__text" type="text" name="test">
+						</div>
+						<div class="form__field rhythm">
+							<label class="input__label" for="file">File</label>
+							<input class="input input__text" type="file" name="file" required>
+							<div class="error status__error">Please choose a file smaller than 2MB.</div>
+						</div>
+						<!-- <div class="form__field">
 							<label class="input input__label input__label--checkbox rhythm">Remember me
 								<input type="checkbox">
 								<div class="input__checkbox"></div>
 							</label>
-						</div>
-						<button type="submit" class="button button--primary">Sign in</button>
+						</div> -->
+						<input type="submit" class="button button--primary button--large button--full" value="Sign in">
 					</form>
 				</div>
 
-				<div class="card card--padded rhythm">
+				<!-- <div class="card card--padded rhythm">
 					<form class="form--aligned">
 						<legend class="form__legend">An aligned form</legend>
 						<div class="form__field">
@@ -107,7 +116,7 @@
 							<button type="submit" class="button button--primary button--large button--full">Sign in</button>
 						</div>
 					</form>
-				</div>
+				</div> -->
 		</section>
 
 	</div>
