@@ -11,14 +11,14 @@
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	border-radius: $border--radius;
-	padding: .25rem .5rem;
+	padding: $rhythm--y / 4 $rhythm--x / 2;
 	cursor: pointer;
-	transition: $transition--secondary-short;
+	@include transition($transition--secondary-short);
 	&:hover {
 		text-decoration: none;
 	}
 	& > .fa {
-		margin-right: .25rem;
+		margin-right: $rhythm--x / 4;
 	}
 	@include media-breakpoint-down(sm) {
 		font-size: $font__size--xs;
@@ -32,14 +32,14 @@
 .button--large {
 	padding: $button__padding--y $button__padding--x;
 	@include media-breakpoint-down(sm) {
-		padding: .25rem 1rem;
+		padding: $rhythm--y / 4 $rhythm--x;
 	}
 }
 
 .button--navbar {
 	font-size: .5rem;
 	padding: .25rem 2rem;
-	margin: $rhythm--y/2 0 $rhythm--y/2 $rhythm--x;
+	margin: $rhythm--y / 2 0 $rhythm--y / 2 $rhythm--x;
 }
 
 // =============================================================================
@@ -48,7 +48,7 @@
 
 .button--primary {
 	color: white;
-	background-color: $color__brand--primary;
+	background-image: $color__brand--gradient;
 	@include hover-focus-active() {
 		@include box-shadow();
 		text-decoration:none;
@@ -297,7 +297,7 @@
 	& > span {
 		display: block;
 		margin-bottom: 0;
-		transition: $transition--secondary-short; 
+		@include transition($transition--secondary-short, transform); 
 	}
 	.button__visible {
 		transform: translateY(0);
