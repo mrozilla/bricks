@@ -1,0 +1,32 @@
+// =============================================================================
+// Generate ratios
+// =============================================================================
+
+@mixin make-ratios($horizontal: $ratios, $vertical: $ratios, $breakpoints: $grid__breakpoints) {
+	@each $breakpoint in map-keys($breakpoints) {
+		@include media-breakpoint-up($breakpoint) {
+			@for $i from 1 through $horizontal {
+				@for $j from 1 through $vertical {
+					.ratio__#{$breakpoint}--#{$i}to#{$j} {
+						padding-bottom: ($i/$j) * 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+// TODO move somewhere
+
+@mixin make-hidden($breakpoints: $grid__breakpoints) {
+	@each $breakpoint in map-keys($grid__breakpoints) {
+		@include media-breakpoint-up($breakpoint) {
+		  .hidden__#{$breakpoint}--up { display: none; }
+		}
+		@include media-breakpoint-down($breakpoint) {
+		  .hidden__#{$breakpoint}--down { display: none; }
+		}
+	}
+}
+
+
