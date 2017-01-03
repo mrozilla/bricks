@@ -1,0 +1,61 @@
+//
+//
+//
+
+.faq {
+	list-style: none;
+	padding-left: 0;
+	&__item {
+		position: relative;
+		// transition: inherit;
+		& i {
+			// transition: inherit;
+			position: absolute;
+			margin-top: $rhythm__y / 2;
+			right: 0;
+			&:before, &:after {
+				@include transition($transition--primary-short);
+				content: "";
+				position: absolute;
+				background-color: $color__brand--primary;
+				width: 3px;
+				height: 9px;
+				border-radius: 999px;
+
+			}
+			&:before {
+				transform: translateX(-2px) rotate(45deg);
+			}
+			&:after {
+				transform: translateX(2px) rotate(-45deg);
+			}
+		}
+		& .faq__control {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			cursor: pointer;
+			z-index: 1;
+			opacity: 0;
+			&:checked ~ .faq__content {
+				position: relative;
+				max-height: 200px; // TODO update 
+				opacity: 1;
+				transform: translateY(0);
+				z-index: 2;
+			}
+			&:checked ~ i:before {
+				transform: translateX(2px) rotate(45deg);
+			}
+			&:checked ~ i:after {
+				transform: translateX(-2px) rotate(-45deg);
+			}
+		}
+	}
+	&__content {
+		max-height: 0;
+		opacity: 0;
+		transform: translateY(50%);
+		// transition: inherit;
+	}
+}
