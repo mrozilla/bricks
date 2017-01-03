@@ -4,5 +4,5 @@
 
 @mixin inverse-colors () {
 	background-color: $color__background--inverse;
-	color: $color__text--inverse;
+	color: $font__color--body-inverse;
 }

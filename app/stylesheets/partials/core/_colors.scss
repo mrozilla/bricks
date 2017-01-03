@@ -1,0 +1,14 @@
+// =============================================================================
+// Colours
+// =============================================================================
+
+// Highlight elements
+.highlight 			{ @include inverse-colors; }
+.inverse 			{ color: $font__color--body-inverse; }
+::selection			{ background-color: $color__brand--primary; }
+
+// Gradients
+.gradient {
+	&--background 	{ background-image: linear-gradient(#fafafa, #f0f0f0); } // TODO add variables
+	&--brand 		{ background-image: $color__brand--gradient; }
+}
