@@ -4,7 +4,7 @@
 
 .table {
 	width: 100%;
-	max-width: 100%; // TODO test
+	max-width: 100%;
 	td {
 		padding: $rhythm--core/4;
 	}
@@ -42,7 +42,7 @@
 		td {
 			display: block;
 		}
-		@media (max-width: 768px) {
+		@include media-breakpoint-down(md) { // TODO finetune breakpoint
 			tr:first-child {
 				border-top-width: 0;
 			}
@@ -52,23 +52,26 @@
 			font-weight: bold; // TODO standardise
 			width: 6.5em; // magic number
 			display: inline-block;
-			@media (min-width: 769px) {
+			@include media-breakpoint-up(md) { // TODO finetune breakpoint
 				display: none;
 			}
 		}
 		th, td {
 			text-align: left;
-			@media (min-width: 769px) {
+			@include media-breakpoint-up(md) { // TODO finetune breakpoint
 				display: table-cell;
 			}
 		}
 	}
-	&--scrolled {
-		overflow-x: auto;
-		overflow-y: hidden;
+	&--scrollable {
+		display: block;
 		width: 100%;
+		min-height: 0%;
+		overflow-x: auto;
 		& td, & th {
 			white-space: nowrap;
 		}
 	}
 }
+
+
