@@ -1,0 +1,33 @@
+// =============================================================================
+// Slider
+// =============================================================================
+
+.slider {
+	// background-color: $color__gray--lighter;
+	cursor: col-resize;
+	@include media-breakpoint-up(lg) {
+		@include border("left");
+	}
+	&__content {
+		display: flex;
+		padding: $rhythm--core;
+		overflow-x: scroll;
+		&::-webkit-scrollbar {
+			display:none;
+		}
+	}
+	&__item {
+		flex: 1 0 75vw;
+		@include media-breakpoint-up(lg) {
+			flex: 1 0 30vw;
+		}
+		// @include transition($transition--secondary-short, transform);
+		// @include hover-focus-active() {
+		// 	transform: scale(1.2);
+		// 	z-index:2;
+		// }
+		& + & {
+			margin-left: $rhythm--x;
+		}
+	}
+}
