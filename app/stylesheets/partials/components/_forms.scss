@@ -1,0 +1,43 @@
+// =============================================================================
+// Forms
+// =============================================================================
+
+.form {
+    &--inline {
+        display: flex;
+        align-items: flex-end;
+    }
+    &__legend {
+        margin-bottom: 1rem;
+    }
+    &__field {
+        display: inline-block;
+        position: relative;
+        flex: 1;
+        .form--vertical & {
+            display: block;
+            margin-right: 0; // TODO get rid of resetting this value
+        }
+        .form--aligned & {
+            display: inline-block;
+            margin-right: 0;
+        }
+        .form--stacked & {
+            display: block;
+            margin-right: 0;
+            margin-top: -1px;
+        }
+        &:not(only-of-type):not(last-of-type) {
+            margin-right: 1rem;
+        }
+    }
+    &__controls {
+        .form--aligned & {
+            margin-left: 11rem;
+        }
+    }
+}
+
+.error .form__error {
+    display: block;
+}
