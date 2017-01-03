@@ -3,7 +3,7 @@
 // =============================================================================
 
 .navbar {
-	transition: $transition--primary-short;
+	@include transition ($transition--primary-short, transform);
 	&--fixed {
 		position: fixed;
 		right: 0;
@@ -34,7 +34,7 @@
 		flex-wrap: wrap;
 	}
 	&.is--hidden {
-		@include transform(translateY(-100%));
+		transform: translateY(-100%);
 	}
 }
 
@@ -61,7 +61,7 @@
 			flex-direction: column;
 			align-items: flex-start;
 			justify-content: space-around;
-			background: $color__brand--primary;
+			background-color: $color__brand--primary;
 			opacity: 0.95;
 			@include fixed-stretch();
 			& .nav__link, .button--navbar {
