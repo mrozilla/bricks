@@ -21,7 +21,7 @@
 		overflow-y: auto; // has to be scroll, not auto
 		-webkit-overflow-scrolling: touch;
 		overflow-x: hidden;
-		transition: $transition--primary-short;
+		@include transition ($transition--primary-short, transform);
 		&::-webkit-scrollbar {
 			display:none;
 		}
@@ -60,7 +60,7 @@
 	}
 	&__content {
 		flex: 1;
-		transition: $transition--primary-short;
+		@include transition ($transition--primary-short, margin-left);
 		&--padded {
 			padding: 5rem;
 		}
@@ -123,21 +123,33 @@
 // Full-screen layout
 // =============================================================================
 
-.fullscreen { // Todo delete
+.fullscreen {
 	position: relative;
 	min-height: 100vh;
 	// overflow: hidden;
 	&--half {
 	  min-height: 50vh;
 	}
-	// &__content {
-	//   @include media-breakpoint-up(lg) {
-	//     position: absolute;
-	//     top: 50%;
-	//     transform: translateY(-50%);
-	//     width: 100%;
-	//   }
-	// }
+}
+
+// =============================================================================
+// Rhomboid layout
+// =============================================================================
+
+.rhomboid {
+	overflow: hidden;
+	position: relative;
+	clip-path: polygon(0 0, 100vw 0, 100vw 95vh, 0 100vh);
+	& + & {
+		margin-top: -5vh;
+		clip-path: polygon(0 5vh, 100vw 0, 100vw 95vh, 0 100vh);
+	}
+	&:last-of-type {
+		clip-path: polygon(0 5vh, 100vw 0, 100vw 100vh, 0 100vh);
+	}
+	&__content {
+		padding: 5vh 0;
+	}
 }
 
 // =============================================================================
@@ -148,16 +160,17 @@
 	display: flex;
 	align-items: stretch;
 	justify-content: space-between;
-	flex-direction: column;
+	flex-direction: column; // TODO is this too opinionated?
 	&__content {
-		display: flex;
 		position: relative;
-		padding: 5rem 0;
+		display: flex;
+		padding-top: 5rem;
+		padding-bottom: 5rem;
 		flex: 1;
 		flex-direction: column;
 		justify-content: center;
 		&--top {
-			//margin-top: $rhythm--y
+			// margin-top: $rhythm--y
 		}
 		&--bottom {
 			margin-top: auto; // Todo watch out for side effects
@@ -169,27 +182,35 @@
 	&--space-between {
 		justify-content: space-between;
 	}
-	&--baseline {
-		align-items: baseline;
-	}
-	&--center {
-		align-self: center;
-	}
-	&--start {
-		align-self: flex-start;
-	}
-	&--end {
-		align-self: flex-end;
-	}
-	&__children--center {
-		justify-content: center;
-	}
-	&__children--start {
-		justify-content: flex-start;
-	}
-	&__children--end {
-		display: flex; // Todo necessary?
-		justify-content: flex-end;
+}
+
+// =============================================================================
+// Flex alignment
+// =============================================================================
+
+@each $breakpoint in map-keys($grid__breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		// Flex column reordering
+		.flex--#{$breakpoint}-first     { order: -1; }
+		.flex--#{$breakpoint}-last      { order: 1; }
+		.flex--#{$breakpoint}-unordered { order: 0; }
+
+		// Alignment for every item
+		.flex__items--#{$breakpoint}-top    { align-items: flex-start; }
+		.flex__items--#{$breakpoint}-middle { align-items: center; }
+		.flex__items--#{$breakpoint}-bottom { align-items: flex-end; }
+
+		// Alignment per item
+		.flex--#{$breakpoint}-top    { align-self: flex-start; }
+		.flex--#{$breakpoint}-middle { align-self: center; }
+		.flex--#{$breakpoint}-bottom { align-self: flex-end; }
+
+		// Horizontal alignment of item
+		.flex__items--#{$breakpoint}-left    { justify-content: flex-start; }
+		.flex__items--#{$breakpoint}-center  { justify-content: center; }
+		.flex__items--#{$breakpoint}-right   { justify-content: flex-end; }
+		.flex__items--#{$breakpoint}-around  { justify-content: space-around; }
+		.flex__items--#{$breakpoint}-between { justify-content: space-between; }
 	}
 }
 
