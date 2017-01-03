@@ -1,97 +1,103 @@
 // =============================================================================
-// Bricks main file
+// Bricks.scss
 // =============================================================================
 
-/*!
-* Bricks v0.1 (http://universe.mrozilla.cz/bricks)
-* Copyright 2015-2016 @mrozilla
-* Licensed under MIT
-*/
+// Bricks v1.0 (http://universe.mrozilla.cz/bricks)
+// Copyright 2015-2017 @mrozilla
+// Licensed under MIT
+
+//
+// Table of Contents
+//
+
+// Core styles
+// Base styles
+// Components
+// Utilities
+// Vendor
+
+// =============================================================================
+// Core styles
+// =============================================================================
 
 // Mixins and variables
 @import "mixins/mixins";
-@import "partials/variables";
+@import "partials/core/variables";
 
-// Normalize and print
-@import "partials/normalize";
-@import "partials/print";
+// Core styling
+@import "partials/core/normalize";
+@import "partials/core/reboot";
+@import "partials/core/print";
+@import "partials/core/colors";
 
-// Core styles
-@import "partials/reboot";
-@import "partials/typography";
-@import "partials/grid";
-@import "partials/layout";
+// =============================================================================
+// Base styles
+// =============================================================================
+
+// Type
+@import "partials/base/typography";
+@import "partials/base/blog";
+@import "partials/base/code";
+@import "partials/base/links";
+
+// Layout
+@import "partials/base/grid";
+@import "partials/base/layout";
+@import "partials/base/parallax";
+
+// Animations & transitions
+@import "partials/base/animations";
+@import "partials/base/hover";
+@import "partials/base/reveal";
+
+// Navigation
+@import "partials/base/burger";
+@import "partials/base/footer";
+@import "partials/base/nav";
+@import "partials/base/navbar";
+@import "partials/base/scroll";
+@import "partials/base/sticky";
+@import "partials/base/toggle";
+
+// Images
+@import "partials/base/images";
+
+// =============================================================================
+// Components
+// =============================================================================
+
+// Forms & interaction
+@import "partials/components/alerts";
+@import "partials/components/buttons";
+@import "partials/components/forms";
+@import "partials/components/input";
+@import "partials/components/tooltip";
 
 // Components
-@import "partials/alerts";
-@import "partials/animations";
-@import "partials/blog";
-@import "partials/burger";
-@import "partials/buttons";
-@import "partials/card";
-@import "partials/code";
-@import "partials/components"; // Todo this should be empty in the end
-@import "partials/icons";
-@import "partials/input";
-@import "partials/forms";
-@import "partials/frame";
-@import "partials/hero";
-@import "partials/hover";
-@import "partials/images";
-@import "partials/links";
-@import "partials/nav";
-@import "partials/navbar";
-@import "partials/parallax";
-@import "partials/pills";
-@import "partials/reveal";
-@import "partials/rhomboid";
-@import "partials/scroll";
-@import "partials/statistic";
-@import "partials/sticky";
-@import "partials/tabs";
-@import "partials/table";
-@import "partials/tag";
-@import "partials/toggle";
-@import "partials/tooltip";
-@import "partials/well";
+@import "partials/components/card";
+@import "partials/components/faq";
+@import "partials/components/frame";
+@import "partials/components/hero";
+@import "partials/components/slider";
+@import "partials/components/table";
+@import "partials/components/tabs";
+@import "partials/components/tag";
+@import "partials/components/well";
+
+// =============================================================================
+// Utilities
+// =============================================================================
 
 // Utilities
-@import "partials/utilities";
-@import "partials/wireframe";
+@import "partials/utilities/utilities";
+@import "partials/utilities/wireframe";
 
-// ...
+// Shame
+@import "partials/shame";
 
-// Third-party
-@import "vendor/highlight";
+// =============================================================================
+// Vendor
+// =============================================================================
 
-// TODOs
-
-.gradient {
-	background: linear-gradient(#fafafa, #f0f0f0) // Todo move somewhere else
-}
-
-// Overflow fading text // Todo move to components?
-
-.overflow__wrapper {
-	position: relative;
-}
-
-.overflow__scroller {
-	max-height: 8rem; // Adjust to your preference
-	overflow-y: hidden;
-	overflow-x: hidden;
-	margin-bottom: 0;
-	&:hover {
-		overflow-y: auto;
-	}
-	&::after {
-		background: linear-gradient(transparent 0%, white 75%);
-		bottom:0;
-		content: "";
-		height: 1rem;
-		left:0;
-		pointer-events: none; 
-		position: absolute;
-		width: 100%;
-	}
-}
+// Highlight.js styles
+@import "partials/vendor/highlight";
