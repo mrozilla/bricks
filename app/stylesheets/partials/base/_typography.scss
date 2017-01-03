@@ -100,10 +100,6 @@ p, .p {
 	letter-spacing: .15em;
 }
 
-::selection {
-	background-color: $color__brand--primary;
-}
-
 .typed {
 	&:after {
 		content: "|";
