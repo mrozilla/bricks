@@ -1,0 +1,88 @@
+// =============================================================================
+// Grid
+// =============================================================================
+
+//
+// Table of Contents
+//
+
+// Container
+// Row
+// Grid
+
+// =============================================================================
+// Container
+// =============================================================================
+
+.container {
+	@include make-container();
+	@include make-container-max-widths();
+	&--full {
+		@include make-container();
+		width: 100%;
+	}
+	&--nopadding {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+// =============================================================================
+// Row
+// =============================================================================
+
+.row {
+	@include make-row();
+	&--nopadding {
+		& > [class*='col'] {
+			padding-right:0;
+			padding-left:0;
+		}
+	}
+}
+
+// Alignment for every column in row
+@each $breakpoint in map-keys($grid__breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		.row {
+			&__#{$breakpoint}--top 			{ align-items: flex-start; }
+			&__#{$breakpoint}--center 		{ align-items: center; }
+			&__#{$breakpoint}--bottom 		{ align-items: flex-end; }
+
+			&__#{$breakpoint}--centered		{ justify-content: center; }
+		}
+	}
+}
+
+// =============================================================================
+// Columns
+// =============================================================================
+
+@include make-grid-columns();
+
+// Flex column reordering and alignment
+@each $breakpoint in map-keys($grid__breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		.col {
+			&__#{$breakpoint}--first 		{ order: -1; }
+			&__#{$breakpoint}--last 		{ order: 1; }
+			&__#{$breakpoint}--top 			{ align-self: flex-start; }
+			&__#{$breakpoint}--center 		{ align-self: center; }
+			&__#{$breakpoint}--bottom 		{ align-self: flex-end; }
+		}
+	}
+}
+
+// Auto flex column
+.col {
+	position: relative;
+	min-height: 1px;
+	padding-left:  ($grid__gutter--width / 2);
+	padding-right: ($grid__gutter--width / 2);
+	flex: 100%; // TODO include in mixin above
+	@include media-breakpoint-up(sm) {
+		flex: 1;
+	}
+}
+
+

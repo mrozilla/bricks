@@ -9,9 +9,6 @@
 	margin-right: auto;
 	padding-left: ($gutter / 2);
 	padding-right: ($gutter / 2);
-	@if not $enable--flex {
-		@include clearfix();
-	}
 }
 
 @mixin make-container-max-widths($widths: $grid__container-widths) {
@@ -37,11 +34,7 @@
 }
 
 @mixin make-col-span($size, $columns: $grid__columns) {
-	@if $enable--flex {
-		flex: 0 0 percentage($size / $columns);
-	} @else {
-		width: percentage($size / $columns);
-	}
+	flex: 0 0 percentage($size / $columns);
 }
 
 @mixin make-col-offset($size, $columns: $grid__columns) {
@@ -66,3 +59,5 @@
 		@include make-col-offset($size, $columns);
 	}
 }
+
+
