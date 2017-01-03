@@ -12,7 +12,7 @@
 		white-space: nowrap;
 		font-weight: $font__weight--bold;
 		color: $navbar__color;
-		transition: $transition--primary-short;
+		@include transition (color, $transition--primary-short);
 		@include hover-focus {
 			color: $navbar__color--hover;
 		}
@@ -33,7 +33,7 @@
 				content: "";
 				border-bottom: 2px solid transparent;
 				pointer-events: none;
-				transition: $transition--primary-short;     
+				@include transition ($transition--primary-short, border-bottom);
 			}
 			&.is--active:after {
 				border-bottom: 1px solid lighten($color__brand--primary, 5%); // TODO
@@ -54,6 +54,9 @@
 		}
 		.tabs__control > & + & {
 			margin-left: $rhythm--x;
+		}
+		.is--open & {
+			position: static;
 		}
 	}
 }
