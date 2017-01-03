@@ -25,7 +25,7 @@
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Code</a>
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Components</a>
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="/docs/input/">Input</a>
-		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Forms</a>
+		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="/docs/forms/">Forms</a>
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Frame</a>
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Hero</a>
 		<a class="nav__link nav__link--slide nav__link--uppercase animate animate__fade--left" href="#">Hover</a>
