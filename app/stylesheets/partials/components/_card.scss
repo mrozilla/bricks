@@ -3,10 +3,13 @@
 // =============================================================================
 
 .card {
+	position: relative;
 	overflow: hidden;
 	background-color: white;
 	border-radius: $border__radius--large;
-	.style--shadows & {
+	.style--shadows &:after {
+		content: "";
+		@include absolute-stretch;
 		@include box-shadow();
 	}
 	.style--borders & {
@@ -54,19 +57,39 @@
 			}
 		}
 	}
+	&__overlay {
+		@include absolute;
+		background-color: rgba(255,255,255,.95);
+		&--bottom {
+			bottom: 0;
+			border-bottom-left-radius: $border__radius--large; // TODO find a better way
+			border-bottom-right-radius: $border__radius--large; // TODO find a better way
+		}
+	}
 	&--padded {
 		padding: $rhythm--y/2 $rhythm--x/2;
 	}
 	&--jumping {
-		transition: $transition--primary-short;
+		@include transition($transition--primary-short, transform);
 		&:hover {
 			.style--shadows & {
-				@include box-shadow(0,0,$box-shadow__blur*1.25);
+				@include box-shadow(0,0,$box-shadow__blur*1.25); // TODO
 			}
 			.style--borders & {
 				@include border();
 			}
 			transform: translateY(-.125rem);
+		}
+	}
+	&--rotated {
+		transform: rotate(-1deg);
+		-webkit-backface-visibility: hidden;
+		@include transition($transition--primary-short, transform);
+		[class^='col']:nth-of-type(2n) & { // TODO review
+			transform: rotate(1deg);
+		}
+		@include hover-focus-active() {
+			transform: rotate(0) !important; // TODO improve cascade
 		}
 	}
 }
