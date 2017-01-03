@@ -4,32 +4,17 @@
 
 img {
 	&[src=''], &:not([src]) {
-		opacity:0; // Remove border on images with no src attribute set
+		opacity: 0; // Remove border on images with no src attribute set
 	}
 }
 
 .image {
 	position: relative;
 	display: block;
-	transition: $transition--primary-short;
 	background-size: cover;
-	
-	// Image ratios
+	@include transition ($transition--primary-short, transform);
 
-	&.image--1to1 {
-		padding-bottom: 100%;
-	}
-	&.image--2to1 {
-		padding-bottom: 200%;
-	}
-	&.image--1to2 {
-		padding-bottom: 50%;
-	}
-	&.image--1to4 {
-		padding-bottom: 25%;
-	}
-
-	// Various sources
+	background-color: $color__gray--lightest; // TODO remove
 
 	&__src {
 		position: absolute;
@@ -41,15 +26,14 @@ img {
 		}
 	}
 
-	// Image modifiers
-
 	&--avatar {
-		display: inline;
+		display: inline-block;
 		width: 2rem;
 		height: 2rem;
 		margin-right: .5rem; // Todo make sure it doesn't break stuff
+		background-size: cover;
 		&-rounded {
-			border-radius: 50%;
+			border-radius: 999px;
 		}
 	}
 	&--expanded {
@@ -77,14 +61,31 @@ img {
 		@include absolute-stretch;
 	}
 	&--background {
+		// margin-bottom: $rhythm--y;
+		@include absolute-stretch;
 		pointer-events: none;
 		background-size: cover;
 		background-position: center;
-		@include absolute-stretch;
-		& ~ * {
-			color: white;
-		}
+
+		background-color: $color__gray--lighter; // TODO remove
+
+		// @include media-breakpoint-up(lg) {
+		// 	@include absolute-stretch;
+		// 	.fullscreen:nth-of-type(2n + 1):not(:first-of-type) & {
+		// 		right: 0;
+		// 		left: auto;
+		// 	}
+		// }
+		// & ~ * {
+		// 	color: white;
+		// }
 	}
 }
+
+// =============================================================================
+// Image background sizes
+// =============================================================================
+
+@include make-image-background-sizes();
 
 
