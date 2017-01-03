@@ -4,10 +4,8 @@
 
 .tag {
 	background-color: $color__gray--lightest;
-	border: 1px solid $color__gray--lighter;
     border-radius: $border__radius--large;
-    font-weight: bold;
-    padding: 0 .25rem .1rem;
+    padding: 0 .5rem;
     &--primary {
     	background-color: $color__brand--primary;
     	color:white;
@@ -27,6 +25,9 @@
     &--danger {
     	background-color: $color__brand--danger;
     	color:white;
+    }
+    &--bordered {
+        border: 1px solid $color__gray--lighter;
     }
     & + & {
         margin-left: .1rem;
