@@ -1,0 +1,198 @@
+// ==================================================================================
+// Variables
+// ==================================================================================
+
+// Table of Contents
+
+// Color palette
+// Rhythm
+// Typography
+// Grid
+// Transitions
+// Box shadows and radii
+
+// ==================================================================================
+// Colour palette
+// ==================================================================================
+
+$color__brand--primary:				#ea2e42									!default;
+// $color__brand--secondary:			hsb(50, 50, 100)						!default;
+$color__brand--complement:			complement($color__brand--primary)		!default;
+
+$color__brand--success:				#5cb85c									!default;
+$color__brand--info:				#5bc0de									!default;
+$color__brand--warning:				#f0ad4e									!default;
+$color__brand--danger:				#d9534f									!default;
+$color__brand--gradient:			linear-gradient(
+										45deg, 
+										$color__brand--primary, 
+										$color__brand--complement
+									)										!default;
+
+$color__gray:						desaturate($color__brand--primary, 95%) !default; // ~#55595c
+$color__gray--light:				lighten($color__gray, 20%)				!default; // ~#818a91
+$color__gray--lighter:				lighten($color__gray, 42%)				!default; // ~#eceeef
+$color__gray--lightest:				lighten($color__gray, 47%)				!default; // ~#f7f7f9
+$color__gray--dark:					darken($color__gray, 25%)				!default; // ~#373a3c
+$color__gray--darker:				darken($color__gray, 42%)				!default; // TODO add target colour
+$color__gray--darkest:				darken($color__gray, 47%)				!default; // TODO add target colour
+
+$color__background:					$color__gray--lightest					!default;
+$color__background--inverse:		$color__brand--primary					!default;
+
+$color__link:						$color__brand--primary					!default;
+$color__link--hover:				darken($color__link, 10%)				!default;
+$color__link--visited:				darken($color__link, 25%)				!default;
+
+// ==================================================================================
+// Rhythm
+// ==================================================================================
+
+$rhythm--core:						1.00rem									!default;
+$rhythm--x:							$rhythm--core							!default;
+$rhythm--y:							$rhythm--core							!default;
+
+// ==================================================================================
+// Typography
+// ==================================================================================
+
+$font__size--root:					125%									!default;
+// $font__size--root:					calc(125% + .25vw)						!default; // TODO enable in the end
+
+$font__size--base:					 .85rem									!default;
+$font__size--lg:					1.25rem									!default;
+$font__size--md:					1.00rem									!default;
+$font__size--sm:					 .75rem									!default;
+$font__size--xs:					 .5rem									!default;
+
+$font__size--boom:					8.00rem									!default;
+$font__size--h1:					3.00rem									!default;
+$font__size--h2:					2.50rem									!default;
+$font__size--h3:					2.00rem									!default;
+$font__size--h4:					1.25rem									!default;
+$font__size--h5:					1.00rem									!default;
+$font__size--h6:					 .75rem									!default;
+
+$font__line-height:					1.00rem									!default;
+
+$font__weight--light:				300										!default;
+$font__weight--regular:				400										!default;
+$font__weight--bold:				700										!default;
+$font__weight--black:				900										!default;
+
+$font__color--body:					$color__gray--dark						!default;
+$font__color--body-inverse:			rgba(255,255,255,.95)					!default;
+
+
+$font__family--headings: 			"DIN Pro"; 										  // Update with a font of your choice
+$font__family--headings-weights: 	$font__weight--light, $font__weight--bold;		  // Update with weights of your choice
+$font__family--body: 				"DIN Pro";										  // Update with a font of your choice
+$font__family--blog: 				"PT Serif";										  // Update with a font of your choice
+$font__family--monospace: 			Menlo, Monaco, Consolas, "Courier New", monospace;
+$font__fallback: 					Helvetica Neue, Helvetica, Arial, sans-serif;
+
+@include font-face($font__family--headings, "/fonts/#{$font__family--headings}", $font__family--headings-weights);
+// @include font-face($font__family--body, "../fonts/#{$font__family--body}"); // TODO enable in the end
+// @include font-face($font__family--blog, "../fonts/#{$font__family--blog}"); // TODO enable in the end
+
+// ==================================================================================
+// Buttons
+// ==================================================================================
+
+$button__padding--x:				$rhythm--x * 2							!default;
+$button__padding--y:				$rhythm--x / 2							!default;
+
+// ==================================================================================
+// Grid
+// ==================================================================================
+
+$grid__breakpoints: (
+	xs:								0,		// Extra small screen / phone
+	sm:								544px,	// Small screen / phone
+	md:								768px,	// Medium screen / tablet
+	lg:								992px,	// Large screen / desktop
+	xl:								1200px	// Extra large screen / wide desktop
+)																			!default;
+
+$grid__container-widths: (
+	xs:								100%,
+	sm:								576px,
+	md:								720px,
+	lg:								940px,
+	xl:								1140px
+)																			!default;
+
+$grid__columns:						12										!default;
+$grid__gutter--width:				1rem									!default;
+
+$ratios: 							4										!default;
+
+// ==================================================================================
+// Navbar
+// ==================================================================================
+
+// $navbar__padding--y:				$rhythm--y / 2 							!default;
+// $navbar__padding--x:				$rhythm--x / 2 							!default;
+
+$navbar__bg:						rgba(255,255,255,.95)					!default;
+$navbar__color:						$color__gray							!default;
+$navbar__color--hover:				$color__gray--dark						!default;
+
+$navbar__bg--dark:					rgba(0,0,0,.95)							!default; // TODO figure out
+$navbar__color--dark:				$color__gray--dark						!default;
+$navbar__color--hover-dark:			$color__gray--light						!default;
+
+// ==================================================================================
+// Sidebar
+// ==================================================================================
+
+$sidebar__width:					250px									!default;
+
+// ==================================================================================
+// Z-index
+// ==================================================================================
+
+$zindex--navbar:					1000									!default;
+$zindex--dropdown:					1000									!default;
+$zindex--sidebar-fixed:				1020									!default;
+$zindex--navbar-sticky:				1020									!default;
+$zindex__navbar-fixed:				1030									!default;
+$zindex--modal-bg:					1040									!default;
+$zindex--modal:						1050									!default;
+$zindex--popover:					1060									!default;
+$zindex--tooltip:					1070									!default;
+
+
+// ==================================================================================
+// Transitions and animations
+// ==================================================================================
+
+$ease--primary:						cubic-bezier(.6, .2, .1, 1)				!default;
+$ease--secondary:					cubic-bezier(.25, .1, .25, 1)			!default;
+
+$ani__dur--short:					250ms									!default;
+$ani__dur--medium:					1s										!default;
+$ani__dur--long:					10s										!default;
+
+$ani__delay--short:					50ms				 					!default;
+$ani__delay--medium:				250ms				 					!default;
+$ani__delay--long:					500ms				 					!default;
+
+$transition--primary-short:			$ani__dur--short $ease--primary			!default;
+$transition--primary-medium:		$ani__dur--medium $ease--primary		!default;
+$transition--primary-long:			$ani__dur--long $ease--primary			!default;
+
+$transition--secondary-short:		$ani__dur--short $ease--secondary		!default;
+$transition--secondary-medium:		$ani__dur--medium $ease--secondary		!default;
+$transition--secondary-long:		$ani__dur--long	 $ease--secondary		!default;
+
+// ==================================================================================
+// Box shadows and borders
+// ==================================================================================
+
+$box-shadow__blur:					2rem 									!default; // try out box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+$border__width:						1px										!default;
+$border__radius:					.25rem									!default;
+$border__radius--large:				.5rem									!default;
+
+
