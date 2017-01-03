@@ -82,12 +82,12 @@ const sassOptions = {
 
 // Plumber options
 const onError = function(err) { // TODO ES6-ise
-    notify.onError({
-        title: "BUILD FAILED",
-        message: err.toString()
-    })(err);
-    beep();
-    this.emit('end');
+	notify.onError({
+		title: "BUILD FAILED",
+		message: err.toString()
+	})(err);
+	beep();
+	this.emit('end');
 };
 
 // Deploy options
@@ -223,17 +223,17 @@ gulp.task('php', () => {
 
 // Compile minified css
 gulp.task('css', () => {
-    return gulp
-    	.src(inputSass)
-    	.pipe(plumber({errorHandler: onError}))
-        .pipe(sass())
-        .pipe(autoprefixer())
-        .pipe(uncss({
-        	html: [outputHTML], // TODO ignore php, currently throws an Parse error php in the .html files
-        	ignore: ['.*\.is--.*']
-        }))
-        .pipe(nano())
-        .pipe(gulp.dest(output));
+	return gulp
+		.src(inputSass)
+		.pipe(plumber({errorHandler: onError}))
+		.pipe(sass())
+		.pipe(autoprefixer())
+		.pipe(uncss({
+			html: [outputHTML], // TODO ignore php, currently throws an Parse error php in the .html files
+			ignore: [new RegExp('.*\.is--.*')]
+		}))
+		.pipe(nano())
+		.pipe(gulp.dest(output));
 });
 
 gulp.task('selectors', () => {
@@ -241,8 +241,8 @@ gulp.task('selectors', () => {
 		.src([outputHTML, outputCSS])
 		.pipe(selectors.run())
 		.pipe(gulp.dest((file) => {
-    		return file.base;
-    	}));
+			return file.base;
+		}));
 });
 
 // Compile minified js
@@ -310,9 +310,9 @@ gulp.task('build', (callback) => {
 // Create an ftp connection and upload the files that are newer than those on the server
 // Usage: `USER=someuser PWD=somepwd gulp deploy`
 gulp.task('deploy', () => {
-    return gulp.src(outputDeploy, {base: output, buffer: false})
-        .pipe(conn.newer('/www')) // only upload newer files
-        .pipe(conn.dest('/www'))
+	return gulp.src(outputDeploy, {base: output, buffer: false})
+		.pipe(conn.newer('/www')) // only upload newer files
+		.pipe(conn.dest('/www'))
 });
 
 
