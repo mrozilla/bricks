@@ -12,7 +12,7 @@
 		margin:0;
 		opacity: 0;
 		z-index: 1;
-		@include stretch();
+		@include absolute-height();
 		&:not(:checked) ~ span {
 		transform: rotate(-45deg);
 		}
@@ -32,8 +32,8 @@
 		background-color: $navbar__color;
 		display: block;
 		height: 2px;
-		transition: $transition--secondary-short;
 		width: 100%;
+		@include transition($transition--secondary-short, transform);
 	}
 	& span::before, & span::after {
 		position: absolute;
