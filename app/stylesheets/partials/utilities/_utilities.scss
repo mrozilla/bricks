@@ -1,0 +1,67 @@
+// =============================================================================
+// Utility classes
+// =============================================================================
+
+// =============================================================================
+// Hidden elements
+// =============================================================================
+
+.sr-only {
+	@include sr-only();
+	&-focusable {
+		@include sr-only-focusable();	
+	}
+}
+
+.invisible 				{ visibility: hidden !important; }
+.text-hide 				{ @include text-hide(); }
+
+// Hidden components
+@include make-hidden();
+
+
+// =============================================================================
+// Text utilities
+// =============================================================================
+
+.text {
+	&--justify			{ text-align: justify !important; }
+	&--nowrap			{ white-space: nowrap !important; }
+	&--truncate			{ @include text-truncate; }
+	&--lowercase		{ text-transform: lowercase !important; }
+	&--uppercase		{ text-transform: uppercase !important; }
+	&--capitalize		{ text-transform: capitalize !important; }
+}
+
+// Responsive alignment
+@include align-text();
+
+// Weight and italics
+.font {
+	&__weight--normal	{ font-weight: normal; }
+	&__weight--bold		{ font-weight: bold; }
+	&--italic 			{ font-style: italic; }
+}
+
+// =============================================================================
+// Rhythm
+// =============================================================================
+
+.rhythm {
+	margin-bottom: 		$rhythm--y;
+	&--children > * 	{ margin-bottom: $rhythm--y; }
+	&--half 			{ margin-bottom: $rhythm--y/2; }
+	&--double 			{ margin-bottom: $rhythm--y*2; }
+	&--both {
+						margin-top: $rhythm--y/2;
+						margin-bottom: $rhythm--y/2;
+	}
+}
+
+// =============================================================================
+// Aspect ratios
+// =============================================================================
+
+@include make-ratios();
+
+
