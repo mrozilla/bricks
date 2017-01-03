@@ -1,0 +1,52 @@
+// =============================================================================
+// Links styling
+// =============================================================================
+
+.link {
+	// color: $color__link;
+	position: relative;
+	&:before {
+		border-bottom: 0.5em solid;
+		border-color: $color__brand--primary;
+		content: "";
+		opacity: 0.25;
+		z-index: -1;
+		@include transition ($transition--primary-short, opacity);
+		@include absolute-stretch;
+	}
+	@include hover-focus-active() {
+		text-decoration: none;
+		// color: $color__link--hover;
+		&:before {
+			opacity: 0.75;
+		}
+	}
+	// &:visited {
+	// 	// color: $color__link--visited;
+	// }
+	// .highlight & {
+	// }
+	// &:after {
+	// 	display: inline-block;
+	// 	font-family: $font__family--monospace;
+	// 	margin-left: .25rem;
+	// }
+	// &[href*="//"]:after { // External link
+	// 	content: "\21F2";
+	// 	transform: rotate(-90deg);
+	// }
+	// &[target=_blank]:after { // Link opening in a new window
+	// 	content: "\274F";
+	// }
+	// &[href^="mailto"]:after { // Link to an email
+	// 	content: "\2709";
+	// }
+	// &[href^="tel"]:after { // Link to a phone number
+	// 	content: "\002706";
+	// }
+	// &[href$="pdf"]:after, &[href$="ai"]:after, &[href$="psd"]:after { // Link to a file
+	// 	content: "file"; // TODO find an ascii icon
+	// }
+}
+
+
