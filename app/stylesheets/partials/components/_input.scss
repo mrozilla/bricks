@@ -6,7 +6,9 @@
 	display: inline-block;
 	& input {
 		opacity: 0;
-		@include stretch();
+		@include absolute-height();
+		left: 0;
+		z-index: 1;
 	}
 	& + & {
 		margin-top: 0.5rem;
@@ -129,18 +131,12 @@
 		background: radial-gradient($color__gray--lighter 20%, $color__gray--light 25%);
 	}
 
-	&__error {
-		display:none;
-		font-size: $font__size--xs;
-		color: $color__brand--danger;
-		@include label();
-	}
-
 	&__text {
 		display: block;
 		width: 100%;
-		padding: .5rem;
+		padding: calc(.5rem - 1px);
 		position: relative;
+		background-color: #fff;
 		@include border ();
 		@include border-radius ();
 		.form--aligned & {
@@ -158,6 +154,25 @@
 			color: transparentize($color__gray--dark, .5);
 		}
 	}
+
+	&__error {
+		display:none;
+		font-size: $font__size--xs;
+		color: $color__brand--danger;
+		@include label();
+	}
+	&.is--error {
+		& ~ .status__error {
+			display: block;
+		}
+	}
+}
+
+.status__error {
+	display:none;
+	font-size: $font__size--xs;
+	color: $color__brand--danger;
+	@include label();
 }
 
 
