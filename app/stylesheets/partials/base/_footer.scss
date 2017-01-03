@@ -1,0 +1,26 @@
+// =============================================================================
+// Footer component
+// =============================================================================
+
+.footer {
+	position: relative;
+	background-color: white;
+	padding-top: $rhythm--y;
+	&__bottom {
+		margin-top: $rhythm--y;
+		padding: $rhythm--y 0;
+		position: relative;
+		.style--borders & {
+			@include border("top", "true");
+		}
+		.style--shadows & {
+			background-color: $color__gray--lightest;
+		}
+	}
+	.style--shadows & {
+		@include box-shadow();
+	}
+	.style--borders & {
+		@include border("top", "true");
+	}
+}
